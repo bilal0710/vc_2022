@@ -33,7 +33,7 @@
 */.vs
 
 /source/code/intern/compiler/.vs
-/.vs
+.vs
 /docs
 /pdf
 */build

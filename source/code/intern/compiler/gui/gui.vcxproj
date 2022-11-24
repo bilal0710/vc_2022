@@ -73,7 +73,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)..\build\win64\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)..\build\win64\$(ProjectName)\$(Configuration)\</IntDir>
-    <TargetName>$(ProjectName)_debug</TargetName>
+    <TargetName> $(ProjectName)_debug</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)..\build\win64\$(ProjectName)\$(Configuration)\</OutDir>
@@ -120,7 +120,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <OutputFile> $(SolutionDir)..\build\win64\$(ProjectName)\$(Configuration)\$(TargetFileName)</OutputFile>
+      <OutputFile>$(SolutionDir)..\build\win64\$(ProjectName)\$(Configuration)\$(TargetFileName)</OutputFile>
     </Lib>
     <PostBuildEvent>
       <Command>copy ..\..\build\win64\$(ProjectName)\$(Configuration)\*.lib ..\..\build\win64</Command>
@@ -143,7 +143,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <OutputFile> $(SolutionDir)..\build\win64\$(ProjectName)\$(Configuration)\$(TargetFileName)</OutputFile>
+      <OutputFile>$(SolutionDir)..\build\win64\$(ProjectName)\$(Configuration)\$(TargetFileName)</OutputFile>
     </Lib>
     <PostBuildEvent>
       <Command>copy ..\..\build\win64\$(ProjectName)\$(Configuration)\*.lib ..\..\build\win64</Command>

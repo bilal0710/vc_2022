@@ -33,9 +33,9 @@
 */.vs
 
 /source/code/intern/compiler/.vs
-*.vs
 /docs
 /pdf
+.vs/
 */build
 */Debug
 *.vsidx

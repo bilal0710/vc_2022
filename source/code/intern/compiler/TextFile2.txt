@@ -1,0 +1,18 @@
+* entity system in Data projekt erstellen
+* MetaEntity System in data Projekt erstellen -> es ist ein singelton
+
+
+startup phase im Game opject ->  öffne die Datei 
+
+
+game_startup.cpp
+#include "game_startup.h"
+
+namespace Game
+{
+	int CStartupPhase::CInternOnRun(){
+		XMLDocuments = TinyXML::open("meta_entity.xml");
+
+		Data::CStartupPhase::OnRun();
+	}
+}

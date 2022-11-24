@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<entities>
+
+  <entity name="platform_willy" meta-entity="platform_jump_and_run">
+
+    <data>
+      <position value="3.4, 8.7" />
+    </data>
+
+    <logic>
+      
+    </logic>
+
+    <graphics>
+      
+    </graphics>
+    
+  </entity>
+</entities>

@@ -11,8 +11,9 @@ game_startup.cpp
 namespace Game
 {
 	int CStartupPhase::CInternOnRun(){
-		XMLDocuments = TinyXML::open("meta_entity.xml");
+		XMLDocument& rXMlDocument= TinyXML::open("meta_entity.xml");
 
-		Data::CStartupPhase::OnRun();
+		Data::CStartupPhase::OnRun(rXMlDocument);
+
 	}
 }

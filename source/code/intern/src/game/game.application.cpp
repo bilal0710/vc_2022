@@ -4,6 +4,11 @@
 #include "game.phase.h"
 #include "game.application.h"
 #include "game.startupPhase.h"
+#include "game.mainMenuPhase.h"
+#include "game.loadPhase.h"
+#include "game.playPhase.h"
+#include "game.unloadPhase.h"
+#include "game.shutdownPhase.h"
 
 namespace Game
 {
@@ -11,11 +16,11 @@ namespace Game
 		: m_IndexOfCurrentPhase(Phase::Undefined),
 		m_pPhases{
 		&StartupPhase::GetInstance(),
-		/* &MainMenuPhase::GetInstance(),
+		 &MainMenuPhase::GetInstance(),
 		 &LoadPhase::GetInstance(),
 		 &PlayPhase::GetInstance(),
 		 &UnloadPhase::GetInstance(),
-		 &ShutdownPhase::GetInstance()*/
+		 &ShutdownPhase::GetInstance()
 		}
 	{
 
@@ -23,6 +28,7 @@ namespace Game
 
 	void Application::Initialize() {
 		std::cout << "Application -> Initialize" << std::endl;
+		std::cout << "------------------------" << std::endl;
 
 		m_IndexOfCurrentPhase = Phase::STARTUP;
 		m_pPhases[m_IndexOfCurrentPhase]->OnEnter();
@@ -32,10 +38,16 @@ namespace Game
 	void Application::Run()
 	{
 		std::cout << "Application -> Run" << std::endl;
+		std::cout << "------------------------" << std::endl;
 
-		if (RunPhase() == false)
+
+		for (;;)
 		{
-			return;
+			if (RunPhase() == false)
+			{
+				std::cout << "Application -> Run -> if" << std::endl;
+				return;
+			}
 		}
 	}
 
@@ -46,6 +58,8 @@ namespace Game
 
 	bool Application::RunPhase()
 	{
+		std::cout << "------------------------" << std::endl;
+
 		Phase* pCurrentPhase = m_pPhases[m_IndexOfCurrentPhase];
 		assert(pCurrentPhase != nullptr);
 

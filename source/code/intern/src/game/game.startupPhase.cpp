@@ -6,20 +6,23 @@ namespace Game
 {
 	int StartupPhase::InternOnEnter()
 	{
-		std::cout << "STARTUP::InternOnEnter" << std::endl;
+		std::cout << "StartupPhase::InternOnEnter" << std::endl;
+		std::cout << "------------------------" << std::endl;
 		return 0;
 	}
 
 	int StartupPhase::InternOnRun()
 	{
-		std::cout << "STARTUP::InternOnRun counter= " << counter << std::endl;
+		std::cout << "StartupPhase::InternOnRun counter= " << counter << std::endl;
+		std::cout << "------------------------" << std::endl;
 
 		counter++;
-		drowShapes();
+		
 
-		if (counter > 20)
+		if (counter > 4)
 		{
 			counter = 0;
+			drowShapes();
 			return Type::MAIN_MENU;
 		}
 
@@ -28,7 +31,8 @@ namespace Game
 
 	int StartupPhase::InternOnLeave()
 	{
-		std::cout << "STARTUP::InternOnLeave" << std::endl;
+		std::cout << "StartupPhase::InternOnLeave" << std::endl;
+		std::cout << "------------------------" << std::endl;
 		return 0;
 	}
 

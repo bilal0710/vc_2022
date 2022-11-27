@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <meta_entities>
   <!--man can einen beliebigen Name heir geben-->
-<meta_entity name="platform_jump_and_run">
-  
-  <data>
-    <size value="4.5"/>
-  </data>
-  
-  <logic>
-    <can_run/>
-  </logic>
+  <meta_entity name="platform_jump_and_run">
 
-  <graphics>
-    <texture value="../data/wall.png" />
-  </graphics>
-  
-</meta_entity>
+    <data>
+      <size value="4.5"/>
+    </data>
+
+    <logic>
+      <can_run/>
+    </logic>
+
+    <graphics>
+      <texture value="../data/wall.png" />
+    </graphics>
+
+  </meta_entity>
 </meta_entities>

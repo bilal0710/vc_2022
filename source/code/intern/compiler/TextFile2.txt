@@ -2,7 +2,7 @@
 * MetaEntity System in data Projekt erstellen -> es ist ein singelton
 
 
-startup phase im Game opject ->  öffne die Datei 
+startup phase im Game object ->  öffne die Datei 
 
 
 game_startup.cpp

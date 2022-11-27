@@ -17,3 +17,7 @@ namespace Game
 
 	}
 }
+
+* Entity System class erstellen
+* tinyXml Library anbinden
+* versuchen ein XML Datai auf zu machen

@@ -37,6 +37,8 @@ namespace Game
 	}
 
 	void StartupPhase::drowShapes() {
+		int counter = 0;
+
 		// create the window
 		sf::RenderWindow window(sf::VideoMode(1200, 900), "Bilal Alnaani Application");
 		sf::CircleShape shape(200.f);
@@ -55,7 +57,7 @@ namespace Game
 		octagon.setPosition(100.f, 100.f);
 
 		// run the program as long as the window is open
-		while (window.isOpen())
+		while (counter < 2000)
 		{
 			// check all the window's events that were triggered since the last iteration of the loop
 			sf::Event event;
@@ -76,6 +78,8 @@ namespace Game
 
 			// end the current frame
 			window.display();
+
+			counter++;
 		}
 	}
 }

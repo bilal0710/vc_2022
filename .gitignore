@@ -30,12 +30,15 @@
 *.exe
 *.out
 *.app
-*/.vs
+*/build
+**/Debug
+**/.vs
 
+*/Debug/
+*/.vs/
 
 /docs
 /pdf
-*/build
 */Debug
 *.vsidx
 *.suo

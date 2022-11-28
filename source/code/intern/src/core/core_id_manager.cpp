@@ -61,6 +61,11 @@ namespace Core
         return m_NamesByID.size();
     }
 
+    CIDManager::BID CIDManager::GetIDByName(std::string& _rString)
+    {
+        return m_IDsByName.at(_rString);
+    }
+
     // -----------------------------------------------------------------------------
 
     void CIDManager::Clear()

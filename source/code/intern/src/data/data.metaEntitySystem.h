@@ -3,6 +3,7 @@
 #include "../core/core_id_manager.h"
 #include "../core/core_item_manager.h"
 
+using namespace Core;
 namespace Data
 {
 	class MetaEntitySystem
@@ -23,11 +24,15 @@ namespace Data
 
 	public:
 		void Initialize();
-		MetaEntity& createMetaEntity(const string _pName);
+		MetaEntity& CreateMetaEntity(const string _pName);
+		MetaEntity& GetMetaEntity(CIDManager::BID _ID);
+		void DestroyAllMetaEntities();
+		bool ContainsMEtaEntity(string& _pName);
 
 	private:
 		Core::CIDManager m_idManger;
 		Core::CItemManager <MetaEntity> m_itemManager;
+	
 	};
 
 }

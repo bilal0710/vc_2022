@@ -20,7 +20,7 @@ namespace Core
             using XConstPtr = const T*;
             using XRef      = T&;
             using XConstRef = const T&;
-            using BID       = unsigned int;
+            using BID       = size_t;
 
         public:
 

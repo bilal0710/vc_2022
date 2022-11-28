@@ -1,4 +1,7 @@
 #pragma once
+#include "data.metaEntity.h"
+#include "../core/core_id_manager.h"
+#include "../core/core_item_manager.h"
 
 namespace Data
 {
@@ -19,7 +22,12 @@ namespace Data
 		{};
 
 	public:
-		void test();
+		void Initialize();
+		MetaEntity& createMetaEntity(const string _pName);
+
+	private:
+		Core::CIDManager m_idManger;
+		Core::CItemManager <MetaEntity> m_itemManager;
 	};
 
 }

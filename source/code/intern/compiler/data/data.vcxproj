@@ -150,17 +150,24 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\data\data.metaEntity.cpp" />
     <ClCompile Include="..\..\src\data\data.metaEntitySystem.cpp" />
     <ClCompile Include="..\..\src\data\data.startupPhase.cpp" />
     <ClCompile Include="..\..\src\data\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\data\data.metaEntity.h" />
     <ClInclude Include="..\..\src\data\data.metaEntitySystem.h" />
     <ClInclude Include="..\..\src\data\data.startupPhase.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\..\src\data\meta_entity.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\core\core.vcxproj">
+      <Project>{3647017a-87b3-4f86-a6f3-b6a0595ddfab}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

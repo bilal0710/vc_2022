@@ -19,11 +19,8 @@ namespace Game
 		std::cout << "StartupPhase::InternOnRun counter= " << counter << std::endl;
 		std::cout << "------------------------" << std::endl;
 
-		Data::StartupPhase& startupphase = Data::StartupPhase::GetInstance();
-		startupphase.OnEnter();
-
-
-
+		Data::StartupPhase::GetInstance().OnEnter();
+		
 		counter++;
 		
 

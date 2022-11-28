@@ -7,9 +7,8 @@ namespace Data
 	 void StartupPhase::OnEnter()
 	{
 		 std::cout << "Data::StartupPhase::OnEnter" << std::endl;
-		 MetaEntitySystem& entitySystem = MetaEntitySystem::GetInstance();
-		 entitySystem.test();
-
+		 MetaEntitySystem::GetInstance().Initialize();
+		 
 	}
 
 	void StartupPhase::OnRun()

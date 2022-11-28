@@ -1,7 +1,6 @@
 #include "game.playPhase.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "data/data.startupPhase.h"
 
 namespace Game
 {
@@ -9,9 +8,6 @@ namespace Game
 	{
 		std::cout << "PlayPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
-		Data::StartupPhase& startupphase = Data::StartupPhase::GetInstance();
-		startupphase.OnEnter();
-
 		return 0;
 	}
 

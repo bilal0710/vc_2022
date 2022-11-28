@@ -1,6 +1,9 @@
 #include "game.startupPhase.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "../data/data.startupPhase.h"
+#include "../graphics/gfx.startupPhase.h"
+
 
 namespace Game
 {
@@ -15,6 +18,11 @@ namespace Game
 	{
 		std::cout << "StartupPhase::InternOnRun counter= " << counter << std::endl;
 		std::cout << "------------------------" << std::endl;
+
+		Data::StartupPhase& startupphase = Data::StartupPhase::GetInstance();
+		startupphase.OnEnter();
+
+
 
 		counter++;
 		
@@ -37,7 +45,7 @@ namespace Game
 	}
 
 	void StartupPhase::drowShapes() {
-		int counter = 0;
+		int timer = 0;
 
 		// create the window
 		sf::RenderWindow window(sf::VideoMode(1200, 900), "Bilal Alnaani Application");
@@ -57,7 +65,7 @@ namespace Game
 		octagon.setPosition(100.f, 100.f);
 
 		// run the program as long as the window is open
-		while (counter < 2000)
+		while (timer < 2000)
 		{
 			// check all the window's events that were triggered since the last iteration of the loop
 			sf::Event event;
@@ -79,7 +87,7 @@ namespace Game
 			// end the current frame
 			window.display();
 
-			counter++;
+			timer++;
 		}
 	}
 }

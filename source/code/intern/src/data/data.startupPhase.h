@@ -2,25 +2,27 @@
 
 namespace Data
 {
-    class StartupPhase
-    {
-    public:
-        static StartupPhase& GetInstance()
-        {
-            static StartupPhase instance;
-            return instance;
-        };
+	class StartupPhase
+	{
+	public:
+		static StartupPhase& GetInstance()
+		{
+			static StartupPhase instance;
+			return instance;
+		};
 
-        StartupPhase(const StartupPhase&) = delete;
-        StartupPhase& operator = (const StartupPhase&) = delete;
+		StartupPhase(const StartupPhase&) = delete;
+		StartupPhase& operator = (const StartupPhase&) = delete;
 
-    public:
-        void OnEnter();
-        void OnRun();
-        void OnLeave();
+	private:
+		StartupPhase()
+		{};
 
-    private:
-        StartupPhase()
-        {};
-    };
+
+	public:
+		void OnEnter();
+		void OnRun();
+		void OnLeave();
+
+	};
 }

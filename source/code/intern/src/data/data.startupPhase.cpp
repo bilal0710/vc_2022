@@ -1,11 +1,13 @@
 #include "data.startupPhase.h"
-#include "data.entitySystem.h"
+#include "data.metaEntitySystem.h"
+#include <iostream>
 
 namespace Data
 {
 	 void StartupPhase::OnEnter()
 	{
-		 EntitySystem& entitySystem = EntitySystem::GetInstance();
+		 std::cout << "Data::StartupPhase::OnEnter" << std::endl;
+		 MetaEntitySystem& entitySystem = MetaEntitySystem::GetInstance();
 		 entitySystem.test();
 
 	}

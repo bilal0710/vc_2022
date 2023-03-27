@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\src\data\main.cpp" />
     <ClCompile Include="..\..\src\data\data.metaEntitySystem.cpp" />
     <ClCompile Include="..\..\src\data\data.startupPhase.cpp" />
     <ClCompile Include="..\..\src\data\data.metaEntity.cpp" />
+    <ClCompile Include="..\..\src\data\data.shutdownPhase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\data\data.metaEntitySystem.h" />
     <ClInclude Include="..\..\src\data\data.startupPhase.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="..\..\src\data\data.metaEntity.h" />
+    <ClInclude Include="..\..\src\data\data.shutdownPhase.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\..\src\data\meta_entity.xml" />

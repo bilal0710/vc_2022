@@ -1,6 +1,7 @@
 #include "game.playPhase.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "../graphics/gfx.playPhase.h"
 
 namespace Game
 {
@@ -8,6 +9,7 @@ namespace Game
 	{
 		std::cout << "PlayPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
+		Gfx::PlayPhase::GetInstance().OnEnter();
 		return 0;
 	}
 
@@ -22,6 +24,7 @@ namespace Game
 		if (counter > 4)
 		{
 			counter = 0;
+			Gfx::PlayPhase::GetInstance().OnRun();
 
 			return Type::UNLOAD_MAP;
 		}

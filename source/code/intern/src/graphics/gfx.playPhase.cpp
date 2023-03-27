@@ -1,21 +1,25 @@
 #include "gfx.playPhase.h"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 namespace Gfx
 {
     void PlayPhase::OnEnter()
-    {}
+    {
+		std::cout << "Gfx::PlayPhase::OnEnter" << std::endl;
+	}
 
     void PlayPhase::OnRun()
     {
-		drowShapes();
+		std::cout << "Gfx::PlayPhase::OnRun" << std::endl;
+		drawShapes();
     }
 
     void PlayPhase::OnLeave()
     {}
 
 
-	void PlayPhase::drowShapes() {
+	void PlayPhase::drawShapes() {
 		int timer = 0;
 
 		// create the window

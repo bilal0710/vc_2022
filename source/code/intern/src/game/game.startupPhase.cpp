@@ -9,14 +9,14 @@ namespace Game
 {
 	int StartupPhase::InternOnEnter()
 	{
-		std::cout << "StartupPhase::InternOnEnter" << std::endl;
+		std::cout << "Game::StartupPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
 		return 0;
 	}
 
 	int StartupPhase::InternOnRun()
 	{
-		std::cout << "StartupPhase::InternOnRun counter= " << counter << std::endl;
+		std::cout << "Game::StartupPhase::InternOnRun counter= " << counter << std::endl;
 		std::cout << "------------------------" << std::endl;
 
 		Data::StartupPhase::GetInstance().OnEnter();

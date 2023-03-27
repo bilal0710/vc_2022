@@ -15,7 +15,7 @@ namespace Game
 	Application::Application()
 		: m_IndexOfCurrentPhase(Phase::Undefined),
 		m_pPhases{
-		&StartupPhase::GetInstance(),
+		 &StartupPhase::GetInstance(),
 		 &MainMenuPhase::GetInstance(),
 		 &LoadPhase::GetInstance(),
 		 &PlayPhase::GetInstance(),
@@ -32,7 +32,7 @@ namespace Game
 
 		m_IndexOfCurrentPhase = Phase::STARTUP;
 		m_pPhases[m_IndexOfCurrentPhase]->OnEnter();
-
+		 
 	}
 
 	void Application::Run()

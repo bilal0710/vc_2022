@@ -13,7 +13,7 @@ namespace Core
     {
         public:
 
-            using BID = size_t;
+            using BID = unsigned int;
 
         public:
 

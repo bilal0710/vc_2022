@@ -18,6 +18,18 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\logic\logic.loadPhase.cpp" />
+    <ClCompile Include="..\..\src\logic\logic.shutdownPhase.cpp" />
+    <ClCompile Include="..\..\src\logic\logic.startupPhase.cpp" />
+    <ClCompile Include="..\..\src\logic\logic.unloadPhase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\logic\logic.loadPhase.h" />
+    <ClInclude Include="..\..\src\logic\logic.shutdownPhase.h" />
+    <ClInclude Include="..\..\src\logic\logic.startupPhase.h" />
+    <ClInclude Include="..\..\src\logic\logic.unloadPhase.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -149,9 +161,6 @@
       <Command>copy ..\..\build\win64\$(ProjectName)\$(Configuration)\*.lib ..\..\build\win64</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\logic\main.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

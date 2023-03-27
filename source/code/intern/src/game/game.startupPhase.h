@@ -21,7 +21,7 @@ namespace Game
 			{};
 
 			int counter = 0;
-			void drowShapes();
+		
 
 		private:
 			int InternOnEnter() override;

@@ -1,7 +1,7 @@
 #include "game.playPhase.h"
-#include <SFML/Graphics.hpp>
 #include <iostream>
 #include "../graphics/gfx.playPhase.h"
+#include "../gui/gui.playPhase.h"
 
 namespace Game
 {
@@ -10,6 +10,7 @@ namespace Game
 		std::cout << "PlayPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
 		Gfx::PlayPhase::GetInstance().OnEnter();
+		Gui::PlayPhase::GetInstance().OnEnter();
 		return 0;
 	}
 
@@ -25,6 +26,7 @@ namespace Game
 		{
 			counter = 0;
 			Gfx::PlayPhase::GetInstance().OnRun();
+			Gui::PlayPhase::GetInstance().OnRun();
 
 			return Type::UNLOAD_MAP;
 		}
@@ -36,6 +38,8 @@ namespace Game
 	{
 		std::cout << "PlayPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;
+		Gfx::PlayPhase::GetInstance().OnLeave();
+		Gui::PlayPhase::GetInstance().OnLeave();
 		return 0;
 	}
 }

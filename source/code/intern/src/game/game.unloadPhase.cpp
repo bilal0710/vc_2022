@@ -1,6 +1,9 @@
 #include "game.unloadPhase.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "../graphics/gfx.unloadPhase.h"
+#include "../gui/gui.unloadPhase.h"
+#include "../logic/logic.unloadPhase.h"
 
 namespace Game
 {
@@ -8,6 +11,9 @@ namespace Game
 	{
 		std::cout << "UnloadPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
+		Gfx::UnloadPhase::GetInstance().OnEnter();
+		Gui::UnloadPhase::GetInstance().OnEnter();
+		Logic::UnloadPhase::GetInstance().OnEnter();
 		return 0;
 	}
 
@@ -22,6 +28,9 @@ namespace Game
 		if (counter > 4)
 		{
 			counter = 0;
+			Gfx::UnloadPhase::GetInstance().OnRun();
+			Gui::UnloadPhase::GetInstance().OnRun();
+			Logic::UnloadPhase::GetInstance().OnRun();
 
 			return Type::SHUTDOWN;
 		}
@@ -33,6 +42,9 @@ namespace Game
 	{
 		std::cout << "UnloadPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;
+		Gfx::UnloadPhase::GetInstance().OnLeave();
+		Gui::UnloadPhase::GetInstance().OnLeave();
+		Logic::UnloadPhase::GetInstance().OnLeave();
 		return 0;
 	}
 }

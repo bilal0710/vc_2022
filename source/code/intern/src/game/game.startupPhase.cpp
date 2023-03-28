@@ -3,6 +3,8 @@
 #include <iostream>
 #include "../data/data.startupPhase.h"
 #include "../graphics/gfx.startupPhase.h"
+#include "../gui/gui.startupPhase.h"
+#include "../logic/logic.startupPhase.h"
 
 
 namespace Game
@@ -11,6 +13,10 @@ namespace Game
 	{
 		std::cout << "Game::StartupPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
+		Data::StartupPhase::GetInstance().OnEnter();
+		Gfx::StartupPhase::GetInstance().OnEnter();
+		Gui::StartupPhase::GetInstance().OnEnter();
+		Logic::StartupPhase::GetInstance().OnEnter();
 		return 0;
 	}
 
@@ -20,12 +26,15 @@ namespace Game
 		std::cout << "------------------------" << std::endl;
 		counter++;
 		
-
 		if (counter > 4)
 		{
+			Data::StartupPhase::GetInstance().OnRun();
+			Gfx::StartupPhase::GetInstance().OnRun();
+			Gui::StartupPhase::GetInstance().OnRun();
+			Logic::StartupPhase::GetInstance().OnRun();
+
 			counter = 0;
-			Data::StartupPhase::GetInstance().OnEnter();
-			Gfx::StartupPhase::GetInstance().OnEnter();
+			
 
 			return Type::MAIN_MENU;
 		}
@@ -35,6 +44,11 @@ namespace Game
 
 	int StartupPhase::InternOnLeave()
 	{
+		Data::StartupPhase:: GetInstance().OnLeave();
+		Gfx::StartupPhase::  GetInstance().OnLeave();
+		Gui::StartupPhase::  GetInstance().OnLeave();
+		Logic::StartupPhase::GetInstance().OnLeave();
+
 		std::cout << "StartupPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;
 		return 0;

@@ -7,11 +7,15 @@ namespace Gfx
     void PlayPhase::OnEnter()
     {
 		std::cout << "Gfx::PlayPhase::OnEnter" << std::endl;
+		std::cout << "------------------------" << std::endl;
+
 	}
 
     void PlayPhase::OnRun()
     {
 		std::cout << "Gfx::PlayPhase::OnRun" << std::endl;
+		std::cout << "------------------------" << std::endl;
+
 		drawShapes();
     }
 

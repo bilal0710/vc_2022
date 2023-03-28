@@ -40,7 +40,7 @@ namespace Data
 		m_idManger.Clear();
 		m_itemManager.Clear();
 	}
-	bool MetaEntitySystem::ContainsMEtaEntity(string& _pName)
+	bool MetaEntitySystem::ContainsMetaEntity(string& _pName)
 	{
 		return m_idManger.ContainsName(_pName);;
 	}

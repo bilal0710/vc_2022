@@ -27,7 +27,7 @@ namespace Data
 		MetaEntity& CreateMetaEntity(const string _pName);
 		MetaEntity& GetMetaEntity(CIDManager::BID _ID);
 		void DestroyAllMetaEntities();
-		bool ContainsMEtaEntity(string& _pName);
+		bool ContainsMetaEntity(string& _pName);
 
 	private:
 		Core::CIDManager m_idManger;

@@ -1,8 +1,9 @@
 #pragma once
-#include "data.metaEntity.h"
+
 #include <tinyxml2.h>
 #include "../core/core_id_manager.h"
 #include "../core/core_item_manager.h"
+#include "data.metaEntity.h"
 
 using namespace Core;
 namespace Data

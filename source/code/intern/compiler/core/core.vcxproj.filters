@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\src\core\main.cpp" />
     <ClCompile Include="..\..\src\core\core_log.cpp" />
     <ClCompile Include="..\..\src\core\core_time.cpp" />
     <ClCompile Include="..\..\src\core\core_id_manager.cpp" />
@@ -35,5 +34,6 @@
     <ClInclude Include="..\..\src\core\core_vector3.h" />
     <ClInclude Include="..\..\src\core\core_vector4.h" />
     <ClInclude Include="..\..\src\core\core_id_manager.h" />
+    <ClInclude Include="..\..\src\core\core_explode.h" />
   </ItemGroup>
 </Project>

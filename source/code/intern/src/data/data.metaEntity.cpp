@@ -1,6 +1,6 @@
 #include "data.metaEntity.h"
 
-Data::MetaEntity::MetaEntity(int _id, string _name) :name(_name), id(_id)
+Data::MetaEntity::MetaEntity(int _id, string _name, float _size) :id(_id), name(_name), size(_size)
 {
 }
 

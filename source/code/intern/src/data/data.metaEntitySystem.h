@@ -24,7 +24,7 @@ namespace Data
 		{};
 
 	public:
-		void Initialize();
+		void Initialize(tinyxml2::XMLDocument& doc);
 		MetaEntity& CreateMetaEntity(const string _pName);
 		MetaEntity& GetMetaEntity(CIDManager::BID _ID);
 		void DestroyAllMetaEntities();

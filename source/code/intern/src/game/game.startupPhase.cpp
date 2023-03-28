@@ -1,6 +1,9 @@
 #include "game.startupPhase.h"
 #include <SFML/Graphics.hpp>
+#include <tinyxml2.h>
+
 #include <iostream>
+
 #include "../data/data.startupPhase.h"
 #include "../graphics/gfx.startupPhase.h"
 #include "../gui/gui.startupPhase.h"
@@ -28,7 +31,10 @@ namespace Game
 		
 		if (counter > 4)
 		{
-			Data::StartupPhase::GetInstance().OnRun();
+			tinyxml2::XMLDocument doc;
+			doc.LoadFile("../code/intern/src/data/meta_entity.xml");
+
+			Data::StartupPhase::GetInstance().OnRun(doc);
 			Gfx::StartupPhase::GetInstance().OnRun();
 			Gui::StartupPhase::GetInstance().OnRun();
 			Logic::StartupPhase::GetInstance().OnRun();

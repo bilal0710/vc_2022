@@ -8,13 +8,13 @@ namespace Data
 	{
 		 std::cout << "Data::StartupPhase::OnEnter" << std::endl;
 		 std::cout << "\n" << std::endl;
-
-		 MetaEntitySystem::GetInstance().Initialize();
 		 
 	}
 
-	void StartupPhase::OnRun()
-	{}
+	void StartupPhase::OnRun(tinyxml2::XMLDocument& doc)
+	{
+		MetaEntitySystem::GetInstance().Initialize(doc);
+	}
 
 	void StartupPhase::OnLeave()
 	{}

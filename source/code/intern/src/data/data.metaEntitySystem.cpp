@@ -1,4 +1,3 @@
-#include <tinyxml2.h>
 #include <tinyxml2.cpp>
 #include "data.MetaEntitySystem.h"
 #include <iostream>
@@ -11,8 +10,10 @@ namespace Data
 	{
 		tinyxml2::XMLDocument doc;
 		doc.LoadFile("../code/intern/src/data/meta_entity.xml");
-		tinyxml2::XMLElement* metaEntities = doc.FirstChildElement("meta_entities");
-		tinyxml2::XMLElement* metaEntity = metaEntities->FirstChildElement("meta_entity");
+
+		tinyxml2::XMLElement* metaEntities = doc.FirstChildElement("meta-entities");
+		tinyxml2::XMLElement* metaEntity = metaEntities->FirstChildElement("meta-entity");
+
 		std::string name = metaEntity->FindAttribute("name")->Value();
 
 		MetaEntity& newMetaEntity = MetaEntitySystem::CreateMetaEntity(name);
@@ -43,6 +44,22 @@ namespace Data
 	bool MetaEntitySystem::ContainsMetaEntity(string& _pName)
 	{
 		return m_idManger.ContainsName(_pName);;
+	}
+
+	MetaEntity& MetaEntitySystem::SearchMetaEntity(std::string name)
+	{
+		return m_itemManager.GetItem(m_idManger.GetIDByName(name));
+	}
+
+
+	bool MetaEntitySystem::ContainsMetaEntity(std::string name)
+	{
+		return m_idManger.ContainsName(name);
+	}
+
+	Core::CIDManager::BID MetaEntitySystem::GetMetaEntityID(std::string name)
+	{
+		return m_idManger.GetIDByName(name);
 	}
 }
 

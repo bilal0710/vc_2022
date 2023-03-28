@@ -1,10 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<meta_entities>
+<meta-entities>
   <!--man can einen beliebigen Name heir geben-->
-  <meta_entity name="platform_jump_and_run">
+
+  <meta-entity name="ground_stone">
+    <data>
+      <size value="16.4"/>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="64.0;64.0;0.0"></aabb>
+    </data>
+
+    <logic>
+      <can-move value="false"/>
+    </logic>
+
+    <graphics>
+      <texture value="ground_stone.jpg"/>
+    </graphics>
+  </meta-entity>
+
+  <meta-entity name="platform_jump_and_run">
 
     <data>
       <size value="4.5"/>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="64.0;64.0;0.0"></aabb>
     </data>
 
     <logic>
@@ -15,5 +32,6 @@
       <texture value="../data/wall.png" />
     </graphics>
 
-  </meta_entity>
-</meta_entities>
+  </meta-entity>
+
+</meta-entities>

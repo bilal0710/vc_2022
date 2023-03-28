@@ -1,5 +1,6 @@
 #pragma once
 #include "data.metaEntity.h"
+#include <tinyxml2.h>
 #include "../core/core_id_manager.h"
 #include "../core/core_item_manager.h"
 
@@ -28,6 +29,12 @@ namespace Data
 		MetaEntity& GetMetaEntity(CIDManager::BID _ID);
 		void DestroyAllMetaEntities();
 		bool ContainsMetaEntity(string& _pName);
+
+		MetaEntity& SearchMetaEntity(std::string name);
+
+		bool ContainsMetaEntity(std::string name);
+
+		Core::CIDManager::BID GetMetaEntityID(std::string name);
 
 	private:
 		Core::CIDManager m_idManger;

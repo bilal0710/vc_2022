@@ -34,7 +34,7 @@ namespace Core
 
             size_t GetNumberOfNames() const;
 
-            BID GetIDByName(std::string& _pName);
+            BID GetIDByName(std::string& _rName);
 
         public:
 

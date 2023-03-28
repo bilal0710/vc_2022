@@ -76,6 +76,16 @@ namespace Core
                 return *m_ItemsByID[_ID];
             }
 
+            std::vector<XPtr> GetAllItems()
+            {
+                return m_ItemsByID;
+            }
+
+            std::vector<XPtr> GetAllItems() const
+            {
+                return m_ItemsByID;
+            }
+
         public:
 
             void Clear()

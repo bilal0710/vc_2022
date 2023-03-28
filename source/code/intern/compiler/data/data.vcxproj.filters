@@ -5,6 +5,8 @@
     <ClCompile Include="..\..\src\data\data.startupPhase.cpp" />
     <ClCompile Include="..\..\src\data\data.metaEntity.cpp" />
     <ClCompile Include="..\..\src\data\data.shutdownPhase.cpp" />
+    <ClCompile Include="..\..\src\data\data.entitySystem.cpp" />
+    <ClCompile Include="..\..\src\data\data.loadPhase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\data\data.metaEntitySystem.h" />
@@ -12,6 +14,9 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="..\..\src\data\data.metaEntity.h" />
     <ClInclude Include="..\..\src\data\data.shutdownPhase.h" />
+    <ClInclude Include="..\..\src\data\data.entitySystem.h" />
+    <ClInclude Include="..\..\src\data\data.entity.h" />
+    <ClInclude Include="..\..\src\data\data.loadPhase.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\..\src\data\meta_entity.xml" />

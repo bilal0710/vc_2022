@@ -21,7 +21,7 @@ namespace Data
 		float size;
 		Core::AABB3Float aabb;
 
-		//void* facetes[2];
+		void* facetes[2];
 
 	};
 

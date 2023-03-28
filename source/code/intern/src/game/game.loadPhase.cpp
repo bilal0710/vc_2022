@@ -4,6 +4,11 @@
 #include "../graphics/gfx.loadPhase.h"
 #include "../gui/gui.loadPhase.h"
 #include "../logic/logic.loadPhase.h"
+#include "../data/data.loadPhase.h"
+#include <tinyxml2.h>
+
+using namespace tinyxml2;
+
 
 namespace Game
 {
@@ -11,6 +16,8 @@ namespace Game
 	{
 		std::cout << "LoadPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
+
+		Data::LoadPhase::GetInstance().OnEnter();
 		Gfx::LoadPhase::GetInstance().OnEnter();
 		Gui::LoadPhase::GetInstance().OnEnter();
 		Logic::LoadPhase::GetInstance().OnEnter();
@@ -27,6 +34,11 @@ namespace Game
 
 		if (counter > 4)
 		{
+
+			XMLDocument doc;
+			doc.LoadFile("../bin/map-1.xml");
+
+			Data::LoadPhase::GetInstance().OnRun(doc);
 			Gfx::LoadPhase::GetInstance().  OnRun();
 			Gui::LoadPhase::GetInstance().  OnRun();
 			Logic::LoadPhase::GetInstance().OnRun();
@@ -42,6 +54,7 @@ namespace Game
 	{
 		std::cout << "LoadPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;
+		Data::LoadPhase::GetInstance().OnLeave();
 		Gfx::LoadPhase::GetInstance().  OnLeave();
 		Gui::LoadPhase::GetInstance().  OnLeave();
 		Logic::LoadPhase::GetInstance().OnLeave();

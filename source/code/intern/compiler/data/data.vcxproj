@@ -150,12 +150,17 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\data\data.entitySystem.cpp" />
+    <ClCompile Include="..\..\src\data\data.loadPhase.cpp" />
     <ClCompile Include="..\..\src\data\data.metaEntity.cpp" />
     <ClCompile Include="..\..\src\data\data.metaEntitySystem.cpp" />
     <ClCompile Include="..\..\src\data\data.shutdownPhase.cpp" />
     <ClCompile Include="..\..\src\data\data.startupPhase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\data\data.entity.h" />
+    <ClInclude Include="..\..\src\data\data.entitySystem.h" />
+    <ClInclude Include="..\..\src\data\data.loadPhase.h" />
     <ClInclude Include="..\..\src\data\data.metaEntity.h" />
     <ClInclude Include="..\..\src\data\data.metaEntitySystem.h" />
     <ClInclude Include="..\..\src\data\data.shutdownPhase.h" />

@@ -18,7 +18,7 @@ namespace Gfx
         void OnEnter();
         void OnRun();
         void OnLeave();
-        void drawShapes();
+        //void drawShapes();
 
     private:
         PlayPhase()

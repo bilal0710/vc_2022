@@ -6,8 +6,6 @@
 
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
-
-#include <game/game.application.h>
 #include <data/data.metaEntitySystem.h>
 
 using namespace tinyxml2;
@@ -24,7 +22,6 @@ void Gfx::CStartupPhase::OnRun(XMLDocument& doc)
 {
 	std::cout << "Gfx::StartupPhase::OnRun" << std::endl;
 
-	//Game::CApplication& app = Game::CApplication::GetInstance();
 	Data::CMetaEntitySystem& metaEntitySystem = Data::CMetaEntitySystem::GetInstance();
 
 	XMLElement* metaEntities = doc.FirstChildElement("meta-entities");

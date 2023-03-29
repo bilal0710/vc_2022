@@ -3,14 +3,14 @@
 
 namespace Gfx
 {
-    void MainMenuPhase::OnEnter()
+    void CMainMenuPhase::OnEnter()
     {
     }
 
-    void MainMenuPhase::OnRun()
+    void CMainMenuPhase::OnRun()
     {
     }
 
-    void MainMenuPhase::OnLeave()
+    void CMainMenuPhase::OnLeave()
     {}
 }

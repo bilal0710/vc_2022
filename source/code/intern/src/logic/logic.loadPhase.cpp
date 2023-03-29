@@ -2,12 +2,12 @@
 
 namespace Logic
 {
-    void LoadPhase::OnEnter()
+    void CLoadPhase::OnEnter()
     {}
 
-    void LoadPhase::OnRun()
+    void CLoadPhase::OnRun()
     {}
 
-    void LoadPhase::OnLeave()
+    void CLoadPhase::OnLeave()
     {}
 }

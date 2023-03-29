@@ -11,9 +11,9 @@ namespace Game
 	{
 		std::cout << "UnloadPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
-		Gfx::UnloadPhase::GetInstance().OnEnter();
-		Gui::UnloadPhase::GetInstance().OnEnter();
-		Logic::UnloadPhase::GetInstance().OnEnter();
+		Gfx::CUnloadPhase::GetInstance().OnEnter();
+		Gui::CUnloadPhase::GetInstance().OnEnter();
+		Logic::CUnloadPhase::GetInstance().OnEnter();
 		return 0;
 	}
 
@@ -28,9 +28,9 @@ namespace Game
 		if (counter > 4)
 		{
 			counter = 0;
-			Gfx::UnloadPhase::GetInstance().OnRun();
-			Gui::UnloadPhase::GetInstance().OnRun();
-			Logic::UnloadPhase::GetInstance().OnRun();
+			Gfx::CUnloadPhase::GetInstance().OnRun();
+			Gui::CUnloadPhase::GetInstance().OnRun();
+			Logic::CUnloadPhase::GetInstance().OnRun();
 
 			return Type::SHUTDOWN;
 		}
@@ -42,9 +42,9 @@ namespace Game
 	{
 		std::cout << "UnloadPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;
-		Gfx::UnloadPhase::GetInstance().OnLeave();
-		Gui::UnloadPhase::GetInstance().OnLeave();
-		Logic::UnloadPhase::GetInstance().OnLeave();
+		Gfx::CUnloadPhase::GetInstance().OnLeave();
+		Gui::CUnloadPhase::GetInstance().OnLeave();
+		Logic::CUnloadPhase::GetInstance().OnLeave();
 		return 0;
 	}
 }

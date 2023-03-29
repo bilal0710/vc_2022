@@ -1,7 +1,7 @@
 <entities>
   <entity name="wall_0_0" meta-entity="ground_stone">
     <data>
-      <position>0.0;0.0;0.0</position>
+      <position>0.3;0.0;0.0</position>
       <size>64.0;64.0;64.0</size>
     </data>
     <logic>

@@ -88,7 +88,7 @@ namespace Data
         return itemManager.CreateItem(id);
     }
 
-    void CEntitySystem::DestroyEntity(Entity& entity)
+    void CEntitySystem::DestroyEntity()
     {
         throw std::logic_error("Not Implemented");
     }

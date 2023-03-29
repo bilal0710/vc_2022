@@ -5,7 +5,7 @@
 #include <exception>
 #include <stdlib.h>
 
-#include "core/core_uncopyable.h"
+#include "core_uncopyable.h"
 
 namespace Core
 {

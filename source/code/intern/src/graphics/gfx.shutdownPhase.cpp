@@ -2,12 +2,12 @@
 
 namespace Gfx
 {
-    void ShutdownPhase::OnEnter()
+    void CShutdownPhase::OnEnter()
     {}
 
-    void ShutdownPhase::OnRun()
+    void CShutdownPhase::OnRun()
     {}
 
-    void ShutdownPhase::OnLeave()
+    void CShutdownPhase::OnLeave()
     {}
 }

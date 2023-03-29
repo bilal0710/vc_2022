@@ -13,47 +13,50 @@
 using namespace tinyxml2;
 
 
-void Gfx::StartupPhase::OnEnter()
+void Gfx::CStartupPhase::OnEnter()
 {
 	std::cout << "Gfx::StartupPhase::OnEnter" << std::endl;
 }
 
-void Gfx::StartupPhase::OnRun(XMLDocument& doc)
+void Gfx::CStartupPhase::OnRun(XMLDocument& doc)
 {
 	std::cout << "Gfx::StartupPhase::OnRun" << std::endl;
 
-    Game::CApplication& app = Game::CApplication::GetInstance();
-    Data::CMetaEntitySystem& metaEntitySystem = Data::CMetaEntitySystem::GetInstance();
+	//Game::CApplication& app = Game::CApplication::GetInstance();
+	Data::CMetaEntitySystem& metaEntitySystem = Data::CMetaEntitySystem::GetInstance();
 
-    XMLElement* metaEntities = doc.FirstChildElement("meta-entities");
-    XMLElement* xmlMetaEntity = metaEntities->FirstChildElement("meta-entity");
+	XMLElement* metaEntities = doc.FirstChildElement("meta-entities");
+	XMLElement* xmlMetaEntity = metaEntities->FirstChildElement("meta-entity");
 
-    for (;;)
-    {
-        if (xmlMetaEntity == nullptr)
-        {
-            break;
-        }
+	for (;;)
+	{
+		if (xmlMetaEntity == nullptr)
+		{
+			break;
+		}
 
-        auto id = metaEntitySystem.GetMetaEntityID(xmlMetaEntity->FindAttribute("name")->Value());
-        Data::CMetaEntity& metaEntity = metaEntitySystem.GetMetaEntity(id);
+		auto id = metaEntitySystem.GetMetaEntityID(xmlMetaEntity->FindAttribute("name")->Value());
+		Data::CMetaEntity& metaEntity = metaEntitySystem.GetMetaEntity(id);
 
-        XMLElement* graphicsElement = xmlMetaEntity->FirstChildElement("graphics");
 
-        std::string texturePath = graphicsElement->FirstChildElement("texture")->FindAttribute("value")->Value();
+		XMLElement* graphicsElement = xmlMetaEntity->FirstChildElement("graphics");
 
-        sf::Texture* texture = new sf::Texture();
-        if (texture->loadFromFile(texturePath))
-        {
-            metaEntity.facetes[0] = texture;
-        }
+		std::string texturePath = graphicsElement->FirstChildElement("texture")->FindAttribute("value")->Value();
 
-        xmlMetaEntity = xmlMetaEntity->NextSiblingElement();
-    }
+		
+		sf::Texture* texture = new sf::Texture();
+		if (texture->loadFromFile("ground.jpg"))
+		{
+			std::cout << "Gfx::texture" << std::endl;
+			metaEntity.facetes[0] = texture;
+		}
+
+		xmlMetaEntity = xmlMetaEntity->NextSiblingElement();
+	}
 }
 
 
-void Gfx::StartupPhase::OnLeave()
+void Gfx::CStartupPhase::OnLeave()
 {
 	std::cout << "Gfx::StartupPhase::OnLeave" << std::endl;
 }

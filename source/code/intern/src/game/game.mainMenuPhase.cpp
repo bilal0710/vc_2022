@@ -10,8 +10,8 @@ namespace Game
 	{
 		std::cout << "MainMenuPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
-		Gfx::MainMenuPhase::GetInstance().OnEnter();
-		Gui::MainMenuPhase::GetInstance().OnEnter();
+		Gfx::CMainMenuPhase::GetInstance().OnEnter();
+		Gui::CMainMenuPhase::GetInstance().OnEnter();
 		return 0;
 
 	}
@@ -20,8 +20,8 @@ namespace Game
 	{
 		std::cout << "MainMenuPhase::InternOnRun counter= " << counter << std::endl;
 		std::cout << "------------------------" << std::endl;
-		Gfx::MainMenuPhase::GetInstance().OnEnter();
-		Gui::MainMenuPhase::GetInstance().OnEnter();
+		Gfx::CMainMenuPhase::GetInstance().OnEnter();
+		Gui::CMainMenuPhase::GetInstance().OnEnter();
 		counter++;
 
 
@@ -38,8 +38,8 @@ namespace Game
 	{
 		std::cout << "MainMenuPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;
-		Gfx::MainMenuPhase::GetInstance().OnEnter();
-		Gui::MainMenuPhase::GetInstance().OnEnter();
+		Gfx::CMainMenuPhase::GetInstance().OnEnter();
+		Gui::CMainMenuPhase::GetInstance().OnEnter();
 		return 0;
 	}
 }

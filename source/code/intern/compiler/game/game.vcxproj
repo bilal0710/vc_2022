@@ -121,7 +121,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(SolutionDir)..\build\win64\$(ProjectName)\$(Configuration)\$(TargetFileName)</OutputFile>
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\extern\sfml\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
@@ -139,7 +139,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\src;$(SolutionDir)..\..\extern\sfml\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\src;$(SolutionDir)..\..\extern\sfml\inc;$(SolutionDir)..\..\extern\tinyXML</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -147,7 +147,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(SolutionDir)..\build\win64\$(ProjectName)\$(Configuration)\$(TargetFileName)</OutputFile>
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\extern\sfml\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>

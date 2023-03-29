@@ -2,6 +2,8 @@
 #include <iostream>
 #include "../graphics/gfx.playPhase.h"
 #include "../gui/gui.playPhase.h"
+#include "core/core_time.h"
+#include "data/data.entitySystem.h"
 
 namespace Game
 {
@@ -9,8 +11,11 @@ namespace Game
 	{
 		std::cout << "PlayPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
-		Gfx::PlayPhase::GetInstance().OnEnter();
-		Gui::PlayPhase::GetInstance().OnEnter();
+
+		Core::Time::Reset();
+
+		Gfx::CPlayPhase::GetInstance().OnEnter();
+		Gui::CPlayPhase::GetInstance().OnEnter();
 		return 0;
 	}
 
@@ -19,14 +24,16 @@ namespace Game
 		std::cout << "PlayPhase::InternOnRun counter= " << counter << std::endl;
 		std::cout << "------------------------" << std::endl;
 
-		counter++;
+		
 
+		counter++;
+	
 
 		if (counter > 4)
 		{
 			counter = 0;
-			Gfx::PlayPhase::GetInstance().OnRun();
-			Gui::PlayPhase::GetInstance().OnRun();
+			Gfx::CPlayPhase::GetInstance().OnRun();
+			Gui::CPlayPhase::GetInstance().OnRun();
 
 			return Type::UNLOAD_MAP;
 		}
@@ -38,8 +45,8 @@ namespace Game
 	{
 		std::cout << "PlayPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;
-		Gfx::PlayPhase::GetInstance().OnLeave();
-		Gui::PlayPhase::GetInstance().OnLeave();
+		Gfx::CPlayPhase::GetInstance().OnLeave();
+		Gui::CPlayPhase::GetInstance().OnLeave();
 		return 0;
 	}
 }

@@ -168,12 +168,13 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\..\src\data\meta_entity.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\core\core.vcxproj">
       <Project>{3647017a-87b3-4f86-a6f3-b6a0595ddfab}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\..\..\bin\map-1.xml" />
+    <Xml Include="..\..\..\..\bin\meta_entity.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,12 +2,12 @@
 
 namespace Gui
 {
-    void UnloadPhase::OnEnter()
+    void CUnloadPhase::OnEnter()
     {}
 
-    void UnloadPhase::OnRun()
+    void CUnloadPhase::OnRun()
     {}
 
-    void UnloadPhase::OnLeave()
+    void CUnloadPhase::OnLeave()
     {}
 }

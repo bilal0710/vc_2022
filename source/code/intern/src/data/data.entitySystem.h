@@ -24,7 +24,7 @@ namespace Data
         int Initialize(tinyxml2::XMLDocument& doc);
         std::vector<Data::Entity*> GetAllEntities();
         Entity& CreateEntity(std::string name);
-        void DestroyEntity(Entity& entity);
+        void DestroyEntity();
         void DestoryAllEntities();
         Entity& SearchEntity(std::string name);
         Entity& GetEntity(Core::CIDManager::BID id);

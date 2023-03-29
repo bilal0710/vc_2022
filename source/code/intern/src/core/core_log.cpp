@@ -1,6 +1,6 @@
 
-#include "core\core_log.h"
-#include "core\core_uncopyable.h"
+#include "core_log.h"
+#include "core_uncopyable.h"
 
 #include <cstdarg>
 #include <ctime>

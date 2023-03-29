@@ -1,6 +1,6 @@
 
-#include "core\core_time.h"
-#include "core\core_uncopyable.h"
+#include "core_time.h"
+#include "core_uncopyable.h"
 
 #include <assert.h>
 #include <vector>

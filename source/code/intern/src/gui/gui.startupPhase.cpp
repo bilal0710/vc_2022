@@ -2,12 +2,12 @@
 
 namespace Gui
 {
-    void StartupPhase::OnEnter()
+    void CStartupPhase::OnEnter()
     {}
 
-    void StartupPhase::OnRun()
+    void CStartupPhase::OnRun()
     {}
 
-    void StartupPhase::OnLeave()
+    void CStartupPhase::OnLeave()
     {}
 }

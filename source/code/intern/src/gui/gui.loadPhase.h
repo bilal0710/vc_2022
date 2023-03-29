@@ -2,17 +2,17 @@
 
 namespace Gui
 {
-    class LoadPhase
+    class CLoadPhase
     {
     public:
-        static LoadPhase& GetInstance()
+        static CLoadPhase& GetInstance()
         {
-            static LoadPhase instance;
+            static CLoadPhase instance;
             return instance;
         };
 
-        LoadPhase(const LoadPhase&) = delete;
-        LoadPhase& operator = (const LoadPhase&) = delete;
+        CLoadPhase(const CLoadPhase&) = delete;
+        CLoadPhase& operator = (const CLoadPhase&) = delete;
 
     public:
         void OnEnter();
@@ -20,7 +20,7 @@ namespace Gui
         void OnLeave();
 
     private:
-        LoadPhase()
+        CLoadPhase()
         {};
     };
 }

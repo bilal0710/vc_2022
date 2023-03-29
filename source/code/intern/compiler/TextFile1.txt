@@ -1,0 +1,91 @@
+Game															Data
+CStartup::GetInstance().OnRun(XML Document)					CStartupPhase::OnRun (Xml Document) als Params 
+Meta Entity.xml Öffnen										CMetaEntitySystem::Initialize(XML Document)
+Xml document als Params zu Data::CSartupPhase ------->		CMetaEntitySystCMetaEntitySystem::GetInstance().StartUp(XML Document)
+																		
+
+- wir bauen unsere Event-Klasse für die GUI-Klasse -> Sahm lädt das Bauspiel hoch
+
+- Abstrakte Methoden muss man überschreicben -> Virtuell heißt dass es abstrakte Methode ist -> virtuell nameMEthode() = 0 heißt die functionen ist
+	deklariert aber nicht implementiert
+
+- ich muss 	die EMthode ->  StartupPhase::drowShapes() in gui moven
+	aber die sf::Window soll in Game::StartupPhase impelemntiert und an Gui weitergeleitet
+
+- in der Data Projekt sollen wir ein Event Manger implementieren und 
+	um alle Event zu Listenen und danach an die bestimmte EventListener weiterleiten
+
+- Entit folder 
+	- Entity list -> double verketete liste , kein Vector oder array 
+		Entity X
+
+um zu checken, welche Sector getroffen ist, müssen wir von links nach rechts und von unten nach oben,
+
+
+// how to get a list of items correct + simple iterator
+#include <list>
+
+using CFloatList = std::list<float> g_FloatList;
+using CIterator= CFloatList::iterator; 
+
+
+std::pair<CIterator>, Citerator> getNegatives()
+{
+
+}
+
+
+void GetNegatives (std::list<float>::iterator& _rBegin, std::list<float>::iterator& _rEnd)
+{
+
+}
+
+int  main()
+{
+	ge_FloatList.push_back(-1.6f)
+	ge_FloatList.push_back(2.5f)
+	ge_FloatList.push_back(3.2f)
+	ge_FloatList.push_back(-112.6f)
+	ge_FloatList.push_back(-34.8f)
+
+	return 0
+}
+
+
+
+-----------------------------------------------------------------------------------------------------------
+
+namespace Data
+{
+    class CEntity;
+    class CEntityLink;
+    class CEntityList;
+}
+
+namespace Data
+{
+    class CEntityIterator
+    {
+        public:
+
+            CEntityIterator();
+            CEntityIterator(const CEntityIterator& _rOther);
+
+        public:
+
+            CEntity& operator * ();
+            CEntity* operator -> ();
+
+        private:
+
+            CEntityLink* m_pLink;
+
+        private:
+
+            CEntityIterator(CEntityLink* _pLink);
+
+        private:
+
+            friend class CEntityList;
+    };
+}

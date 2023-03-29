@@ -3,7 +3,7 @@
 
 namespace Game
 {
-	class Phase
+	class CPhase
 	{
 	public: 
 		enum Type

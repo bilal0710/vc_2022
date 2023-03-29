@@ -2,17 +2,17 @@
 
 namespace Logic
 {
-    class ShutdownPhase
+    class CShutdownPhase
     {
     public:
-        static ShutdownPhase& GetInstance()
+        static CShutdownPhase& GetInstance()
         {
-            static ShutdownPhase instance;
+            static CShutdownPhase instance;
             return instance;
         };
 
-        ShutdownPhase(const ShutdownPhase&) = delete;
-        ShutdownPhase& operator = (const ShutdownPhase&) = delete;
+        CShutdownPhase(const CShutdownPhase&) = delete;
+        CShutdownPhase& operator = (const CShutdownPhase&) = delete;
 
     public:
         void OnEnter();
@@ -20,7 +20,7 @@ namespace Logic
         void OnLeave();
 
     private:
-        ShutdownPhase()
+        CShutdownPhase()
         {};
     };
 }

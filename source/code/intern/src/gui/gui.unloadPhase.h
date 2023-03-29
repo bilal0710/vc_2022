@@ -2,17 +2,17 @@
 
 namespace Gui
 {
-    class UnloadPhase
+    class CUnloadPhase
     {
     public:
-        static UnloadPhase& GetInstance()
+        static CUnloadPhase& GetInstance()
         {
-            static UnloadPhase instance;
+            static CUnloadPhase instance;
             return instance;
         };
 
-        UnloadPhase(const UnloadPhase&) = delete;
-        UnloadPhase& operator = (const UnloadPhase&) = delete;
+        CUnloadPhase(const CUnloadPhase&) = delete;
+        CUnloadPhase& operator = (const CUnloadPhase&) = delete;
 
     public:
         void OnEnter();
@@ -20,7 +20,7 @@ namespace Gui
         void OnLeave();
 
     private:
-        UnloadPhase()
+        CUnloadPhase()
         {};
     };
 }

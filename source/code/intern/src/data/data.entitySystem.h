@@ -8,17 +8,17 @@
 
 namespace Data
 {
-    class EntitySystem
+    class CEntitySystem
     {
     public:
-        static EntitySystem& GetInstance()
+        static CEntitySystem& GetInstance()
         {
-            static EntitySystem instance;
+            static CEntitySystem instance;
             return instance;
         };
 
-        EntitySystem(const EntitySystem&) = delete;
-        EntitySystem& operator = (const EntitySystem&) = delete;
+        CEntitySystem(const CEntitySystem&) = delete;
+        CEntitySystem& operator = (const CEntitySystem&) = delete;
 
     public:
         int Initialize(tinyxml2::XMLDocument& doc);
@@ -32,7 +32,7 @@ namespace Data
         Core::CIDManager::BID GetEntityID(std::string name);
 
     private:
-        EntitySystem()
+        CEntitySystem()
         {};
 
     private:

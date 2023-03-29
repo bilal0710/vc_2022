@@ -22,8 +22,8 @@ void Gfx::StartupPhase::OnRun(XMLDocument& doc)
 {
 	std::cout << "Gfx::StartupPhase::OnRun" << std::endl;
 
-    Game::Application& app = Game::Application::GetInstance();
-    Data::MetaEntitySystem& metaEntitySystem = Data::MetaEntitySystem::GetInstance();
+    Game::CApplication& app = Game::CApplication::GetInstance();
+    Data::CMetaEntitySystem& metaEntitySystem = Data::CMetaEntitySystem::GetInstance();
 
     XMLElement* metaEntities = doc.FirstChildElement("meta-entities");
     XMLElement* xmlMetaEntity = metaEntities->FirstChildElement("meta-entity");
@@ -36,7 +36,7 @@ void Gfx::StartupPhase::OnRun(XMLDocument& doc)
         }
 
         auto id = metaEntitySystem.GetMetaEntityID(xmlMetaEntity->FindAttribute("name")->Value());
-        Data::MetaEntity& metaEntity = metaEntitySystem.GetMetaEntity(id);
+        Data::CMetaEntity& metaEntity = metaEntitySystem.GetMetaEntity(id);
 
         XMLElement* graphicsElement = xmlMetaEntity->FirstChildElement("graphics");
 

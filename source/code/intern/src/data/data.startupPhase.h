@@ -3,20 +3,20 @@
 
 namespace Data
 {
-	class StartupPhase
+	class CStartupPhase
 	{
 	public:
-		static StartupPhase& GetInstance()
+		static CStartupPhase& GetInstance()
 		{
-			static StartupPhase instance;
+			static CStartupPhase instance;
 			return instance;
 		};
 
-		StartupPhase(const StartupPhase&) = delete;
-		StartupPhase& operator = (const StartupPhase&) = delete;
+		CStartupPhase(const CStartupPhase&) = delete;
+		CStartupPhase& operator = (const CStartupPhase&) = delete;
 
 	private:
-		StartupPhase()
+		CStartupPhase()
 		{};
 
 

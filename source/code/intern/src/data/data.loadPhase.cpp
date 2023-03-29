@@ -8,18 +8,18 @@
 
 namespace Data
 {
-    void LoadPhase::OnEnter()
+    void CLoadPhase::OnEnter()
     {}
 
-    void LoadPhase::OnRun(tinyxml2::XMLDocument& doc)
+    void CLoadPhase::OnRun(tinyxml2::XMLDocument& doc)
     {
         std::cout << "DATA::LOAD::Run" << std::endl;
 
-        int entityCount = EntitySystem::GetInstance().Initialize(doc);
+        int entityCount = CEntitySystem::GetInstance().Initialize(doc);
 
         std::cout << "DATA::LOAD::Run " << entityCount << " Entities initialized" << std::endl;
     }
 
-    void LoadPhase::OnLeave()
+    void CLoadPhase::OnLeave()
     {}
 }

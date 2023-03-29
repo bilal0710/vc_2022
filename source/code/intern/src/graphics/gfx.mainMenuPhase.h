@@ -2,17 +2,17 @@
 
 namespace Gfx
 {
-    class MainMenuPhase
+    class CMainMenuPhase
     {
     public:
-        static MainMenuPhase& GetInstance()
+        static CMainMenuPhase& GetInstance()
         {
-            static MainMenuPhase instance;
+            static CMainMenuPhase instance;
             return instance;
         };
 
-        MainMenuPhase(const MainMenuPhase&) = delete;
-        MainMenuPhase& operator = (const MainMenuPhase&) = delete;
+        CMainMenuPhase(const CMainMenuPhase&) = delete;
+        CMainMenuPhase& operator = (const CMainMenuPhase&) = delete;
 
     public:
         void OnEnter();
@@ -20,7 +20,7 @@ namespace Gfx
         void OnLeave();
 
     private:
-        MainMenuPhase()
+        CMainMenuPhase()
         {};
 
     };

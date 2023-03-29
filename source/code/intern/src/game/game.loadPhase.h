@@ -4,20 +4,20 @@
 
 namespace Game
 {
-	class LoadPhase : public Phase
+	class CLoadPhase : public CPhase
 	{
 	public:
-		static LoadPhase& GetInstance()
+		static CLoadPhase& GetInstance()
 		{
-			static LoadPhase instance;
+			static CLoadPhase instance;
 			return instance;
 		};
 
-		LoadPhase(const LoadPhase&) = delete;
-		LoadPhase& operator = (const LoadPhase&) = delete;
+		CLoadPhase(const CLoadPhase&) = delete;
+		CLoadPhase& operator = (const CLoadPhase&) = delete;
 
 	private:
-		LoadPhase()
+		CLoadPhase()
 		{};
 
 		int counter = 0;

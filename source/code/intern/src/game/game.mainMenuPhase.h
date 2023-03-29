@@ -4,20 +4,20 @@
 
 namespace Game
 {
-	class MainMenuPhase : public Phase
+	class CMainMenuPhase : public CPhase
 	{
 	public:
-		static MainMenuPhase& GetInstance()
+		static CMainMenuPhase& GetInstance()
 		{
-			static MainMenuPhase instance;
+			static CMainMenuPhase instance;
 			return instance;
 		};
 
-		MainMenuPhase(const MainMenuPhase&) = delete;
-		MainMenuPhase& operator = (const MainMenuPhase&) = delete;
+		CMainMenuPhase(const CMainMenuPhase&) = delete;
+		CMainMenuPhase& operator = (const CMainMenuPhase&) = delete;
 
 	private:
-		MainMenuPhase()
+		CMainMenuPhase()
 		{};
 
 		int counter = 0;

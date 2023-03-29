@@ -12,18 +12,18 @@
 
 namespace Game
 {
-	int StartupPhase::InternOnEnter()
+	int CStartupPhase::InternOnEnter()
 	{
 		std::cout << "Game::StartupPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
-		Data::StartupPhase::GetInstance().OnEnter();
+		Data::CStartupPhase::GetInstance().OnEnter();
 		Gfx::StartupPhase::GetInstance().OnEnter();
 		Gui::StartupPhase::GetInstance().OnEnter();
 		Logic::StartupPhase::GetInstance().OnEnter();
 		return 0;
 	}
 
-	int StartupPhase::InternOnRun()
+	int CStartupPhase::InternOnRun()
 	{
 		std::cout << "Game::StartupPhase::InternOnRun counter= " << counter << std::endl;
 		std::cout << "------------------------" << std::endl;
@@ -34,7 +34,7 @@ namespace Game
 			tinyxml2::XMLDocument* doc =  new tinyxml2::XMLDocument;
 			doc->LoadFile("../code/intern/src/data/meta_entity.xml");
 
-			Data::StartupPhase::GetInstance().OnRun(*doc);
+			Data::CStartupPhase::GetInstance().OnRun(*doc);
 			Gfx::StartupPhase::GetInstance().OnRun(*doc);
 			Gui::StartupPhase::GetInstance().OnRun();
 			Logic::StartupPhase::GetInstance().OnRun();
@@ -48,9 +48,9 @@ namespace Game
 		return Type::STARTUP;
 	}
 
-	int StartupPhase::InternOnLeave()
+	int CStartupPhase::InternOnLeave()
 	{
-		Data::StartupPhase:: GetInstance().OnLeave();
+		Data::CStartupPhase:: GetInstance().OnLeave();
 		Gfx::StartupPhase::  GetInstance().OnLeave();
 		Gui::StartupPhase::  GetInstance().OnLeave();
 		Logic::StartupPhase::GetInstance().OnLeave();

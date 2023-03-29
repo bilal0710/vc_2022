@@ -2,17 +2,17 @@
 
 namespace Gui
 {
-    class PlayPhase
+    class CPlayPhase
     {
     public:
-        static PlayPhase& GetInstance()
+        static CPlayPhase& GetInstance()
         {
-            static PlayPhase instance;
+            static CPlayPhase instance;
             return instance;
         };
 
-        PlayPhase(const PlayPhase&) = delete;
-        PlayPhase& operator = (const PlayPhase&) = delete;
+        CPlayPhase(const CPlayPhase&) = delete;
+        CPlayPhase& operator = (const CPlayPhase&) = delete;
 
     public:
         void OnEnter();
@@ -20,7 +20,7 @@ namespace Gui
         void OnLeave();
 
     private:
-        PlayPhase()
+        CPlayPhase()
         {};
     };
 }

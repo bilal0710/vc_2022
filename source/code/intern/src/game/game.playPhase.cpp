@@ -5,7 +5,7 @@
 
 namespace Game
 {
-	int PlayPhase::InternOnEnter()
+	int CPlayPhase::InternOnEnter()
 	{
 		std::cout << "PlayPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
@@ -14,7 +14,7 @@ namespace Game
 		return 0;
 	}
 
-	int PlayPhase::InternOnRun()
+	int CPlayPhase::InternOnRun()
 	{
 		std::cout << "PlayPhase::InternOnRun counter= " << counter << std::endl;
 		std::cout << "------------------------" << std::endl;
@@ -34,7 +34,7 @@ namespace Game
 		return Type::PLAY;
 	}
 
-	int PlayPhase::InternOnLeave()
+	int CPlayPhase::InternOnLeave()
 	{
 		std::cout << "PlayPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;

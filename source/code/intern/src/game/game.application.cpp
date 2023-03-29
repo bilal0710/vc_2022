@@ -12,30 +12,30 @@
 
 namespace Game
 {
-	Application::Application()
-		: m_IndexOfCurrentPhase(Phase::Undefined),
+	CApplication::CApplication()
+		: m_IndexOfCurrentPhase(CPhase::Undefined),
 		m_pPhases{
-		 &StartupPhase::GetInstance(),
-		 &MainMenuPhase::GetInstance(),
-		 &LoadPhase::GetInstance(),
-		 &PlayPhase::GetInstance(),
-		 &UnloadPhase::GetInstance(),
-		 &ShutdownPhase::GetInstance()
+		 &CStartupPhase::GetInstance(),
+		 &CMainMenuPhase::GetInstance(),
+		 &CLoadPhase::GetInstance(),
+		 &CPlayPhase::GetInstance(),
+		 &CUnloadPhase::GetInstance(),
+		 &CShutdownPhase::GetInstance()
 		}
 	{
 
 	}
 
-	void Application::Initialize() {
+	void CApplication::Initialize() {
 		std::cout << "Application -> Initialize" << std::endl;
 		std::cout << "------------------------" << std::endl;
 
-		m_IndexOfCurrentPhase = Phase::STARTUP;
+		m_IndexOfCurrentPhase = CPhase::STARTUP;
 		m_pPhases[m_IndexOfCurrentPhase]->OnEnter();
 		 
 	}
 
-	void Application::Run()
+	void CApplication::Run()
 	{
 		std::cout << "Application -> Run" << std::endl;
 		std::cout << "------------------------" << std::endl;
@@ -51,16 +51,16 @@ namespace Game
 		}
 	}
 
-	void Application::Finalize()
+	void CApplication::Finalize()
 	{
 		std::cout << "Application -> Finalize" << std::endl;
 	}
 
-	bool Application::RunPhase()
+	bool CApplication::RunPhase()
 	{
 		std::cout << "------------------------" << std::endl;
 
-		Phase* pCurrentPhase = m_pPhases[m_IndexOfCurrentPhase];
+		CPhase* pCurrentPhase = m_pPhases[m_IndexOfCurrentPhase];
 		assert(pCurrentPhase != nullptr);
 
 		int indexOfNextPhase = pCurrentPhase->OnRun();
@@ -69,7 +69,7 @@ namespace Game
 		{
 			pCurrentPhase->OnLeave();
 
-			if (m_IndexOfCurrentPhase == Phase::SHUTDOWN)
+			if (m_IndexOfCurrentPhase == CPhase::SHUTDOWN)
 			{
 				return false;
 			}
@@ -91,7 +91,7 @@ namespace Game
 
 int main()
 {
-	Game::Application& application = Game::Application::GetInstance();
+	Game::CApplication& application = Game::CApplication::GetInstance();
 	application.Initialize();
 
 	application.Run();

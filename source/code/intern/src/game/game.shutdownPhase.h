@@ -4,20 +4,20 @@
 
 namespace Game
 {
-	class ShutdownPhase : public Phase
+	class CShutdownPhase : public CPhase
 	{
 	public:
-		static ShutdownPhase& GetInstance()
+		static CShutdownPhase& GetInstance()
 		{
-			static ShutdownPhase instance;
+			static CShutdownPhase instance;
 			return instance;
 		};
 
-		ShutdownPhase(const ShutdownPhase&) = delete;
-		ShutdownPhase& operator = (const ShutdownPhase&) = delete;
+		CShutdownPhase(const CShutdownPhase&) = delete;
+		CShutdownPhase& operator = (const CShutdownPhase&) = delete;
 
 	private:
-		ShutdownPhase()
+		CShutdownPhase()
 		{};
 
 		int counter = 0;

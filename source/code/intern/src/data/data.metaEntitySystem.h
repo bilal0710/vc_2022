@@ -8,30 +8,30 @@
 using namespace Core;
 namespace Data
 {
-	class MetaEntitySystem
+	class CMetaEntitySystem
 	{
 	public:
-		static MetaEntitySystem& GetInstance()
+		static CMetaEntitySystem& GetInstance()
 		{
-			static MetaEntitySystem instance;
+			static CMetaEntitySystem instance;
 			return instance;
 		};
 
-		MetaEntitySystem(const MetaEntitySystem&) = delete;
-		MetaEntitySystem& operator = (const MetaEntitySystem&) = delete;
+		CMetaEntitySystem(const CMetaEntitySystem&) = delete;
+		CMetaEntitySystem& operator = (const CMetaEntitySystem&) = delete;
 
 	private:
-		MetaEntitySystem()
+		CMetaEntitySystem()
 		{};
 
 	public:
 		void Initialize(tinyxml2::XMLDocument& doc);
-		MetaEntity& CreateMetaEntity(const string _pName);
-		MetaEntity& GetMetaEntity(CIDManager::BID _ID);
+		CMetaEntity& CreateMetaEntity(const string _pName);
+		CMetaEntity& GetMetaEntity(CIDManager::BID _ID);
 		void DestroyAllMetaEntities();
 		bool ContainsMetaEntity(string& _pName);
 
-		MetaEntity& SearchMetaEntity(std::string name);
+		CMetaEntity& SearchMetaEntity(std::string name);
 
 		bool ContainsMetaEntity(std::string name);
 
@@ -39,7 +39,7 @@ namespace Data
 
 	private:
 		Core::CIDManager m_idManger;
-		Core::CItemManager <MetaEntity> m_itemManager;
+		Core::CItemManager <CMetaEntity> m_itemManager;
 	
 	};
 

@@ -6,13 +6,13 @@ using namespace std;
 
 namespace Data
 {
-	class MetaEntity
+	class CMetaEntity
 	{
 	public:
-		MetaEntity(int _id, string _name, float _size);
+		CMetaEntity(int _id, string _name, float _size);
 			
 
-		MetaEntity();
+		CMetaEntity();
 
 
 	public:

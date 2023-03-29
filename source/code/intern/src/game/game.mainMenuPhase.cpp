@@ -6,7 +6,7 @@
 
 namespace Game
 {
-	int MainMenuPhase::InternOnEnter()
+	int CMainMenuPhase::InternOnEnter()
 	{
 		std::cout << "MainMenuPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
@@ -16,7 +16,7 @@ namespace Game
 
 	}
 
-	int MainMenuPhase::InternOnRun()
+	int CMainMenuPhase::InternOnRun()
 	{
 		std::cout << "MainMenuPhase::InternOnRun counter= " << counter << std::endl;
 		std::cout << "------------------------" << std::endl;
@@ -34,7 +34,7 @@ namespace Game
 		return Type::MAIN_MENU;
 	}
 
-	int MainMenuPhase::InternOnLeave()
+	int CMainMenuPhase::InternOnLeave()
 	{
 		std::cout << "MainMenuPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;

@@ -6,16 +6,16 @@
 
 namespace Data
 {
-    void ShutdownPhase::OnEnter()
+    void CShutdownPhase::OnEnter()
     {}
 
-    void ShutdownPhase::OnRun()
+    void CShutdownPhase::OnRun()
     {
         std::cout << "DATA::SHUTDOWN::Run::Clearing MetaEntity System" << std::endl;
 
        // MetaEntitySystem::GetInstance().DestoryAllMetaEntities();
     }
 
-    void ShutdownPhase::OnLeave()
+    void CShutdownPhase::OnLeave()
     {}
 }

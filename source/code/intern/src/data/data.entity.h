@@ -36,7 +36,7 @@ namespace Data
         Core::CVector3<float> position;
         Core::CVector3<float> size;
         Core::CAABB3<float> aabb;
-        MetaEntity* metaEntity;
+        CMetaEntity* metaEntity;
 
     private:
 

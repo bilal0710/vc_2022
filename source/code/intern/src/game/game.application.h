@@ -4,22 +4,22 @@
 
 namespace Game
 {
-	class Application
+	class CApplication
 	{
 	public:
-		static Application& GetInstance() {
-			static Application instance;
+		static CApplication& GetInstance() {
+			static CApplication instance;
 			return instance;
 		}
-		Application(const Application&) = delete;
-		Application& operator =(const Application&) = delete;
+		CApplication(const CApplication&) = delete;
+		CApplication& operator =(const CApplication&) = delete;
 
 	private:
-		Application();
+		CApplication();
 
 	private:
 		int m_IndexOfCurrentPhase;
-		Phase* m_pPhases[Phase::NumberOfTypes];
+		CPhase* m_pPhases[CPhase::NumberOfTypes];
 
 	public:
 		void Initialize();

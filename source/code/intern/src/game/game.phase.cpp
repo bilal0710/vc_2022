@@ -1,16 +1,16 @@
 #include "game.phase.h"
 
-int Game::Phase::OnEnter()
+int Game::CPhase::OnEnter()
 {
 	return InternOnEnter();
 }
 
-int Game::Phase::OnRun()
+int Game::CPhase::OnRun()
 {
 	return InternOnRun();
 }
 
-int Game::Phase::OnLeave()
+int Game::CPhase::OnLeave()
 {
 	return InternOnLeave();
 }

@@ -7,7 +7,7 @@
 
 namespace Game
 {
-	int UnloadPhase::InternOnEnter()
+	int CUnloadPhase::InternOnEnter()
 	{
 		std::cout << "UnloadPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
@@ -17,7 +17,7 @@ namespace Game
 		return 0;
 	}
 
-	int UnloadPhase::InternOnRun()
+	int CUnloadPhase::InternOnRun()
 	{
 		std::cout << "UnloadPhase::InternOnRun counter= " << counter << std::endl;
 		std::cout << "------------------------" << std::endl;
@@ -38,7 +38,7 @@ namespace Game
 		return Type::UNLOAD_MAP;
 	}
 
-	int UnloadPhase::InternOnLeave()
+	int CUnloadPhase::InternOnLeave()
 	{
 		std::cout << "UnloadPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;

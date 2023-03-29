@@ -14,11 +14,11 @@ using namespace tinyxml2;
 
 namespace Data
 {
-    int EntitySystem::Initialize(tinyxml2::XMLDocument& doc)
+    int CEntitySystem::Initialize(tinyxml2::XMLDocument& doc)
     {
         int entityCount = 0;
 
-        Data::MetaEntitySystem& metaEntitySystem = Data::MetaEntitySystem::GetInstance();
+        Data::CMetaEntitySystem& metaEntitySystem = Data::CMetaEntitySystem::GetInstance();
 
         XMLElement* entities = doc.FirstChildElement("entities");
         XMLElement* xmlEntity = entities->FirstChildElement("entity");
@@ -34,7 +34,7 @@ namespace Data
 
             std::string metaEntityName = xmlEntity->FindAttribute("meta-entity")->Value();
             auto id = metaEntitySystem.GetMetaEntityID(metaEntityName);
-            Data::MetaEntity& metaEntity = metaEntitySystem.GetMetaEntity(id);
+            Data::CMetaEntity& metaEntity = metaEntitySystem.GetMetaEntity(id);
 
             XMLElement* dataElement = xmlEntity->FirstChildElement("data");
 
@@ -76,45 +76,45 @@ namespace Data
         return entityCount;
     }
 
-    std::vector<Data::Entity*> EntitySystem::GetAllEntities()
+    std::vector<Data::Entity*> CEntitySystem::GetAllEntities()
     {
         return itemManager.GetAllItems();
     }
 
-    Entity& EntitySystem::CreateEntity(std::string name)
+    Entity& CEntitySystem::CreateEntity(std::string name)
     {
         Core::CIDManager::BID id = idManager.Register(name);
 
         return itemManager.CreateItem(id);
     }
 
-    void EntitySystem::DestroyEntity(Entity& entity)
+    void CEntitySystem::DestroyEntity(Entity& entity)
     {
         throw std::logic_error("Not Implemented");
     }
 
-    void EntitySystem::DestoryAllEntities()
+    void CEntitySystem::DestoryAllEntities()
     {
         itemManager.Clear();
         idManager.Clear();
     }
 
-    Entity& EntitySystem::SearchEntity(std::string name)
+    Entity& CEntitySystem::SearchEntity(std::string name)
     {
         return itemManager.GetItem(idManager.GetIDByName(name));
     }
 
-    Entity& EntitySystem::GetEntity(Core::CIDManager::BID id)
+    Entity& CEntitySystem::GetEntity(Core::CIDManager::BID id)
     {
         return itemManager.GetItem(id);
     }
 
-    bool EntitySystem::ContainsEntity(std::string name)
+    bool CEntitySystem::ContainsEntity(std::string name)
     {
         return idManager.ContainsName(name);
     }
 
-    Core::CIDManager::BID EntitySystem::GetEntityID(std::string name)
+    Core::CIDManager::BID CEntitySystem::GetEntityID(std::string name)
     {
         return idManager.GetIDByName(name);
     }

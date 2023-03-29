@@ -9,7 +9,7 @@ using namespace tinyxml2;
 
 namespace Data
 {
-	void MetaEntitySystem::Initialize(tinyxml2::XMLDocument& doc)
+	void CMetaEntitySystem::Initialize(tinyxml2::XMLDocument& doc)
 	{
 
 		XMLElement* metaEntities = doc.FirstChildElement("meta-entities");
@@ -50,7 +50,7 @@ namespace Data
 				)
 			);
 
-			MetaEntity& newMetaEntity = CreateMetaEntity(name);
+			CMetaEntity& newMetaEntity = CreateMetaEntity(name);
 			newMetaEntity.name = name;
 			newMetaEntity.size = size;
 			newMetaEntity.aabb = aabb;
@@ -64,43 +64,43 @@ namespace Data
 		}
 
 	}
-	MetaEntity& MetaEntitySystem::CreateMetaEntity(const string _pName)
+	CMetaEntity& CMetaEntitySystem::CreateMetaEntity(const string _pName)
 	{
 		CIDManager::BID id = m_idManger.Register(_pName);
-		MetaEntity& metaEntity = m_itemManager.CreateItem(id);
+		CMetaEntity& metaEntity = m_itemManager.CreateItem(id);
 
 		return metaEntity;
 
 	}
 
-	MetaEntity& MetaEntitySystem::GetMetaEntity(CIDManager::BID _ID)
+	CMetaEntity& CMetaEntitySystem::GetMetaEntity(CIDManager::BID _ID)
 	{
 		return m_itemManager.GetItem(_ID);	
 	
 	}
 
-	void MetaEntitySystem::DestroyAllMetaEntities()
+	void CMetaEntitySystem::DestroyAllMetaEntities()
 	{
 		m_idManger.Clear();
 		m_itemManager.Clear();
 	}
 
-	bool MetaEntitySystem::ContainsMetaEntity(string& _pName)
+	bool CMetaEntitySystem::ContainsMetaEntity(string& _pName)
 	{
 		return m_idManger.ContainsName(_pName);;
 	}
 
-	MetaEntity& MetaEntitySystem::SearchMetaEntity(std::string name)
+	CMetaEntity& CMetaEntitySystem::SearchMetaEntity(std::string name)
 	{
 		return m_itemManager.GetItem(m_idManger.GetIDByName(name));
 	}
 
-	bool MetaEntitySystem::ContainsMetaEntity(std::string name)
+	bool CMetaEntitySystem::ContainsMetaEntity(std::string name)
 	{
 		return m_idManger.ContainsName(name);
 	}
 
-	Core::CIDManager::BID MetaEntitySystem::GetMetaEntityID(std::string name)
+	Core::CIDManager::BID CMetaEntitySystem::GetMetaEntityID(std::string name)
 	{
 		return m_idManger.GetIDByName(name);
 	}

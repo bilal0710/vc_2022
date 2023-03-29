@@ -12,19 +12,19 @@ using namespace tinyxml2;
 
 namespace Game
 {
-	int LoadPhase::InternOnEnter()
+	int CLoadPhase::InternOnEnter()
 	{
 		std::cout << "LoadPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
 
-		Data::LoadPhase::GetInstance().OnEnter();
+		Data::CLoadPhase::GetInstance().OnEnter();
 		Gfx::LoadPhase::GetInstance().OnEnter();
 		Gui::LoadPhase::GetInstance().OnEnter();
 		Logic::LoadPhase::GetInstance().OnEnter();
 		return 0;
 	}
 
-	int LoadPhase::InternOnRun()
+	int CLoadPhase::InternOnRun()
 	{
 		std::cout << "LoadPhase::InternOnRun counter= " << counter << std::endl;
 		std::cout << "------------------------" << std::endl;
@@ -38,7 +38,7 @@ namespace Game
 			XMLDocument doc;
 			doc.LoadFile("../bin/map-1.xml");
 
-			Data::LoadPhase::GetInstance().OnRun(doc);
+			Data::CLoadPhase::GetInstance().OnRun(doc);
 			Gfx::LoadPhase::GetInstance().  OnRun();
 			Gui::LoadPhase::GetInstance().  OnRun();
 			Logic::LoadPhase::GetInstance().OnRun();
@@ -50,11 +50,11 @@ namespace Game
 		return Type::LOAD_MAP;
 	}
 
-	int LoadPhase::InternOnLeave()
+	int CLoadPhase::InternOnLeave()
 	{
 		std::cout << "LoadPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;
-		Data::LoadPhase::GetInstance().OnLeave();
+		Data::CLoadPhase::GetInstance().OnLeave();
 		Gfx::LoadPhase::GetInstance().  OnLeave();
 		Gui::LoadPhase::GetInstance().  OnLeave();
 		Logic::LoadPhase::GetInstance().OnLeave();

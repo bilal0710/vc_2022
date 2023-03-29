@@ -1,5 +1,5 @@
 #pragma once
-
+#include <SFML/Graphics.hpp>
 #include "tinyxml2.h"
 
 namespace Gfx
@@ -15,6 +15,7 @@ namespace Gfx
 
         CStartupPhase(const CStartupPhase&) = delete;
         CStartupPhase& operator = (const CStartupPhase&) = delete;
+        sf::RenderWindow window;
 
     public:
         void OnEnter();

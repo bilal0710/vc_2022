@@ -1,4 +1,5 @@
 #include "gfx.playPhase.h"
+#include "gfx.startupPhase.h"
 #include <iostream>
 #include <vector>
 
@@ -26,19 +27,19 @@ namespace Gfx
 		std::cout << "------------------------" << std::endl;
 
 		int timer = 0;
-        // create the window
-    	sf::RenderWindow window(sf::VideoMode(1200, 900), "Bilal Alnaani Application");
+   
 
        /* Game::CApplication& app = Game::CApplication::GetInstance();*/
 
         // TODO: This needs to be replaced by the actual entity system instead of meta entities
         //Data::CMetaEntitySystem& metaEntitySystem = Data::CMetaEntitySystem::GetInstance();
+        CStartupPhase& startupPhase = CStartupPhase :: GetInstance();
 
         Data::CEntitySystem& entitySystem = Data::CEntitySystem::GetInstance();
         auto entities = entitySystem.GetAllEntities();
 
         // clear the app.m_window with black color
-        window.clear(sf::Color::Black);
+        startupPhase.window.clear(sf::Color::Black);
 
         for (auto& entity : entities)
         {
@@ -63,15 +64,15 @@ namespace Gfx
 
             
 
-			while (window.isOpen())
+			while (startupPhase.window.isOpen())
 			{
 				// check all the window's events that were triggered since the last iteration of the loop
 				sf::Event event;
-				while (window.pollEvent(event))
+				while (startupPhase.window.pollEvent(event))
 				{
 					// "close requested" event: we close the window
 					if (event.type == sf::Event::Closed)
-						window.close();
+                        startupPhase.window.close();
 				}
 
 
@@ -79,10 +80,10 @@ namespace Gfx
 				//window.clear(sf::Color::Black);
 
 				// draw everything here...
-				window.draw(sprite);
+                startupPhase.window.draw(sprite);
 
 				// end the current frame
-				window.display();
+                startupPhase.window.display();
 
 				timer++;
 			}
@@ -90,7 +91,7 @@ namespace Gfx
         }
 
         // end the current frame and display everything drawn
-        window.display();
+        startupPhase.window.display();
 
     }
 

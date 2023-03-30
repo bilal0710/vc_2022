@@ -36,7 +36,7 @@ namespace Game
 		{
 
 			XMLDocument* doc = new XMLDocument;;
-			doc -> LoadFile("../bin/map-1.xml");
+			doc -> LoadFile("../bin/map.xml");
 
 			Data::CLoadPhase::GetInstance().OnRun(*doc);
 			Gfx::CLoadPhase::GetInstance().  OnRun();

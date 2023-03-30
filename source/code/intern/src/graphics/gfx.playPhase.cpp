@@ -29,14 +29,15 @@ namespace Gfx
 
         // TODO: This needs to be replaced by the actual entity system instead of meta entities
         //Data::CMetaEntitySystem& metaEntitySystem = Data::CMetaEntitySystem::GetInstance();
+
         CStartupPhase& startupPhase = CStartupPhase :: GetInstance();
 
         Data::CEntitySystem& entitySystem = Data::CEntitySystem::GetInstance();
         auto entities = entitySystem.GetAllEntities();
 
         // clear the app.m_window with black color
-        startupPhase.window.clear(sf::Color::Black);
-        int counter = 0;
+        startupPhase.window.clear(sf::Color(44,144,193,255));
+    
 
         for (auto& entity : entities)
         {
@@ -45,6 +46,11 @@ namespace Gfx
             sf::Sprite sprite;
             sprite.setTexture(*texturePtr);
             sprite.setPosition(entity->position[0], entity->position[1]);
+
+            if (entity->metaEntity->name == "dirt") {
+                std::cout << "x" << entity->metaEntity->name << std::endl;
+                sprite.setPosition(entity->position[0] + 64, entity->position[1] + 64);
+            }
 			
 
             assert(texturePtr != nullptr);
@@ -52,6 +58,9 @@ namespace Gfx
             // factor in the texture size
             float xScale = entity->metaEntity->aabb.GetMax()[0] - entity->metaEntity->aabb.GetMin()[0];
             float yScale = entity->metaEntity->aabb.GetMax()[1] - entity->metaEntity->aabb.GetMin()[1];
+
+            std::cout << "x" << texturePtr->getSize().x << std::endl;
+            std::cout << "x" << texturePtr->getSize().y << std::endl;
 
             float xSpriteScale = xScale / texturePtr->getSize().x;
             float ySpriteScale = yScale / texturePtr->getSize().y;

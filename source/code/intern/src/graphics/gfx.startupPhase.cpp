@@ -15,7 +15,7 @@ void Gfx::CStartupPhase::OnEnter()
 {
 	std::cout << "Gfx::StartupPhase::OnEnter" << std::endl;
 	// create the window
-	window.create(sf::VideoMode(1200, 900), "Bilal Alnaani Application");
+	window.create(sf::VideoMode(1900, 896), "Bilal Alnaani Application");
 }
 
 void Gfx::CStartupPhase::OnRun(XMLDocument& doc)

@@ -44,7 +44,10 @@ void Gfx::CStartupPhase::OnRun(XMLDocument& doc)
 
 		
 		sf::Texture* texture = new sf::Texture();
-		if (texture->loadFromFile("ground.jpg"))
+		
+		std::cout << texturePath << std::endl;
+
+		if (texture->loadFromFile(texturePath))
 		{
 			std::cout << "Gfx::texture" << std::endl;
 			metaEntity.facetes[0] = texture;

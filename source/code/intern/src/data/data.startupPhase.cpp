@@ -1,4 +1,4 @@
-#include "data.startupPhase.h"
+ #include "data.startupPhase.h"
 #include "data.metaEntitySystem.h"
 #include <iostream>
 

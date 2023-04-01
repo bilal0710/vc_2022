@@ -49,7 +49,7 @@ namespace Gfx
 
             if (entity->metaEntity->name == "dirt") {
                 std::cout << "x" << entity->metaEntity->name << std::endl;
-                sprite.setPosition(entity->position[0] + 64, entity->position[1] + 64);
+                sprite.setPosition(entity->position[0] + 64, entity->position[1] );
             }
 			
 
@@ -59,8 +59,7 @@ namespace Gfx
             float xScale = entity->metaEntity->aabb.GetMax()[0] - entity->metaEntity->aabb.GetMin()[0];
             float yScale = entity->metaEntity->aabb.GetMax()[1] - entity->metaEntity->aabb.GetMin()[1];
 
-            std::cout << "x" << texturePtr->getSize().x << std::endl;
-            std::cout << "x" << texturePtr->getSize().y << std::endl;
+         
 
             float xSpriteScale = xScale / texturePtr->getSize().x;
             float ySpriteScale = yScale / texturePtr->getSize().y;

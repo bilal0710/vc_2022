@@ -275,6 +275,18 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
+  <entity name="ground_14_4" meta-entity="dirt">
+    <data>
+      <type>1</type>
+      <position>896.0;512.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canMove>false</canMove>
+      <canCollide>true</canCollide>
+      <isFinish>false</isFinish>
+    </logic>
+  </entity>
   <entity name="wall_18_4" meta-entity="ground">
     <data>
       <type>1</type>

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <meta-entities>
-  <meta-entity name="ground_stone">
+  <meta-entity name="ground">
     <data>
       <size value="16.4"/>
-      <aabb minCorner="0.0;0.0;0.0" maxCorner="64.0;64.0;0.0"></aabb>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="128.0;128.0;0.0"></aabb>
     </data>
 
     <logic>
@@ -11,7 +11,7 @@
     </logic>
 
     <graphics>
-      <texture value="test.jpg"/>
+      <texture value="ground.jpg"/>
     </graphics>
     <graphics>
     </graphics>
@@ -19,7 +19,7 @@
   <meta-entity name="dirt">
     <data>
       <size value="16.4"/>
-      <aabb minCorner="0.0;0.0;0.0" maxCorner="64.0;64.0;0.0"></aabb>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="96.0;96.0;0.0"></aabb>
     </data>
 
     <logic>
@@ -33,7 +33,7 @@
   <meta-entity name="player">
     <data>
       <size value="0.0"/>
-      <aabb minCorner="0.0;0.0;0.0" maxCorner="57.0;70.0;0.0"></aabb>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="100.0;128.0;0.0"></aabb>
     </data>
 
     <logic>
@@ -41,13 +41,13 @@
     </logic>
 
     <graphics>
-      <texture value="character.png"/>
+      <texture value="mario.png"/>
     </graphics>
   </meta-entity>
   <meta-entity name="finish">
     <data>
       <size value="0.0"/>
-      <aabb minCorner="0.0;0.0;0.0" maxCorner="64.0;64.0;0.0"></aabb>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="128.0;128.0;0.0"></aabb>
     </data>
 
     <logic>
@@ -56,6 +56,20 @@
 
     <graphics>
       <texture value="finish.png"/>
+    </graphics>
+  </meta-entity>
+  <meta-entity name="cloud">
+    <data>
+      <size value="16.4"/>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="128.0;128.0;0.0"></aabb>
+    </data>
+
+    <logic>
+      <can-move value="false"/>
+    </logic>
+
+    <graphics>
+      <texture value="cloud.jpg"/>
     </graphics>
   </meta-entity>
 </meta-entities>

@@ -44,12 +44,12 @@ void Gfx::CStartupPhase::OnRun(XMLDocument& doc)
 
 		
 		sf::Texture* texture = new sf::Texture();
-		
-		std::cout << texturePath << std::endl;
+	
 
 		if (texture->loadFromFile(texturePath))
 		{
 			std::cout << "Gfx::texture" << std::endl;
+			texture->setSmooth(true);
 			metaEntity.facetes[0] = texture;
 		}
 

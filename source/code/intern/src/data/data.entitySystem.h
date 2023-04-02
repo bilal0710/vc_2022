@@ -21,22 +21,22 @@ namespace Data
         CEntitySystem& operator = (const CEntitySystem&) = delete;
 
     public:
-        int Initialize(tinyxml2::XMLDocument& doc);
+        int Initialize(tinyxml2::XMLDocument& _rMapEntity);
         std::vector<Data::Entity*> GetAllEntities();
-        Entity& CreateEntity(std::string name);
+        Entity& CreateEntity(std::string _Name);
         void DestroyEntity();
         void DestoryAllEntities();
-        Entity& SearchEntity(std::string name);
-        Entity& GetEntity(Core::CIDManager::BID id);
-        bool ContainsEntity(std::string name);
-        Core::CIDManager::BID GetEntityID(std::string name);
+        Entity& SearchEntity(std::string _Name);
+        Entity& GetEntity(Core::CIDManager::BID _Id);
+        bool ContainsEntity(std::string _Name);
+        Core::CIDManager::BID GetEntityID(std::string _Name);
 
     private:
         CEntitySystem()
         {};
 
     private:
-        Core::CIDManager idManager;
-        Core::CItemManager<Entity> itemManager;
+        Core::CIDManager m_IdManager;
+        Core::CItemManager<Entity> m_ItemManager;
     };
 }

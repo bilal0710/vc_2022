@@ -9,10 +9,10 @@ using namespace tinyxml2;
 
 namespace Data
 {
-	void CMetaEntitySystem::Initialize(tinyxml2::XMLDocument& rMetaEntityDoc)
+	void CMetaEntitySystem::Initialize(tinyxml2::XMLDocument& _rMetaEntityDoc)
 	{
 
-		XMLElement* pMetaEntities = rMetaEntityDoc.FirstChildElement("meta-entities");
+		XMLElement* pMetaEntities = _rMetaEntityDoc.FirstChildElement("meta-entities");
 		XMLElement* pMetaEntity = pMetaEntities->FirstChildElement("meta-entity");
 
 		for (;;)
@@ -79,19 +79,19 @@ namespace Data
 		m_ItemManager.Clear();
 	}
 
-	bool CMetaEntitySystem::ContainsMetaEntity(string& _pName)
+	bool CMetaEntitySystem::ContainsMetaEntity(string& _rName)
 	{
-		return m_IdManger.ContainsName(_pName);;
+		return m_IdManger.ContainsName(_rName);;
 	}
 
-	CMetaEntity& CMetaEntitySystem::SearchMetaEntity(std::string name)
+	CMetaEntity& CMetaEntitySystem::SearchMetaEntity(std::string _Name)
 	{
-		return m_ItemManager.GetItem(m_IdManger.GetIDByName(name));
+		return m_ItemManager.GetItem(m_IdManger.GetIDByName(_Name));
 	}
 
-	bool CMetaEntitySystem::ContainsMetaEntity(std::string name)
+	bool CMetaEntitySystem::ContainsMetaEntity(std::string _Name)
 	{
-		return m_IdManger.ContainsName(name);
+		return m_IdManger.ContainsName(_Name);
 	}
 
 	Core::CIDManager::BID CMetaEntitySystem::GetMetaEntityID(std::string name)

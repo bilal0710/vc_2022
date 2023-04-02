@@ -25,17 +25,17 @@ namespace Data
 		{};
 
 	public:
-		void Initialize(tinyxml2::XMLDocument& doc);
-		CMetaEntity& CreateMetaEntity(const string _pName);
+		void Initialize(tinyxml2::XMLDocument& _rMetaEntity);
+		CMetaEntity& CreateMetaEntity(const string _Name);
 		CMetaEntity& GetMetaEntity(CIDManager::BID _ID);
 		void DestroyAllMetaEntities();
-		bool ContainsMetaEntity(string& _pName);
+		bool ContainsMetaEntity(string& _rName);
 
-		CMetaEntity& SearchMetaEntity(std::string name);
+		CMetaEntity& SearchMetaEntity(std::string _Name);
 
-		bool ContainsMetaEntity(std::string name);
+		bool ContainsMetaEntity(std::string _Name);
 
-		Core::CIDManager::BID GetMetaEntityID(std::string name);
+		Core::CIDManager::BID GetMetaEntityID(std::string _Name);
 
 	private:
 		Core::CIDManager m_IdManger;

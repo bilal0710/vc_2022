@@ -11,11 +11,11 @@ namespace Data
     void CLoadPhase::OnEnter()
     {}
 
-    void CLoadPhase::OnRun(tinyxml2::XMLDocument& doc)
+    void CLoadPhase::OnRun(tinyxml2::XMLDocument& _rMapEntity)
     {
         std::cout << "DATA::LOAD::Run" << std::endl;
 
-        int entityCount = CEntitySystem::GetInstance().Initialize(doc);
+        int entityCount = CEntitySystem::GetInstance().Initialize(_rMapEntity);
 
         std::cout << "DATA::LOAD::Run " << entityCount << " Entities initialized" << std::endl;
     }

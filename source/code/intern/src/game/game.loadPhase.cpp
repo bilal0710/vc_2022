@@ -35,10 +35,10 @@ namespace Game
 		if (counter > 4)
 		{
 
-			XMLDocument* doc = new XMLDocument;;
-			doc -> LoadFile("../bin/map.xml");
+			XMLDocument* pMapEntity = new XMLDocument;;
+			pMapEntity -> LoadFile("../bin/map.xml");
 
-			Data::CLoadPhase::GetInstance().OnRun(*doc);
+			Data::CLoadPhase::GetInstance().OnRun(*pMapEntity);
 			Gfx::CLoadPhase::GetInstance().  OnRun();
 			Gui::CLoadPhase::GetInstance().  OnRun();
 			Logic::CLoadPhase::GetInstance().OnRun();

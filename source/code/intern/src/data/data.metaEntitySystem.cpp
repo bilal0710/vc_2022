@@ -94,9 +94,9 @@ namespace Data
 		return m_IdManger.ContainsName(_Name);
 	}
 
-	Core::CIDManager::BID CMetaEntitySystem::GetMetaEntityID(std::string name)
+	Core::CIDManager::BID CMetaEntitySystem::GetMetaEntityID(std::string _Name)
 	{
-		return m_IdManger.GetIDByName(name);
+		return m_IdManger.GetIDByName(_Name);
 	}
 }
 

@@ -1,6 +1,7 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
-#include "tinyxml2.h"
+#include <tinyxml2.h>
 
 namespace Gfx
 {

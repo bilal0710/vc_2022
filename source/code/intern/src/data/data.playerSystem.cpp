@@ -7,9 +7,9 @@ namespace Data
         return m_pPlayer;
     }
 
-    void CPlayerSystem::SetPlayer(Entity* pPlayer)
+    void CPlayerSystem::SetPlayer(Entity* _pPlayer)
     {
-        m_pPlayer = pPlayer;
+        m_pPlayer = _pPlayer;
     }
 
 }

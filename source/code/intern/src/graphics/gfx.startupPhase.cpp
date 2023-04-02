@@ -18,13 +18,13 @@ void Gfx::CStartupPhase::OnEnter()
 	m_AppWindow.create(sf::VideoMode(1900, 896), "Bilal Alnaani Application");
 }
 
-void Gfx::CStartupPhase::OnRun(XMLDocument& rMetaEntityDoc)
+void Gfx::CStartupPhase::OnRun(XMLDocument& _rMetaEntityDoc)
 {
 	std::cout << "Gfx::StartupPhase::OnRun" << std::endl;
 
 	Data::CMetaEntitySystem& rMetaEntitySystem = Data::CMetaEntitySystem::GetInstance();
 
-	XMLElement* pMetaEntities = rMetaEntityDoc.FirstChildElement("meta-entities");
+	XMLElement* pMetaEntities = _rMetaEntityDoc.FirstChildElement("meta-entities");
 	XMLElement* pXMLMetaEntity = pMetaEntities->FirstChildElement("meta-entity");
 
 	for (;;)

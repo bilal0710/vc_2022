@@ -31,11 +31,11 @@ namespace Game
 		
 		if (counter > 4)
 		{
-			tinyxml2::XMLDocument* doc =  new tinyxml2::XMLDocument;
-			doc->LoadFile("../bin/meta_entity.xml");
+			tinyxml2::XMLDocument* pMetaEntityDoc =  new tinyxml2::XMLDocument;
+			pMetaEntityDoc->LoadFile("../bin/meta_entity.xml");
 
-			Data::CStartupPhase::GetInstance().OnRun(*doc);
-			Gfx::CStartupPhase::GetInstance().OnRun(*doc);
+			Data::CStartupPhase::GetInstance().OnRun(*pMetaEntityDoc);
+			Gfx::CStartupPhase::GetInstance().OnRun(*pMetaEntityDoc);
 			Gui::CStartupPhase::GetInstance().OnRun();
 			Logic::CStartupPhase::GetInstance().OnRun();
 

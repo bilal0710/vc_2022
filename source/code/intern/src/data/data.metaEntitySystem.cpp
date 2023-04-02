@@ -9,100 +9,94 @@ using namespace tinyxml2;
 
 namespace Data
 {
-	void CMetaEntitySystem::Initialize(tinyxml2::XMLDocument& doc)
+	void CMetaEntitySystem::Initialize(tinyxml2::XMLDocument& rMetaEntityDoc)
 	{
 
-		XMLElement* metaEntities = doc.FirstChildElement("meta-entities");
-		XMLElement* metaEntity = metaEntities->FirstChildElement("meta-entity");
-
-		//std::string name = metaEntity->FindAttribute("name")->Value();
-
-		//MetaEntity& newMetaEntity = MetaEntitySystem::CreateMetaEntity(name);
-
-		//newMetaEntity.name = name;
+		XMLElement* pMetaEntities = rMetaEntityDoc.FirstChildElement("meta-entities");
+		XMLElement* pMetaEntity = pMetaEntities->FirstChildElement("meta-entity");
 
 		for (;;)
 		{
-			if (metaEntity == nullptr)
+			if (pMetaEntity == nullptr)
 			{
 				break;
 			}
 
-			std::string name = metaEntity->FindAttribute("name")->Value();
+			std::string name = pMetaEntity->FindAttribute("name")->Value();
 
-			XMLElement* dataElement = metaEntity->FirstChildElement("data");
-			float size = dataElement->FirstChildElement("size")->FindAttribute("value")->FloatValue();
+			XMLElement* pDataElement = pMetaEntity->FirstChildElement("data");
+			float Size = pDataElement->FirstChildElement("size")->FindAttribute("value")->FloatValue();
 
-			auto minCornerStrings = Core::Explode(dataElement->FirstChildElement("aabb")->FindAttribute("minCorner")->Value(), ';');
-			auto maxCornerStrings = Core::Explode(dataElement->FirstChildElement("aabb")->FindAttribute("maxCorner")->Value(), ';');
+			auto MinCornerStrings = Core::Explode(pDataElement->FirstChildElement("aabb")->FindAttribute("minCorner")->Value(), ';');
+			auto MaxCornerStrings = Core::Explode(pDataElement->FirstChildElement("aabb")->FindAttribute("maxCorner")->Value(), ';');
 
 
 				Core::AABB3Float aabb = Core::AABB3Float(
 				Core::Float3(
-					std::stof(minCornerStrings[0]),
-					std::stof(minCornerStrings[1]),
-					std::stof(minCornerStrings[2])
+					std::stof(MinCornerStrings[0]),
+					std::stof(MinCornerStrings[1]),
+					std::stof(MinCornerStrings[2])
 				),
 				Core::Float3(
-					std::stof(maxCornerStrings[0]),
-					std::stof(maxCornerStrings[1]),
-					std::stof(maxCornerStrings[2])
+					std::stof(MaxCornerStrings[0]),
+					std::stof(MaxCornerStrings[1]),
+					std::stof(MaxCornerStrings[2])
 				)
 			);
 
-			CMetaEntity& newMetaEntity = CreateMetaEntity(name);
-			newMetaEntity.name = name;
-			newMetaEntity.size = size;
-			newMetaEntity.aabb = aabb;
+			CMetaEntity& NewMetaEntity = CreateMetaEntity(name);
+			NewMetaEntity.name = name;
+			NewMetaEntity.size = Size;
+			NewMetaEntity.aabb = aabb;
 
 
-			std::cout << "Data::MetaEntitySystem::name -> " << newMetaEntity.name << std::endl;
-			std::cout << "Data::MetaEntitySystem::size -> " << newMetaEntity.size << std::endl;
+			std::cout << "Data::MetaEntitySystem::name -> " << NewMetaEntity.name << std::endl;
+			std::cout << "Data::MetaEntitySystem::size -> " << NewMetaEntity.size << std::endl;
 			std::cout << "\n" << std::endl;
 
-			metaEntity = metaEntity->NextSiblingElement();
+			pMetaEntity = pMetaEntity->NextSiblingElement();
 		}
 
 	}
 	CMetaEntity& CMetaEntitySystem::CreateMetaEntity(const string _pName)
 	{
-		CIDManager::BID id = m_idManger.Register(_pName);
-		CMetaEntity& metaEntity = m_itemManager.CreateItem(id);
+		CIDManager::BID id = m_IdManger.Register(_pName);
+		CMetaEntity& MetaEntity = m_ItemManager.CreateItem(id);
 
-		return metaEntity;
+		return MetaEntity;
 
 	}
 
 	CMetaEntity& CMetaEntitySystem::GetMetaEntity(CIDManager::BID _ID)
 	{
-		return m_itemManager.GetItem(_ID);	
+		return m_ItemManager.GetItem(_ID);	
 	
 	}
 
 	void CMetaEntitySystem::DestroyAllMetaEntities()
 	{
-		m_idManger.Clear();
-		m_itemManager.Clear();
+		m_IdManger.Clear();
+		m_ItemManager.Clear();
 	}
 
 	bool CMetaEntitySystem::ContainsMetaEntity(string& _pName)
 	{
-		return m_idManger.ContainsName(_pName);;
+		return m_IdManger.ContainsName(_pName);;
 	}
 
 	CMetaEntity& CMetaEntitySystem::SearchMetaEntity(std::string name)
 	{
-		return m_itemManager.GetItem(m_idManger.GetIDByName(name));
+		return m_ItemManager.GetItem(m_IdManger.GetIDByName(name));
 	}
 
 	bool CMetaEntitySystem::ContainsMetaEntity(std::string name)
 	{
-		return m_idManger.ContainsName(name);
+		return m_IdManger.ContainsName(name);
 	}
 
 	Core::CIDManager::BID CMetaEntitySystem::GetMetaEntityID(std::string name)
 	{
-		return m_idManger.GetIDByName(name);
+		return m_IdManger.GetIDByName(name);
 	}
 }
 

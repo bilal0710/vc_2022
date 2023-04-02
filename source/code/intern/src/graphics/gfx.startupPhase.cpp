@@ -15,45 +15,44 @@ void Gfx::CStartupPhase::OnEnter()
 {
 	std::cout << "Gfx::StartupPhase::OnEnter" << std::endl;
 	// create the window
-	window.create(sf::VideoMode(1900, 896), "Bilal Alnaani Application");
+	m_AppWindow.create(sf::VideoMode(1900, 896), "Bilal Alnaani Application");
 }
 
-void Gfx::CStartupPhase::OnRun(XMLDocument& doc)
+void Gfx::CStartupPhase::OnRun(XMLDocument& rMetaEntityDoc)
 {
 	std::cout << "Gfx::StartupPhase::OnRun" << std::endl;
 
-	Data::CMetaEntitySystem& metaEntitySystem = Data::CMetaEntitySystem::GetInstance();
+	Data::CMetaEntitySystem& rMetaEntitySystem = Data::CMetaEntitySystem::GetInstance();
 
-	XMLElement* metaEntities = doc.FirstChildElement("meta-entities");
-	XMLElement* xmlMetaEntity = metaEntities->FirstChildElement("meta-entity");
+	XMLElement* pMetaEntities = rMetaEntityDoc.FirstChildElement("meta-entities");
+	XMLElement* pXMLMetaEntity = pMetaEntities->FirstChildElement("meta-entity");
 
 	for (;;)
 	{
-		if (xmlMetaEntity == nullptr)
+		if (pXMLMetaEntity == nullptr)
 		{
 			break;
 		}
 
-		auto id = metaEntitySystem.GetMetaEntityID(xmlMetaEntity->FindAttribute("name")->Value());
-		Data::CMetaEntity& metaEntity = metaEntitySystem.GetMetaEntity(id);
+		auto Id = rMetaEntitySystem.GetMetaEntityID(pXMLMetaEntity->FindAttribute("name")->Value());
+		Data::CMetaEntity& rMetaEntity = rMetaEntitySystem.GetMetaEntity(Id);
 
 
-		XMLElement* graphicsElement = xmlMetaEntity->FirstChildElement("graphics");
+		XMLElement* GraphicsElement = pXMLMetaEntity->FirstChildElement("graphics");
 
-		std::string texturePath = graphicsElement->FirstChildElement("texture")->FindAttribute("value")->Value();
+		std::string TexturePath = GraphicsElement->FirstChildElement("texture")->FindAttribute("value")->Value();
 
 		
-		sf::Texture* texture = new sf::Texture();
+		sf::Texture* pTexture = new sf::Texture();
 	
 
-		if (texture->loadFromFile(texturePath))
+		if (pTexture->loadFromFile(TexturePath))
 		{
-			std::cout << "Gfx::texture" << std::endl;
-			texture->setSmooth(true);
-			metaEntity.facetes[0] = texture;
+			pTexture->setSmooth(true);
+			rMetaEntity.facetes[0] = pTexture;
 		}
 
-		xmlMetaEntity = xmlMetaEntity->NextSiblingElement();
+		pXMLMetaEntity = pXMLMetaEntity->NextSiblingElement();
 	}
 }
 

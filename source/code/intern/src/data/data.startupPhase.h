@@ -22,7 +22,7 @@ namespace Data
 
 	public:
 		void OnEnter();
-		void OnRun(tinyxml2::XMLDocument& doc);
+		void OnRun(tinyxml2::XMLDocument& rMetaEntityDoc);
 		void OnLeave();
 
 	};

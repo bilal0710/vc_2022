@@ -38,8 +38,8 @@ namespace Data
 		Core::CIDManager::BID GetMetaEntityID(std::string name);
 
 	private:
-		Core::CIDManager m_idManger;
-		Core::CItemManager <CMetaEntity> m_itemManager;
+		Core::CIDManager m_IdManger;
+		Core::CItemManager <CMetaEntity> m_ItemManager;
 	
 	};
 

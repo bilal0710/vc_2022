@@ -30,57 +30,69 @@ namespace Gfx
         // TODO: This needs to be replaced by the actual entity system instead of meta entities
         //Data::CMetaEntitySystem& metaEntitySystem = Data::CMetaEntitySystem::GetInstance();
 
-        CStartupPhase& startupPhase = CStartupPhase :: GetInstance();
+        CStartupPhase& rStartupPhase = CStartupPhase :: GetInstance();
 
-        Data::CEntitySystem& entitySystem = Data::CEntitySystem::GetInstance();
-        auto entities = entitySystem.GetAllEntities();
+        Data::CEntitySystem& rEntitySystem = Data::CEntitySystem::GetInstance();
+        auto Entities = rEntitySystem.GetAllEntities();
 
         // clear the app.m_window with black color
-        startupPhase.window.clear(sf::Color(44,144,193,255));
+        rStartupPhase.m_AppWindow.clear(sf::Color(44,144,193,255));
     
 
-        for (auto& entity : entities)
+        for (auto& Entity : Entities)
         {
-            sf::Texture* texturePtr = static_cast<sf::Texture*>(entity->metaEntity->facetes[0]);
+            sf::Texture* pTexture = static_cast<sf::Texture*>(Entity->metaEntity->facetes[0]);
 
-            sf::Sprite sprite;
-            sprite.setTexture(*texturePtr);
-            sprite.setPosition(entity->position[0], entity->position[1]);
+            sf::Sprite Sprite;
+            Sprite.setTexture(*pTexture);
+            Sprite.setPosition(Entity->position[0], Entity->position[1]);
 
-            if (entity->metaEntity->name == "dirt") {
-                std::cout << "x" << entity->metaEntity->name << std::endl;
-                sprite.setPosition(entity->position[0] + 64, entity->position[1] );
+            if (Entity->metaEntity->name == "dirt") {
+                std::cout << "x" << Entity->metaEntity->name << std::endl;
+                Sprite.setPosition(Entity->position[0] + 64, Entity->position[1] );
             }
-			
-
-            assert(texturePtr != nullptr);
+            assert(pTexture != nullptr);
 
             // factor in the texture size
-            float xScale = entity->metaEntity->aabb.GetMax()[0] - entity->metaEntity->aabb.GetMin()[0];
-            float yScale = entity->metaEntity->aabb.GetMax()[1] - entity->metaEntity->aabb.GetMin()[1];
+            float xScale = Entity->metaEntity->aabb.GetMax()[0] - Entity->metaEntity->aabb.GetMin()[0];
+            float yScale = Entity->metaEntity->aabb.GetMax()[1] - Entity->metaEntity->aabb.GetMin()[1];
 
-         
+            float xSpriteScale = xScale / pTexture->getSize().x;
+            float ySpriteScale = yScale / pTexture->getSize().y;
 
-            float xSpriteScale = xScale / texturePtr->getSize().x;
-            float ySpriteScale = yScale / texturePtr->getSize().y;
+            Sprite.setScale(xSpriteScale, ySpriteScale);
 
-            sprite.setScale(xSpriteScale, ySpriteScale);
+            // We move the camera/view with the player entity
+            if (Entity->metaEntity->name == "player")
+            {
+                auto& prevSize = rStartupPhase.m_AppWindow.getView().getSize();
 
-            startupPhase.window.draw(sprite);
+                sf::View view(sf::FloatRect(
+                    Entity->position[0] - prevSize.x / 2 + 128,
+                    Entity->position[1] - prevSize.y / 2 - 64 - 32,
+                    prevSize.x,
+                    prevSize.y
+                ));
+
+                rStartupPhase.m_AppWindow.setView(view);
+            }
+
+
+            rStartupPhase.m_AppWindow.draw(Sprite);
 
 		
       
         }
-        startupPhase.window.display();
+        rStartupPhase.m_AppWindow.display();
 
-        while (startupPhase.window.isOpen())
+        while (rStartupPhase.m_AppWindow.isOpen())
         {
             // check all the window's events that were triggered since the last iteration of the loop
-            sf::Event event;
-            while (startupPhase.window.pollEvent(event))
+            sf::Event Event;
+            while (rStartupPhase.m_AppWindow.pollEvent(Event))
             {
            
-				if (event.type == sf::Event::KeyPressed) {
+				if (Event.type == sf::Event::KeyPressed) {
                     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 					{
                         std::cout << "pressed" << std::endl;
@@ -88,16 +100,16 @@ namespace Gfx
                 }
 
                 // "close requested" event: we close the window
-                if (event.type == sf::Event::Closed)
+                if (Event.type == sf::Event::Closed)
                 {
                     
-                    startupPhase.window.close();
+                    rStartupPhase.m_AppWindow.close();
 				}
-                if (event.type == sf::Event::Resized)
+                if (Event.type == sf::Event::Resized)
                 {
                     // update the view to the new size of the windowl
-                    sf::FloatRect visibleArea(0.f, 0.f, (float)event.size.width, (float)event.size.height);
-                    startupPhase.window.setView(sf::View(visibleArea));
+                    sf::FloatRect visibleArea(0.f, 0.f, (float)Event.size.width, (float)Event.size.height);
+                    rStartupPhase.m_AppWindow.setView(sf::View(visibleArea));
                 }
 
                 // end the current frame and display everything drawn

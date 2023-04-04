@@ -3,7 +3,7 @@
 
 using namespace sf;
 
-#define Max_Main_Menu 3
+#define Max_Main_Menu 2
 
 namespace Gfx
 {
@@ -24,8 +24,8 @@ namespace Gfx
         void OnRun();
         void OnLeave();
         void DrawMainMenu(RenderWindow& r_AppWindow);
-        void MoveUp();
-        void MoveDown();
+        void Move();
+     
       
 
     private:
@@ -36,6 +36,7 @@ namespace Gfx
     private:
         int m_MainMenuSelected;
         Font m_Font;
+        Text m_Title;
         Text m_Menu[Max_Main_Menu];
 
     

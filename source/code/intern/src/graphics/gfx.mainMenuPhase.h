@@ -1,5 +1,9 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 
+using namespace sf;
+
+#define Max_Main_Menu 3
 
 namespace Gfx
 {
@@ -19,11 +23,21 @@ namespace Gfx
         void OnEnter();
         void OnRun();
         void OnLeave();
+        void DrawMainMenu(RenderWindow& r_AppWindow);
+        void MoveUp();
+        void MoveDown();
       
 
     private:
         CMainMenuPhase()
         {};
 
+
+    private:
+        int m_MainMenuSelected;
+        Font m_Font;
+        Text m_Menu[Max_Main_Menu];
+
+    
     };
 }

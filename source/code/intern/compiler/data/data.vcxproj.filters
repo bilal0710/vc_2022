@@ -8,6 +8,8 @@
     <ClCompile Include="..\..\src\data\data.entitySystem.cpp" />
     <ClCompile Include="..\..\src\data\data.loadPhase.cpp" />
     <ClCompile Include="..\..\src\data\data.playerSystem.cpp" />
+    <ClCompile Include="..\..\src\data\data.eventSytem.cpp" />
+    <ClCompile Include="..\..\src\data\data.event.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\data\data.metaEntitySystem.h" />
@@ -19,6 +21,9 @@
     <ClInclude Include="..\..\src\data\data.entity.h" />
     <ClInclude Include="..\..\src\data\data.loadPhase.h" />
     <ClInclude Include="..\..\src\data\data.playerSystem.h" />
+    <ClInclude Include="..\..\src\data\data.eventSytem.h" />
+    <ClInclude Include="..\..\src\data\data.event.h" />
+    <ClInclude Include="..\..\src\data\data.eventListener.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\..\..\..\bin\meta_entity.xml" />

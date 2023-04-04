@@ -6,6 +6,8 @@
 #include <graphics/gfx.startupPhase.h>
 #include <graphics/gfx.playPhase.h>
 #include <data/data.playerSystem.h>
+#include <data/data.eventSystem.h>
+
 
 namespace Gui
 {
@@ -13,6 +15,11 @@ namespace Gui
     {
 
         
+    }
+    
+    static void EventCallBack(Data::CEvent& data) {
+        std::cout << "ABC" << std::endl;
+
     }
 
     void CPlayPhase::OnRun()
@@ -22,7 +29,8 @@ namespace Gui
 
         Gfx::CStartupPhase& rStartupPhase = Gfx::CStartupPhase::GetInstance();
         Gfx::CPlayPhase& rPlayPhase = Gfx::CPlayPhase::GetInstance();
-
+        Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
+       
 
         while (rStartupPhase.m_AppWindow.isOpen())
         {
@@ -32,11 +40,14 @@ namespace Gui
             {
 
                 if (Event.type == sf::Event::KeyPressed) {
+                    rEventSystem.Register(Data::CEvent::BTypeID(0), &EventCallBack);
+                    rEventSystem.FireEvent(0);
+
                     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
                     {
                         std::cout << "pressed" << std::endl;
                     }
-                }
+                } 
 
                 // "close requested" event: we close the window
                 if (Event.type == sf::Event::Closed)

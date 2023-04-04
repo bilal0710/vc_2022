@@ -16,12 +16,13 @@ namespace Gfx
 
         CStartupPhase(const CStartupPhase&) = delete;
         CStartupPhase& operator = (const CStartupPhase&) = delete;
-        sf::RenderWindow m_AppWindow;
+      
 
     public:
         void OnEnter();
         void OnRun(tinyxml2::XMLDocument& _rMetaEntityDoc);
         void OnLeave();
+        sf::RenderWindow m_AppWindow;
 
     private:
         CStartupPhase()

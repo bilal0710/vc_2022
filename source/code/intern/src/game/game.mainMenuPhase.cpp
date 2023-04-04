@@ -8,7 +8,7 @@ namespace Game
 {
 	int CMainMenuPhase::InternOnEnter()
 	{
-		std::cout << "MainMenuPhase::InternOnEnter" << std::endl;
+		std::cout << "Game::MainMenuPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
 		Gfx::CMainMenuPhase::GetInstance().OnEnter();
 		Gui::CMainMenuPhase::GetInstance().OnEnter();
@@ -18,28 +18,22 @@ namespace Game
 
 	int CMainMenuPhase::InternOnRun()
 	{
-		std::cout << "MainMenuPhase::InternOnRun counter= " << counter << std::endl;
+		std::cout << "Game::MainMenuPhase::InternOnRun " << std::endl;
 		std::cout << "------------------------" << std::endl;
-		Gfx::CMainMenuPhase::GetInstance().OnEnter();
-		Gui::CMainMenuPhase::GetInstance().OnEnter();
-		counter++;
+		Gfx::CMainMenuPhase::GetInstance().OnRun();
+		Gui::CMainMenuPhase::GetInstance().OnRun();
 
 
-		if (counter > 4)
-		{
-			counter = 0;
-			return Type::LOAD_MAP;
-		}
+		return Type::LOAD_MAP;
 
-		return Type::MAIN_MENU;
 	}
 
 	int CMainMenuPhase::InternOnLeave()
 	{
-		std::cout << "MainMenuPhase::InternOnLeave" << std::endl;
+		std::cout << "Game::MainMenuPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;
-		Gfx::CMainMenuPhase::GetInstance().OnEnter();
-		Gui::CMainMenuPhase::GetInstance().OnEnter();
+		Gfx::CMainMenuPhase::GetInstance().OnLeave();
+		Gui::CMainMenuPhase::GetInstance().OnLeave();
 		return 0;
 	}
 }

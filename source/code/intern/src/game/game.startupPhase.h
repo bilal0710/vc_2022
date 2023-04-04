@@ -21,9 +21,6 @@ namespace Game
 			CStartupPhase()
 			{};
 
-			int counter = 0;
-		
-
 		private:
 			int InternOnEnter() override;
 			int InternOnRun() override;

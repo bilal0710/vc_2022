@@ -151,6 +151,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\data\data.entitySystem.cpp" />
+    <ClCompile Include="..\..\src\data\data.event.cpp" />
+    <ClCompile Include="..\..\src\data\data.eventSytem.cpp" />
     <ClCompile Include="..\..\src\data\data.loadPhase.cpp" />
     <ClCompile Include="..\..\src\data\data.metaEntity.cpp" />
     <ClCompile Include="..\..\src\data\data.metaEntitySystem.cpp" />
@@ -161,6 +163,9 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\data\data.entity.h" />
     <ClInclude Include="..\..\src\data\data.entitySystem.h" />
+    <ClInclude Include="..\..\src\data\data.event.h" />
+    <ClInclude Include="..\..\src\data\data.eventListener.h" />
+    <ClInclude Include="..\..\src\data\data.eventSytem.h" />
     <ClInclude Include="..\..\src\data\data.loadPhase.h" />
     <ClInclude Include="..\..\src\data\data.metaEntity.h" />
     <ClInclude Include="..\..\src\data\data.metaEntitySystem.h" />

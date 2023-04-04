@@ -25,12 +25,9 @@ namespace Game
 
 	int CStartupPhase::InternOnRun()
 	{
-		std::cout << "Game::StartupPhase::InternOnRun counter= " << counter << std::endl;
+		std::cout << "Game::StartupPhase::InternOnRun " <<  std::endl;
 		std::cout << "------------------------" << std::endl;
-		counter++;
 		
-		if (counter > 4)
-		{
 			tinyxml2::XMLDocument* pMetaEntityDoc =  new tinyxml2::XMLDocument;
 			pMetaEntityDoc->LoadFile("../bin/meta_entity.xml");
 
@@ -38,14 +35,7 @@ namespace Game
 			Gfx::CStartupPhase::GetInstance().OnRun(*pMetaEntityDoc);
 			Gui::CStartupPhase::GetInstance().OnRun();
 			Logic::CStartupPhase::GetInstance().OnRun();
-
-			counter = 0;
-			
-
 			return Type::MAIN_MENU;
-		}
-
-		return Type::STARTUP;
 	}
 
 	int CStartupPhase::InternOnLeave()

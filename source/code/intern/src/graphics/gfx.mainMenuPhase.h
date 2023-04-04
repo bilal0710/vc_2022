@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace Gfx
 {
     class CMainMenuPhase
@@ -18,6 +19,7 @@ namespace Gfx
         void OnEnter();
         void OnRun();
         void OnLeave();
+      
 
     private:
         CMainMenuPhase()

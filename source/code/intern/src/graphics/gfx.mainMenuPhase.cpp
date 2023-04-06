@@ -17,11 +17,11 @@ namespace Gfx
 			cout << "No font is loaded!" << endl;
 		}
 
-		m_Title.setFont(m_Font);
-		m_Title.setFillColor(Color::Red);
-		m_Title.setCharacterSize(70);
-		m_Title.setString("Super Mario");
-		m_Title.setPosition(780, 150);
+		//m_Title.setFont(m_Font);
+		//m_Title.setFillColor(Color::Red);
+		//m_Title.setCharacterSize(70);
+		//m_Title.setString("Super Mario");
+		//m_Title.setPosition(780, 150);
 
 		for (int i = 0; i < Max_Main_Menu; i++) {
 			m_Menu[i].setFont(m_Font);
@@ -29,16 +29,21 @@ namespace Gfx
 
 			if (i == 0) {
 				m_Menu[i].setString("Play");
-				m_Menu[i].setPosition(900, 400);
-				m_Menu[i].setFillColor(Color::Blue);
+				m_Menu[i].setPosition(900, 550);
+				m_Menu[i].setFillColor(Color::Red);
 				continue;
 			}
 
 			m_Menu[i].setString("Exit");
-			m_Menu[i].setPosition(900, 480);
+			m_Menu[i].setPosition(900, 650);
 			m_Menu[i].setFillColor(Color::White);
 		}
 		m_MainMenuSelected = 0;
+		
+		m_Background.setSize(Vector2f(700, 396));
+		m_Background.setPosition(650, 75);
+		m_BackgroundTexture.loadFromFile("Mario_BG.png");
+		m_Background.setTexture(&m_BackgroundTexture);
 
 	}
 
@@ -78,20 +83,14 @@ namespace Gfx
 							rStartupPhase.m_AppWindow.close();
 						}
 					}
-					if (sf::Keyboard::isKeyPressed(Keyboard::Up)) {
+					if (sf::Keyboard::isKeyPressed(Keyboard::Up) || sf::Keyboard::isKeyPressed(Keyboard::Down)) {
 						Move();
 						DrawMainMenu(rStartupPhase.m_AppWindow);
 						rStartupPhase.m_AppWindow.display();
 						break;
 
 					}
-					if (sf::Keyboard::isKeyPressed(Keyboard::Down)) {
-						Move();
-						DrawMainMenu(rStartupPhase.m_AppWindow);
-						rStartupPhase.m_AppWindow.display();
-						break;
-					}
-
+				
 				}
 
 				// "close requested" event: we close the window
@@ -116,7 +115,8 @@ namespace Gfx
 	void CMainMenuPhase::DrawMainMenu(RenderWindow& r_AppWindow)
 	{
 
-		r_AppWindow.draw(m_Title);
+		r_AppWindow.draw(m_Background);
+		//r_AppWindow.draw(m_Title);
 
 		for (int i = 0; i < Max_Main_Menu; i++) {
 
@@ -130,12 +130,12 @@ namespace Gfx
 
 			m_Menu[m_MainMenuSelected].setFillColor(Color::White);
 			m_MainMenuSelected--;
-			m_Menu[m_MainMenuSelected].setFillColor(Color::Blue);
+			m_Menu[m_MainMenuSelected].setFillColor(Color::Red);
 			return;
 		}
 		m_Menu[m_MainMenuSelected].setFillColor(Color::White);
 		m_MainMenuSelected++;
-		m_Menu[m_MainMenuSelected].setFillColor(Color::Blue);
+		m_Menu[m_MainMenuSelected].setFillColor(Color::Red);
 	}
 
 	void CMainMenuPhase::OnLeave()

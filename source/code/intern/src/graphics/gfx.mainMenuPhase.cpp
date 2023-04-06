@@ -17,12 +17,6 @@ namespace Gfx
 			cout << "No font is loaded!" << endl;
 		}
 
-		//m_Title.setFont(m_Font);
-		//m_Title.setFillColor(Color::Red);
-		//m_Title.setCharacterSize(70);
-		//m_Title.setString("Super Mario");
-		//m_Title.setPosition(780, 150);
-
 		for (int i = 0; i < Max_Main_Menu; i++) {
 			m_Menu[i].setFont(m_Font);
 			m_Menu[i].setCharacterSize(70);
@@ -116,7 +110,6 @@ namespace Gfx
 	{
 
 		r_AppWindow.draw(m_Background);
-		//r_AppWindow.draw(m_Title);
 
 		for (int i = 0; i < Max_Main_Menu; i++) {
 

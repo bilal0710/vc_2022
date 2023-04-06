@@ -43,10 +43,10 @@ namespace Gfx
             Sprite.setTexture(*pTexture);
             Sprite.setPosition(Entity->position[0], Entity->position[1]);
 
-            if (Entity->metaEntity->name == "dirt") {
+     /*       if (Entity->metaEntity->name == "dirt") {
    
                 Sprite.setPosition(Entity->position[0] + 64, Entity->position[1] );
-            }
+            }*/
             assert(pTexture != nullptr);
 
             // factor in the texture size

@@ -36,7 +36,6 @@ namespace Gfx
     private:
         int m_MainMenuSelected;
         Font m_Font;
-        //Text m_Title;
         Text m_Menu[Max_Main_Menu];
         RectangleShape m_Background;
         Texture m_BackgroundTexture;

@@ -11,7 +11,7 @@
     </logic>
 
     <graphics>
-      <texture value="ground.jpg"/>
+      <texture value="mario_ground.jpg"/>
     </graphics>
     <graphics>
     </graphics>
@@ -19,7 +19,7 @@
   <meta-entity name="dirt">
     <data>
       <size value="16.4"/>
-      <aabb minCorner="0.0;0.0;0.0" maxCorner="96.0;96.0;0.0"></aabb>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="96.0;80.0;0.0"></aabb>
     </data>
 
     <logic>
@@ -27,7 +27,7 @@
     </logic>
 
     <graphics>
-      <texture value="dirt.jpg"/>
+      <texture value="bricke.jpg"/>
     </graphics>
   </meta-entity>
   <meta-entity name="player">

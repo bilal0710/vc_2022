@@ -22,5 +22,8 @@ namespace Gui
     private:
         CMainMenuPhase()
         {};
+
+    private: 
+        int m_MainMenuSelected;
     };
 }

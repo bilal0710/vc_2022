@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <data/data.eventSystem.h>
 
 using namespace sf;
 
@@ -24,6 +25,7 @@ namespace Gfx
         void OnRun();
         void OnLeave();
         void DrawMainMenu(RenderWindow& r_AppWindow);
+        static void EventListener(Data::CEvent& data);
         void Move();
      
       

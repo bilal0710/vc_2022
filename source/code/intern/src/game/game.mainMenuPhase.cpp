@@ -21,6 +21,7 @@ namespace Game
 		std::cout << "Game::MainMenuPhase::InternOnRun " << std::endl;
 		std::cout << "------------------------" << std::endl;
 		Gfx::CMainMenuPhase::GetInstance().OnRun();
+	
 		Gui::CMainMenuPhase::GetInstance().OnRun();
 
 

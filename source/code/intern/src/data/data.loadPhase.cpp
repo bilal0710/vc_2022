@@ -3,7 +3,7 @@
 #include <fstream>
 
 #include "data.loadPhase.h"
-#include "data.metaEntitySystem.h"
+//#include "data.metaEntitySystem.h"
 #include "data.entitySystem.h"
 
 namespace Data

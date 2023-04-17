@@ -42,17 +42,11 @@ namespace Gui
                 if (Event.type == sf::Event::KeyPressed) {
                     rEventSystem.Register(Data::CEvent::BTypeID(0), &EventCallBack);
                     rEventSystem.FireEvent(0);
-
-                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-                    {
-                        std::cout << "pressed" << std::endl;
-                    }
                 } 
 
                 // "close requested" event: we close the window
                 if (Event.type == sf::Event::Closed)
                 {
-
                     rStartupPhase.m_AppWindow.close();
                 }
                 if (Event.type == sf::Event::Resized)

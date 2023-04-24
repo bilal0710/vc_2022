@@ -6,15 +6,12 @@
 
 #include "../core/core_vector3.h"
 #include "../core/core_id_manager.h"
+#include "data.entityLink.h"
+
 
 namespace Data
 {
-    class EntityList;
-}
-
-namespace Data
-{
-    class Entity
+    class CEntity
     {
     public:
 
@@ -42,10 +39,10 @@ namespace Data
 
         using FacetArray = std::array<void*, NumberOfFacets>;
 
-    private:
+    public:
 
         FacetArray facets;
-       // EntityLink link;
+        CEntityLink m_Link;
 
     private:
 

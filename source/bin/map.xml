@@ -1,7 +1,7 @@
 <entities>
   <entity name="cloud_28_0" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>3584.0;0.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -11,7 +11,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_33_0" meta-entity="ground">
+  <entity name="ground_33_0" meta-entity="ground">
     <data>
       <type>1</type>
       <position>4224.0;0.0;0.0</position>
@@ -25,7 +25,7 @@
   </entity>
   <entity name="cloud_4_1" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>512.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -37,7 +37,7 @@
   </entity>
   <entity name="cloud_7_1" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>896.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -49,7 +49,7 @@
   </entity>
   <entity name="cloud_10_1" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>1280.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -61,7 +61,7 @@
   </entity>
   <entity name="cloud_11_1" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>1408.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -73,7 +73,7 @@
   </entity>
   <entity name="cloud_15_1" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>1920.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -85,7 +85,7 @@
   </entity>
   <entity name="cloud_19_1" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>2432.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -97,7 +97,7 @@
   </entity>
   <entity name="cloud_23_1" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>2944.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -109,7 +109,7 @@
   </entity>
   <entity name="cloud_27_1" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>3456.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -121,7 +121,7 @@
   </entity>
   <entity name="cloud_29_1" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>3712.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -133,7 +133,7 @@
   </entity>
   <entity name="cloud_31_1" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>3968.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -143,7 +143,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_33_1" meta-entity="ground">
+  <entity name="ground_33_1" meta-entity="ground">
     <data>
       <type>1</type>
       <position>4224.0;128.0;0.0</position>
@@ -157,7 +157,7 @@
   </entity>
   <entity name="cloud_8_2" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>1024.0;256.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -169,7 +169,7 @@
   </entity>
   <entity name="cloud_17_2" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>2176.0;256.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -181,7 +181,7 @@
   </entity>
   <entity name="cloud_22_2" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>2816.0;256.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -193,7 +193,7 @@
   </entity>
   <entity name="cloud_25_2" meta-entity="cloud">
     <data>
-      <type>0</type>
+      <type>3</type>
       <position>3200.0;256.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -203,7 +203,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_33_2" meta-entity="ground">
+  <entity name="ground_33_2" meta-entity="ground">
     <data>
       <type>1</type>
       <position>4224.0;256.0;0.0</position>
@@ -215,7 +215,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_23_3" meta-entity="ground">
+  <entity name="ground_23_3" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2944.0;384.0;0.0</position>
@@ -227,7 +227,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_33_3" meta-entity="ground">
+  <entity name="ground_33_3" meta-entity="ground">
     <data>
       <type>1</type>
       <position>4224.0;384.0;0.0</position>
@@ -239,9 +239,9 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="ground_14_4" meta-entity="dirt">
+  <entity name="dirt_14_4" meta-entity="dirt">
     <data>
-      <type>1</type>
+      <type>2</type>
       <position>896.0;512.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -251,9 +251,9 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="ground_15_4" meta-entity="dirt">
+  <entity name="dirt_15_4" meta-entity="dirt">
     <data>
-      <type>1</type>
+      <type>2</type>
       <position>960.0;512.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -263,9 +263,9 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="ground_16_4" meta-entity="dirt">
+  <entity name="dirt_16_4" meta-entity="dirt">
     <data>
-      <type>1</type>
+      <type>2</type>
       <position>1024.0;512.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -275,9 +275,9 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="ground_17_4" meta-entity="dirt">
+  <entity name="dirt_17_4" meta-entity="dirt">
     <data>
-      <type>1</type>
+      <type>2</type>
       <position>1088.0;512.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -287,7 +287,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_21_4" meta-entity="ground">
+  <entity name="ground_21_4" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2688.0;512.0;0.0</position>
@@ -299,7 +299,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_23_4" meta-entity="ground">
+  <entity name="ground_23_4" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2944.0;512.0;0.0</position>
@@ -311,7 +311,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_33_4" meta-entity="ground">
+  <entity name="ground_33_4" meta-entity="ground">
     <data>
       <type>1</type>
       <position>4224.0;512.0;0.0</position>
@@ -323,10 +323,10 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="player" meta-entity="player">
+  <entity name="mario" meta-entity="mario">
     <data>
       <type>0</type>
-      <position>1024.0;640.0;0.0</position>
+      <position>384.0;640.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
     <logic>
@@ -335,7 +335,19 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_19_5" meta-entity="ground">
+  <entity name="finish_12_5" meta-entity="finish">
+    <data>
+      <type>2</type>
+      <position>1536.0;640.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canMove>false</canMove>
+      <canCollide>true</canCollide>
+      <isFinish>true</isFinish>
+    </logic>
+  </entity>
+  <entity name="ground_19_5" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2432.0;640.0;0.0</position>
@@ -347,7 +359,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_21_5" meta-entity="ground">
+  <entity name="ground_21_5" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2688.0;640.0;0.0</position>
@@ -359,7 +371,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_23_5" meta-entity="ground">
+  <entity name="ground_23_5" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2944.0;640.0;0.0</position>
@@ -383,7 +395,7 @@
       <isFinish>true</isFinish>
     </logic>
   </entity>
-  <entity name="wall_33_5" meta-entity="ground">
+  <entity name="ground_33_5" meta-entity="ground">
     <data>
       <type>1</type>
       <position>4224.0;640.0;0.0</position>
@@ -395,7 +407,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_0_6" meta-entity="ground">
+  <entity name="ground_0_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>0.0;768.0;0.0</position>
@@ -407,7 +419,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_1_6" meta-entity="ground">
+  <entity name="ground_1_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>128.0;768.0;0.0</position>
@@ -419,7 +431,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_2_6" meta-entity="ground">
+  <entity name="ground_2_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>256.0;768.0;0.0</position>
@@ -431,7 +443,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_3_6" meta-entity="ground">
+  <entity name="ground_3_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>384.0;768.0;0.0</position>
@@ -443,7 +455,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_4_6" meta-entity="ground">
+  <entity name="ground_4_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>512.0;768.0;0.0</position>
@@ -455,7 +467,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_5_6" meta-entity="ground">
+  <entity name="ground_5_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>640.0;768.0;0.0</position>
@@ -467,7 +479,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_6_6" meta-entity="ground">
+  <entity name="ground_6_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>768.0;768.0;0.0</position>
@@ -479,7 +491,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_7_6" meta-entity="ground">
+  <entity name="ground_7_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>896.0;768.0;0.0</position>
@@ -491,7 +503,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_8_6" meta-entity="ground">
+  <entity name="ground_8_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>1024.0;768.0;0.0</position>
@@ -503,7 +515,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_9_6" meta-entity="ground">
+  <entity name="ground_9_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>1152.0;768.0;0.0</position>
@@ -515,7 +527,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_10_6" meta-entity="ground">
+  <entity name="ground_10_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>1280.0;768.0;0.0</position>
@@ -527,7 +539,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_11_6" meta-entity="ground">
+  <entity name="ground_11_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>1408.0;768.0;0.0</position>
@@ -539,7 +551,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_12_6" meta-entity="ground">
+  <entity name="ground_12_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>1536.0;768.0;0.0</position>
@@ -551,7 +563,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_15_6" meta-entity="ground">
+  <entity name="ground_15_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>1920.0;768.0;0.0</position>
@@ -563,7 +575,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_16_6" meta-entity="ground">
+  <entity name="ground_16_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2048.0;768.0;0.0</position>
@@ -575,7 +587,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_17_6" meta-entity="ground">
+  <entity name="ground_17_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2176.0;768.0;0.0</position>
@@ -587,7 +599,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_18_6" meta-entity="ground">
+  <entity name="ground_18_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2304.0;768.0;0.0</position>
@@ -599,7 +611,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_19_6" meta-entity="ground">
+  <entity name="ground_19_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2432.0;768.0;0.0</position>
@@ -611,7 +623,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_20_6" meta-entity="ground">
+  <entity name="ground_20_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2560.0;768.0;0.0</position>
@@ -623,7 +635,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_21_6" meta-entity="ground">
+  <entity name="ground_21_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2688.0;768.0;0.0</position>
@@ -635,7 +647,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_22_6" meta-entity="ground">
+  <entity name="ground_22_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2816.0;768.0;0.0</position>
@@ -647,7 +659,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_23_6" meta-entity="ground">
+  <entity name="ground_23_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>2944.0;768.0;0.0</position>
@@ -659,7 +671,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_24_6" meta-entity="ground">
+  <entity name="ground_24_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>3072.0;768.0;0.0</position>
@@ -671,7 +683,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_25_6" meta-entity="ground">
+  <entity name="ground_25_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>3200.0;768.0;0.0</position>
@@ -683,7 +695,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_26_6" meta-entity="ground">
+  <entity name="ground_26_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>3328.0;768.0;0.0</position>
@@ -695,7 +707,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_27_6" meta-entity="ground">
+  <entity name="ground_27_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>3456.0;768.0;0.0</position>
@@ -707,7 +719,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_28_6" meta-entity="ground">
+  <entity name="ground_28_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>3584.0;768.0;0.0</position>
@@ -719,7 +731,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_29_6" meta-entity="ground">
+  <entity name="ground_29_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>3712.0;768.0;0.0</position>
@@ -731,7 +743,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_30_6" meta-entity="ground">
+  <entity name="ground_30_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>3840.0;768.0;0.0</position>
@@ -743,7 +755,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_31_6" meta-entity="ground">
+  <entity name="ground_31_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>3968.0;768.0;0.0</position>
@@ -755,7 +767,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_32_6" meta-entity="ground">
+  <entity name="ground_32_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>4096.0;768.0;0.0</position>
@@ -767,7 +779,7 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="wall_33_6" meta-entity="ground">
+  <entity name="ground_33_6" meta-entity="ground">
     <data>
       <type>1</type>
       <position>4224.0;768.0;0.0</position>

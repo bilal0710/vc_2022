@@ -22,12 +22,12 @@ namespace Data
 
     public:
         int Initialize(tinyxml2::XMLDocument& _rMapEntity);
-        std::vector<Data::Entity*> GetAllEntities();
-        Entity& CreateEntity(std::string _Name);
+        std::vector<Data::CEntity*> GetAllEntities();
+        CEntity& CreateEntity(std::string _Name);
         void DestroyEntity();
         void DestoryAllEntities();
-        Entity& SearchEntity(std::string _Name);
-        Entity& GetEntity(Core::CIDManager::BID _Id);
+        CEntity& SearchEntity(std::string _Name);
+        CEntity& GetEntity(Core::CIDManager::BID _Id);
         bool ContainsEntity(std::string _Name);
         Core::CIDManager::BID GetEntityID(std::string _Name);
 
@@ -37,6 +37,6 @@ namespace Data
 
     private:
         Core::CIDManager m_IdManager;
-        Core::CItemManager<Entity> m_ItemManager;
+        Core::CItemManager<CEntity> m_ItemManager;
     };
 }

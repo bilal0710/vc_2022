@@ -1,4 +1,5 @@
 #pragma once
+#include "gfx.startupPhase.h"
 
 namespace Gfx
 {
@@ -22,5 +23,6 @@ namespace Gfx
     private:
         CPlayPhase()
         {};
+
     };
 }

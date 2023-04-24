@@ -17,14 +17,14 @@ namespace Data
         CPlayerSystem& operator = (const CPlayerSystem&) = delete;
 
     public:
-        Entity* GetPlayer();
-        void SetPlayer(Entity* pPlayer);
+        CEntity* GetPlayer();
+        void SetPlayer(CEntity* pPlayer);
 
     private:
         CPlayerSystem()
         {};
 
     private:
-        Entity* m_pPlayer;
+        CEntity* m_pPlayer;
     };
 }

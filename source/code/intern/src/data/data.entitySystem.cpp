@@ -43,7 +43,7 @@ namespace Data
 
             // TODO: AABB and stuff
 
-            Entity& rEntity = CreateEntity(Name);
+            CEntity& rEntity = CreateEntity(Name);
             rEntity.size = Core::Float3(
                 std::stof(SizeStrings[0]),
                 std::stof(SizeStrings[1]),
@@ -58,7 +58,7 @@ namespace Data
 
             EntityCount++;
 
-            if (rMetaEntity.name == "player")
+            if (rMetaEntity.name == "mario")
             {
                 Data::CPlayerSystem& rPlayerSystem = Data::CPlayerSystem::GetInstance();
                 rPlayerSystem.SetPlayer(&rEntity);
@@ -75,12 +75,12 @@ namespace Data
         return EntityCount;
     }
 
-    std::vector<Data::Entity*> CEntitySystem::GetAllEntities()
+    std::vector<Data::CEntity*> CEntitySystem::GetAllEntities()
     {
         return m_ItemManager.GetAllItems();
     }
 
-    Entity& CEntitySystem::CreateEntity(std::string name)
+    CEntity& CEntitySystem::CreateEntity(std::string name)
     {
         Core::CIDManager::BID id = m_IdManager.Register(name);
 
@@ -98,12 +98,12 @@ namespace Data
         m_IdManager.Clear();
     }
 
-    Entity& CEntitySystem::SearchEntity(std::string name)
+    CEntity& CEntitySystem::SearchEntity(std::string name)
     {
         return m_ItemManager.GetItem(m_IdManager.GetIDByName(name));
     }
 
-    Entity& CEntitySystem::GetEntity(Core::CIDManager::BID id)
+    CEntity& CEntitySystem::GetEntity(Core::CIDManager::BID id)
     {
         return m_ItemManager.GetItem(id);
     }

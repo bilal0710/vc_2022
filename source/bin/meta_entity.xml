@@ -30,7 +30,7 @@
       <texture value="bricke.jpg"/>
     </graphics>
   </meta-entity>
-  <meta-entity name="player">
+  <meta-entity name="mario">
     <data>
       <size value="0.0"/>
       <aabb minCorner="0.0;0.0;0.0" maxCorner="100.0;128.0;0.0"></aabb>
@@ -44,6 +44,7 @@
       <texture value="mario.png"/>
     </graphics>
   </meta-entity>
+  
   <meta-entity name="finish">
     <data>
       <size value="0.0"/>
@@ -58,6 +59,7 @@
       <texture value="finish.png"/>
     </graphics>
   </meta-entity>
+  
   <meta-entity name="cloud">
     <data>
       <size value="16.4"/>

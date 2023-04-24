@@ -2,12 +2,12 @@
 
 namespace Data
 {
-    Entity* CPlayerSystem::GetPlayer()
+    CEntity* CPlayerSystem::GetPlayer()
     {
         return m_pPlayer;
     }
 
-    void CPlayerSystem::SetPlayer(Entity* _pPlayer)
+    void CPlayerSystem::SetPlayer(CEntity* _pPlayer)
     {
         m_pPlayer = _pPlayer;
     }

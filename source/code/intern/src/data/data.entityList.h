@@ -1,8 +1,8 @@
 
 #pragma once
 
-#include "data_entity_iterator.h"
-#include "data_entity_link.h"
+#include "data.entityIterator.h"
+#include "data.entityLink.h"
 
 namespace Data
 {

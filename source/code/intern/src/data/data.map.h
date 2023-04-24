@@ -1,9 +1,10 @@
 
 #pragma once
 
-#include "data_entity_category.h"
-#include "data_entity_iterator.h"
-#include "data_sector.h"
+#include "data.entityCategory.h"
+#include "data.entityIterator.h"
+#include "data.sector.h"
+#include <core/core_aabb.h>
 
 namespace Data
 {

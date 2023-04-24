@@ -14,75 +14,83 @@
 
 namespace Gfx
 {
-    void CPlayPhase::OnEnter()
-    {
+	void CPlayPhase::OnEnter()
+	{
 		std::cout << "Gfx::PlayPhase::OnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
 
 	}
 
-    void CPlayPhase::OnRun()
-    {
+	void CPlayPhase::OnRun()
+	{
 		std::cout << "Gfx::PlayPhase::OnRun" << std::endl;
 		std::cout << "------------------------" << std::endl;
 
-        CStartupPhase& rStartupPhase = CStartupPhase :: GetInstance();
+		CStartupPhase& rStartupPhase = CStartupPhase::GetInstance();
 
-        Data::CEntitySystem& rEntitySystem = Data::CEntitySystem::GetInstance();
-        auto Entities = rEntitySystem.GetAllEntities();
+		Data::CEntitySystem& rEntitySystem = Data::CEntitySystem::GetInstance();
+		auto Entities = rEntitySystem.GetAllEntities();
 
-        // clear the app.m_window with black color
-        rStartupPhase.m_AppWindow.clear(sf::Color(44,144,193,255));
-    
+		// clear the app.m_window with background color
+		rStartupPhase.m_AppWindow.clear(sf::Color(44, 144, 193, 255));
 
-        for (auto& Entity : Entities)
-        {
-            sf::Texture* pTexture = static_cast<sf::Texture*>(Entity->metaEntity->facetes[0]);
 
-            sf::Sprite Sprite;
-            Sprite.setTexture(*pTexture);
-            Sprite.setPosition(Entity->position[0], Entity->position[1]);
+		for (auto& Entity : Entities)
+		{
+			sf::Texture* pTexture = static_cast<sf::Texture*>(Entity->metaEntity->facetes[0]);
 
-     /*       if (Entity->metaEntity->name == "dirt") {
-   
-                Sprite.setPosition(Entity->position[0] + 64, Entity->position[1] );
-            }*/
-            assert(pTexture != nullptr);
+			sf::Sprite Sprite;
+			Sprite.setTexture(*pTexture);
+			Sprite.setPosition(Entity->position[0], Entity->position[1]);
 
-            // factor in the texture size
-            float xScale = Entity->metaEntity->aabb.GetMax()[0] - Entity->metaEntity->aabb.GetMin()[0];
-            float yScale = Entity->metaEntity->aabb.GetMax()[1] - Entity->metaEntity->aabb.GetMin()[1];
+			/*     if (Entity->metaEntity->name == "dirt") {
+					 std::cout << "dirt " << std::endl;
+					 std::cout << "X= " << Entity->position[0] << std::endl;
+					 std::cout << "y= " << Entity->position[1] << std::endl;
+					 std::cout << std::endl;
+				 }*/
+			assert(pTexture != nullptr);
 
-            float xSpriteScale = xScale / pTexture->getSize().x;
-            float ySpriteScale = yScale / pTexture->getSize().y;
+			// factor in the texture size
+			float xScale = Entity->metaEntity->aabb.GetMax()[0] - Entity->metaEntity->aabb.GetMin()[0];
+			float yScale = Entity->metaEntity->aabb.GetMax()[1] - Entity->metaEntity->aabb.GetMin()[1];
 
-            Sprite.setScale(xSpriteScale, ySpriteScale);
+			float xSpriteScale = xScale / pTexture->getSize().x;
+			float ySpriteScale = yScale / pTexture->getSize().y;
 
-            // We move the camera/view with the player entity
-            if (Entity->metaEntity->name == "player")
-            {
-                std::cout << "player" << std::endl;
-              /*  auto& AppWindowSize = rStartupPhase.m_AppWindow.getView().getSize();
+			Sprite.setScale(xSpriteScale, ySpriteScale);
 
-                sf::View view(sf::FloatRect(
-                    Entity->position[0] - (AppWindowSize.x / 2) + 128,
-                    Entity->position[1] - (AppWindowSize.y / 2) - 128 - 64,
-                    AppWindowSize.x,
-                    AppWindowSize.y
-                ));
+			// We move the camera/view with the player entity
+			if (Entity->metaEntity->name == "mario")
+			{
 
-                rStartupPhase.m_AppWindow.setView(view);*/
-            }
+				auto& AppWindowSize = rStartupPhase.m_AppWindow.getView().getSize();
 
-            rStartupPhase.m_AppWindow.draw(Sprite);
-        }
-        rStartupPhase.m_AppWindow.display();
+				sf::View view(sf::FloatRect(
+					Entity->position[0] - (AppWindowSize.x / 4) + 100,
+					Entity->position[1] - (AppWindowSize.y / 2) - 128 - 64,
+					AppWindowSize.x,
+					AppWindowSize.y
+				));
 
-     
-     
-    }
+				std::cout << "mario X= " << Entity->position[0] << std::endl;
+				std::cout << "X= " << view.getCenter().x << std::endl;
+				std::cout << "y= " << view.getCenter().y << std::endl;
 
-    void CPlayPhase::OnLeave()
-    {}
+				if (view.getCenter().x > 950) {
+					rStartupPhase.m_AppWindow.setView(view);
+				}
+			}
+
+			rStartupPhase.m_AppWindow.draw(Sprite);
+		}
+		rStartupPhase.m_AppWindow.display();
+
+
+
+	}
+
+	void CPlayPhase::OnLeave()
+	{}
 
 }

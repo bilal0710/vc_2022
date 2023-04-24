@@ -18,7 +18,7 @@ namespace Gui
     }
     
     static void EventCallBack(Data::CEvent& data) {
-        std::cout << "ABC" << std::endl;
+       // std::cout << "ABC" << std::endl;
 
     }
 
@@ -63,10 +63,10 @@ namespace Gui
                     {
                         std::cout << "Gfx::PlayPhase::KeyPressed left" << std::endl;
                         Data::CPlayerSystem& rPlayerSystem = Data::CPlayerSystem::GetInstance();
-                        Data::Entity* pPlayer = rPlayerSystem.GetPlayer();
-                        if (pPlayer != nullptr)
+                        Data::CEntity* pPlayer = rPlayerSystem.GetPlayer();
+                        if (pPlayer != nullptr && pPlayer->position[0] > 20)
                         {
-                            pPlayer->position = Core::Float3(pPlayer->position[0] - 2.0f, pPlayer->position[1], pPlayer->position[2]);
+                            pPlayer->position = Core::Float3(pPlayer->position[0] - 4.0f, pPlayer->position[1], pPlayer->position[2]);
                             pPlayer->aabb = Core::CAABB3<float>(
                                 Core::Float3(pPlayer->position[0], pPlayer->position[1], pPlayer->position[2]),
                                 Core::Float3(pPlayer->position[0] + 64, pPlayer->position[1] + 64, pPlayer->position[2])
@@ -79,10 +79,10 @@ namespace Gui
                     {
                         std::cout << "Gfx::PlayPhase::KeyPressed right" << std::endl;
                         Data::CPlayerSystem& rPlayerSystem = Data::CPlayerSystem::GetInstance();
-                        Data::Entity* pPlayer = rPlayerSystem.GetPlayer();
+                        Data::CEntity* pPlayer = rPlayerSystem.GetPlayer();
                         if (pPlayer != nullptr)
                         {
-                            pPlayer->position = Core::Float3(pPlayer->position[0] + 2.0f, pPlayer->position[1], pPlayer->position[2]);
+                            pPlayer->position = Core::Float3(pPlayer->position[0] + 4.0f, pPlayer->position[1], pPlayer->position[2]);
                             pPlayer->aabb = Core::CAABB3<float>(
                                 Core::Float3(pPlayer->position[0], pPlayer->position[1], pPlayer->position[2]),
                                 Core::Float3(pPlayer->position[0] + 64, pPlayer->position[1] + 64, pPlayer->position[2])

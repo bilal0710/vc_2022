@@ -1,8 +1,8 @@
 
 #pragma once
 
-#include "data_entity_category.h"
-#include "data_entity_folder.h"
+#include "data.entityCategory.h"
+#include "data.entityFolder.h"
 
 namespace Data
 {

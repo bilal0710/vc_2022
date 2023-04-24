@@ -1,7 +1,7 @@
 
 
-#include "data_entity.h"
-#include "data_entity_link.h"
+#include "data.entity.h"
+#include "data.entityLink.h"
 
 #include <stdlib.h>
 

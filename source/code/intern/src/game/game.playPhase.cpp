@@ -2,6 +2,7 @@
 #include <iostream>
 #include "../graphics/gfx.playPhase.h"
 #include "../gui/gui.playPhase.h"
+#include "../logic/logic.playPhase.h"
 #include "core/core_time.h"
 #include "data/data.entitySystem.h"
 
@@ -16,29 +17,20 @@ namespace Game
 
 		Gfx::CPlayPhase::GetInstance().OnEnter();
 		Gui::CPlayPhase::GetInstance().OnEnter();
+		Logic::CPlayPhase::GetInstance().OnEnter();
 		return 0;
 	}
 
 	int CPlayPhase::InternOnRun()
 	{
-		std::cout << "PlayPhase::InternOnRun counter= " << counter << std::endl;
+		std::cout << "PlayPhase::InternOnRun " << std::endl;
 		std::cout << "------------------------" << std::endl;
 
-		
+		Gfx::CPlayPhase::GetInstance().OnRun();
+		Gui::CPlayPhase::GetInstance().OnRun();
+		//Logic::CPlayPhase::GetInstance().OnRun();
 
-		counter++;
-	
-
-		if (counter > 4)
-		{
-			counter = 0;
-			Gfx::CPlayPhase::GetInstance().OnRun();
-			Gui::CPlayPhase::GetInstance().OnRun();
-
-			return Type::UNLOAD_MAP;
-		}
-
-		return Type::PLAY;
+		return Type::UNLOAD_MAP;
 	}
 
 	int CPlayPhase::InternOnLeave()

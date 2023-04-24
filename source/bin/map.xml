@@ -1,7 +1,7 @@
 <entities>
   <entity name="cloud_28_0" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>3584.0;0.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -25,7 +25,7 @@
   </entity>
   <entity name="cloud_4_1" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>512.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -37,7 +37,7 @@
   </entity>
   <entity name="cloud_7_1" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>896.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -49,7 +49,7 @@
   </entity>
   <entity name="cloud_10_1" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>1280.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -61,7 +61,7 @@
   </entity>
   <entity name="cloud_11_1" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>1408.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -73,7 +73,7 @@
   </entity>
   <entity name="cloud_15_1" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>1920.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -85,7 +85,7 @@
   </entity>
   <entity name="cloud_19_1" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>2432.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -97,7 +97,7 @@
   </entity>
   <entity name="cloud_23_1" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>2944.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -109,7 +109,7 @@
   </entity>
   <entity name="cloud_27_1" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>3456.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -121,7 +121,7 @@
   </entity>
   <entity name="cloud_29_1" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>3712.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -133,7 +133,7 @@
   </entity>
   <entity name="cloud_31_1" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>3968.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -157,7 +157,7 @@
   </entity>
   <entity name="cloud_8_2" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>1024.0;256.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -169,7 +169,7 @@
   </entity>
   <entity name="cloud_17_2" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>2176.0;256.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -181,7 +181,7 @@
   </entity>
   <entity name="cloud_22_2" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>2816.0;256.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -193,7 +193,7 @@
   </entity>
   <entity name="cloud_25_2" meta-entity="cloud">
     <data>
-      <type>3</type>
+      <type>4</type>
       <position>3200.0;256.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -335,10 +335,10 @@
       <isFinish>false</isFinish>
     </logic>
   </entity>
-  <entity name="finish_12_5" meta-entity="finish">
+  <entity name="finish_5_5" meta-entity="finish">
     <data>
-      <type>2</type>
-      <position>1536.0;640.0;0.0</position>
+      <type>3</type>
+      <position>640.0;640.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
     <logic>
@@ -385,7 +385,7 @@
   </entity>
   <entity name="finish_31_5" meta-entity="finish">
     <data>
-      <type>2</type>
+      <type>3</type>
       <position>3968.0;640.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>

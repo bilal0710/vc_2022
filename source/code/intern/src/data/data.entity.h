@@ -7,6 +7,7 @@
 #include "../core/core_vector3.h"
 #include "../core/core_id_manager.h"
 #include "data.entityLink.h"
+#include "data.entityCategory.h"
 
 
 namespace Data
@@ -28,7 +29,7 @@ namespace Data
         void* GetFacet(Facet type);
 
     public:
-
+        SEntityCategory::Enum category;
         Core::CIDManager::BID id;
         Core::CVector3<float> position;
         Core::CVector3<float> size;

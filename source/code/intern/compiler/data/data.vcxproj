@@ -191,7 +191,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\..\..\..\bin\map-1.xml" />
     <Xml Include="..\..\..\..\bin\meta_entity.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,7 +1,9 @@
 #pragma once
-#include <data/data.event.h>
 
-namespace Gui
+#include "../core/core_vector.h"
+
+
+namespace Logic
 {
     class CPlayPhase
     {
@@ -15,19 +17,15 @@ namespace Gui
         CPlayPhase(const CPlayPhase&) = delete;
         CPlayPhase& operator = (const CPlayPhase&) = delete;
 
-    public:
-        void OnEnter();
-        void OnRun();
-        void OnLeave();
-
     private:
         CPlayPhase()
         {};
 
-    private: 
-        float m_Step = 4.0f;
-        float m_Jump = 16.0f;
-        float m_XLimitLeft = 20.0f;
-        float m_XLimitRight = 3984.0f;
+    public:
+        void OnEnter();
+        void OnRun(Core::Float3 orientation);
+        void OnLeave();
+
+
     };
 }

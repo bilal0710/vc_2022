@@ -9,6 +9,7 @@
 
 #include "data.metaEntitySystem.h"
 #include "data.playerSystem.h"
+#include "data.entityCategory.h"
 
 using namespace tinyxml2;
 
@@ -41,7 +42,10 @@ namespace Data
             auto SizeStrings = Core::Explode(pDataElement->FirstChildElement("size")->FirstChild()->Value(), ';');
             auto PositionStrings = Core::Explode(pDataElement->FirstChildElement("position")->FirstChild()->Value(), ';');
 
-            // TODO: AABB and stuff
+            auto type = atoi(pDataElement->FirstChildElement("type")->FirstChild()->Value());
+           
+
+            
 
             CEntity& rEntity = CreateEntity(Name);
             rEntity.size = Core::Float3(
@@ -55,6 +59,10 @@ namespace Data
                 std::stof(PositionStrings[2])
             );
             rEntity.metaEntity = &rMetaEntity;
+            if (type < SEntityCategory::NumberOfMembers)
+            {
+                rEntity.category = SEntityCategory::Enum(type);
+            }
 
             EntityCount++;
 

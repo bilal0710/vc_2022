@@ -20,12 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\logic\logic.loadPhase.cpp" />
+    <ClCompile Include="..\..\src\logic\logic.playPhase.cpp" />
     <ClCompile Include="..\..\src\logic\logic.shutdownPhase.cpp" />
     <ClCompile Include="..\..\src\logic\logic.startupPhase.cpp" />
     <ClCompile Include="..\..\src\logic\logic.unloadPhase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\logic\logic.loadPhase.h" />
+    <ClInclude Include="..\..\src\logic\logic.playPhase.h" />
     <ClInclude Include="..\..\src\logic\logic.shutdownPhase.h" />
     <ClInclude Include="..\..\src\logic\logic.startupPhase.h" />
     <ClInclude Include="..\..\src\logic\logic.unloadPhase.h" />
@@ -125,7 +127,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories> $(SolutionDir)..\src;$(SolutionDir)..\..\extern\sfml\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\src;$(SolutionDir)..\..\extern\sfml\inc;C:\C++\visual_computing\source\code\intern\compiler\..\..\extern\tinyXML</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,7 +148,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories> $(SolutionDir)..\src;$(SolutionDir)..\..\extern\sfml\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\src;$(SolutionDir)..\..\extern\sfml\inc;C:\C++\visual_computing\source\code\intern\compiler\..\..\extern\tinyXML</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

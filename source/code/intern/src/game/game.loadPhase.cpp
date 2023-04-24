@@ -26,28 +26,19 @@ namespace Game
 
 	int CLoadPhase::InternOnRun()
 	{
-		std::cout << "LoadPhase::InternOnRun counter= " << counter << std::endl;
+		std::cout << "LoadPhase::InternOnRun" << std::endl;
 		std::cout << "------------------------" << std::endl;
 
-		counter++;
+		XMLDocument* pMapEntity = new XMLDocument;;
+		pMapEntity->LoadFile("../bin/map.xml");
 
+		Data::CLoadPhase::GetInstance().OnRun(*pMapEntity);
+		Gfx::CLoadPhase::GetInstance().OnRun();
+		Gui::CLoadPhase::GetInstance().OnRun();
+		Logic::CLoadPhase::GetInstance().OnRun();
 
-		if (counter > 4)
-		{
+		return Type::PLAY;
 
-			XMLDocument* pMapEntity = new XMLDocument;;
-			pMapEntity -> LoadFile("../bin/map.xml");
-
-			Data::CLoadPhase::GetInstance().OnRun(*pMapEntity);
-			Gfx::CLoadPhase::GetInstance().  OnRun();
-			Gui::CLoadPhase::GetInstance().  OnRun();
-			Logic::CLoadPhase::GetInstance().OnRun();
-			counter = 0;
-
-			return Type::PLAY;
-		}
-
-		return Type::LOAD_MAP;
 	}
 
 	int CLoadPhase::InternOnLeave()
@@ -55,8 +46,8 @@ namespace Game
 		std::cout << "LoadPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;
 		Data::CLoadPhase::GetInstance().OnLeave();
-		Gfx::CLoadPhase::GetInstance().  OnLeave();
-		Gui::CLoadPhase::GetInstance().  OnLeave();
+		Gfx::CLoadPhase::GetInstance().OnLeave();
+		Gui::CLoadPhase::GetInstance().OnLeave();
 		Logic::CLoadPhase::GetInstance().OnLeave();
 		return 0;
 	}

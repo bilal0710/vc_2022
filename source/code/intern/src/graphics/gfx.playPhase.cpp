@@ -23,8 +23,8 @@ namespace Gfx
 
 	void CPlayPhase::OnRun()
 	{
-		std::cout << "Gfx::PlayPhase::OnRun" << std::endl;
-		std::cout << "------------------------" << std::endl;
+		//std::cout << "Gfx::PlayPhase::OnRun" << std::endl;
+		//std::cout << "------------------------" << std::endl;
 
 		CStartupPhase& rStartupPhase = CStartupPhase::GetInstance();
 
@@ -73,11 +73,11 @@ namespace Gfx
 					AppWindowSize.y
 				));
 
-				std::cout << "mario X= " << Entity->position[0] << std::endl;
-				std::cout << "X= " << view.getCenter().x << std::endl;
-				std::cout << "y= " << view.getCenter().y << std::endl;
+				//std::cout << "mario y= " << Entity->position[1] << std::endl;
+				/*std::cout << "X= " << view.getCenter().x << std::endl;
+				std::cout << "y= " << view.getCenter().y << std::endl;*/
 
-				if (view.getCenter().x > 950) {
+				if (view.getCenter().x > 950 && view.getCenter().x < 2800) {
 					rStartupPhase.m_AppWindow.setView(view);
 				}
 			}

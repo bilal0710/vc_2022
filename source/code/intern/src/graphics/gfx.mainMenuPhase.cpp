@@ -41,7 +41,8 @@ namespace Gfx
 	}
 
 
-	void CMainMenuPhase::EventListener(Data::CEvent& data) {
+	void CMainMenuPhase::EventListener(Data::CEvent& data) 
+	{
 		std::cout << "GFX::MainMenuPhase -> listen to event" << std::endl;
 		CStartupPhase& rStartupPhase = CStartupPhase::GetInstance();
 

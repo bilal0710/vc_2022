@@ -1,5 +1,5 @@
 #include "gui.mainMenuPhase.h"
-#include "graphics/gfx.startupPhase.h"
+#include "game/game.appWindow.h"
 #include "graphics/gfx.mainMenuPhase.h"
 #include <data/data.eventSystem.h>
 
@@ -21,17 +21,17 @@ namespace Gui
 		cout << "Gui::MainMenuPhase::OnRun" << endl;
 
 
-		CStartupPhase& rStartupPhase = CStartupPhase::GetInstance();
+		Game::CApplicationWindow& rAppWindow = Game::CApplicationWindow::GetInstance();
 		Gfx::CMainMenuPhase& rMainMenuPhase = Gfx::CMainMenuPhase::GetInstance();
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
 
 
-		while (rStartupPhase.m_AppWindow.isOpen())
+		while (rAppWindow.m_AppWindow.isOpen())
 		{
 			// check all the window's events that were triggered since the last iteration of the loop
 			sf::Event Event;
 
-			while (rStartupPhase.m_AppWindow.pollEvent(Event))
+			while (rAppWindow.m_AppWindow.pollEvent(Event))
 			{
 
 				if (Event.type == sf::Event::KeyPressed) {
@@ -45,8 +45,8 @@ namespace Gui
 					}
 					if (sf::Keyboard::isKeyPressed(Keyboard::Up) || sf::Keyboard::isKeyPressed(Keyboard::Down)) {
 						rMainMenuPhase.Move();
-						rMainMenuPhase.DrawMainMenu(rStartupPhase.m_AppWindow);
-						rStartupPhase.m_AppWindow.display();
+						rMainMenuPhase.DrawMainMenu(rAppWindow.m_AppWindow);
+						rAppWindow.m_AppWindow.display();
 						break;
 					}
 
@@ -55,13 +55,13 @@ namespace Gui
 				// "close requested" event: we close the window
 				if (Event.type == sf::Event::Closed)
 				{
-					rStartupPhase.m_AppWindow.close();
+					rAppWindow.m_AppWindow.close();
 				}
 				if (Event.type == sf::Event::Resized)
 				{
 					// update the view to the new size of the windowl
 					FloatRect VisibleArea(0.f, 0.f, (float)Event.size.width, (float)Event.size.height);
-					rStartupPhase.m_AppWindow.setView(sf::View(VisibleArea));
+					rAppWindow.m_AppWindow.setView(sf::View(VisibleArea));
 				}
 
 			}

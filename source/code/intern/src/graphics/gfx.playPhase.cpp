@@ -1,5 +1,5 @@
 #include "gfx.playPhase.h"
-#include "gfx.startupPhase.h"
+#include"game/game.appWindow.h"
 #include <iostream>
 #include <vector>
 
@@ -26,13 +26,13 @@ namespace Gfx
 		//std::cout << "Gfx::PlayPhase::OnRun" << std::endl;
 		//std::cout << "------------------------" << std::endl;
 
-		CStartupPhase& rStartupPhase = CStartupPhase::GetInstance();
+		Game::CApplicationWindow& rAppWindow = Game::CApplicationWindow::GetInstance();
 
 		Data::CEntitySystem& rEntitySystem = Data::CEntitySystem::GetInstance();
 		auto Entities = rEntitySystem.GetAllEntities();
 
 		// clear the app.m_window with background color
-		rStartupPhase.m_AppWindow.clear(sf::Color(44, 144, 193, 255));
+		rAppWindow.m_AppWindow.clear(sf::Color(44, 144, 193, 255));
 
 
 		for (auto& Entity : Entities)
@@ -64,7 +64,7 @@ namespace Gfx
 			if (Entity->metaEntity->name == "mario")
 			{
 
-				auto& AppWindowSize = rStartupPhase.m_AppWindow.getView().getSize();
+				auto& AppWindowSize = rAppWindow.m_AppWindow.getView().getSize();
 
 				sf::View view(sf::FloatRect(
 					Entity->position[0] - (AppWindowSize.x / 4) + 100,
@@ -78,13 +78,13 @@ namespace Gfx
 				std::cout << "y= " << view.getCenter().y << std::endl;*/
 
 				if (view.getCenter().x > 950 && view.getCenter().x < 2800) {
-					rStartupPhase.m_AppWindow.setView(view);
+					rAppWindow.m_AppWindow.setView(view);
 				}
 			}
 
-			rStartupPhase.m_AppWindow.draw(Sprite);
+			rAppWindow.m_AppWindow.draw(Sprite);
 		}
-		rStartupPhase.m_AppWindow.display();
+		rAppWindow.m_AppWindow.display();
 
 
 

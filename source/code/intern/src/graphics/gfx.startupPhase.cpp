@@ -8,6 +8,8 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <data/data.metaEntitySystem.h>
 
+#include"game/game.appWindow.h"
+
 using namespace tinyxml2;
 
 
@@ -15,7 +17,10 @@ void Gfx::CStartupPhase::OnEnter()
 {
 	std::cout << "Gfx::StartupPhase::OnEnter" << std::endl;
 	// create the window
-	m_AppWindow.create(sf::VideoMode(1900, 896), "Bilal Alnaani Application");
+
+	Game::CApplicationWindow& rAppWindow = Game::CApplicationWindow::GetInstance();
+	rAppWindow.OnCreate();
+
 }
 
 void Gfx::CStartupPhase::OnRun(XMLDocument& _rMetaEntityDoc)

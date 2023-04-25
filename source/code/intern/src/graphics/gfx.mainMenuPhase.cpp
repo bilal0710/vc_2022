@@ -1,5 +1,6 @@
 #include "gfx.mainMenuPhase.h"
-#include "gfx.startupPhase.h"
+
+#include"game/game.appWindow.h"
 #include <iostream>
 
 
@@ -44,7 +45,7 @@ namespace Gfx
 	void CMainMenuPhase::EventListener(Data::CEvent& data) 
 	{
 		std::cout << "GFX::MainMenuPhase -> listen to event" << std::endl;
-		CStartupPhase& rStartupPhase = CStartupPhase::GetInstance();
+		Game::CApplicationWindow& rAppWindow = Game::CApplicationWindow::GetInstance();
 
 		CMainMenuPhase MainMenuClass;
 		int MainMenuSelected = MainMenuClass.GetInstance().m_MainMenuSelected;
@@ -54,16 +55,16 @@ namespace Gfx
 			return;
 		}
 		if (MainMenuSelected == 1) {
-			rStartupPhase.m_AppWindow.close();
+			rAppWindow.m_AppWindow.close();
 		}
 	}
 
 	void CMainMenuPhase::OnRun()
 	{
 		cout << "Gfx::MainMenuPhase::OnRun" << endl;
-		CStartupPhase& rStartupPhase = CStartupPhase::GetInstance();
-		DrawMainMenu(rStartupPhase.m_AppWindow);
-		rStartupPhase.m_AppWindow.display();
+		Game::CApplicationWindow& rAppWindow = Game::CApplicationWindow::GetInstance();
+		DrawMainMenu(rAppWindow.m_AppWindow);
+		rAppWindow.m_AppWindow.display();
 
 	}
 

@@ -14,10 +14,12 @@ namespace Game
 		std::cout << "------------------------" << std::endl;
 
 		Core::Time::Reset();
+		m_EndGame = false;
 
 		Gfx::CPlayPhase::GetInstance().OnEnter();
 		Gui::CPlayPhase::GetInstance().OnEnter();
 		Logic::CPlayPhase::GetInstance().OnEnter();
+
 		return 0;
 	}
 
@@ -25,14 +27,19 @@ namespace Game
 	{
 		Core::Time::OnFrame();
 
-		std::cout << "PlayPhase::InternOnRun " << std::endl;
-		std::cout << "------------------------" << std::endl;
+		//std::cout << "PlayPhase::InternOnRun " << std::endl;
+		//std::cout << "------------------------" << std::endl;
 
 		Gfx::CPlayPhase::GetInstance().OnRun();
 		Gui::CPlayPhase::GetInstance().OnRun();
 		//Logic::CPlayPhase::GetInstance().OnRun();
 
-		return Type::UNLOAD_MAP;
+		if (m_EndGame)
+		{
+			return Type::UNLOAD_MAP;
+		}
+
+		return Type::PLAY;
 	}
 
 	int CPlayPhase::InternOnLeave()

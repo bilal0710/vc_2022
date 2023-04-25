@@ -20,11 +20,15 @@ namespace Game
 		CPlayPhase()
 		{};
 
-		int counter = 0;
+	
 
 	private:
 		int InternOnEnter() override;
 		int InternOnRun() override;
 		int InternOnLeave() override;
+
+	public:
+		bool m_EndGame;
 	};
+
 }

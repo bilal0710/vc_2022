@@ -22,7 +22,7 @@ namespace Gfx
         void OnEnter();
         void OnRun(tinyxml2::XMLDocument& _rMetaEntityDoc);
         void OnLeave();
-        sf::RenderWindow m_AppWindow;
+        //sf::RenderWindow m_AppWindow;
 
     private:
         CStartupPhase()

@@ -23,6 +23,8 @@ namespace Game
 
 	int CPlayPhase::InternOnRun()
 	{
+		Core::Time::OnFrame();
+
 		std::cout << "PlayPhase::InternOnRun " << std::endl;
 		std::cout << "------------------------" << std::endl;
 

@@ -29,7 +29,7 @@ namespace Data
         void* GetFacet(Facet type);
 
     public:
-        SEntityCategory::Enum category;
+        
         Core::CIDManager::BID id;
         Core::CVector3<float> position;
         Core::CVector3<float> size;
@@ -44,6 +44,7 @@ namespace Data
 
         FacetArray facets;
         CEntityLink m_Link;
+        SEntityCategory::Enum category;
 
     private:
 

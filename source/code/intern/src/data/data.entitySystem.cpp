@@ -15,114 +15,118 @@ using namespace tinyxml2;
 
 namespace Data
 {
-    int CEntitySystem::Initialize(tinyxml2::XMLDocument& _rMapEntity)
-    {
-        int EntityCount = 0;
+	int CEntitySystem::Initialize(tinyxml2::XMLDocument& _rMapEntity)
+	{
+		int EntityCount = 0;
 
-        Data::CMetaEntitySystem& rMetaEntitySystem = Data::CMetaEntitySystem::GetInstance();
+		Data::CMetaEntitySystem& rMetaEntitySystem = Data::CMetaEntitySystem::GetInstance();
 
-        XMLElement* pEntities = _rMapEntity.FirstChildElement("entities");
-        XMLElement* pXmlEntity = pEntities->FirstChildElement("entity");
+		XMLElement* pEntities = _rMapEntity.FirstChildElement("entities");
+		XMLElement* pXmlEntity = pEntities->FirstChildElement("entity");
 
-        for (;;)
-        {
-            if (pXmlEntity == nullptr)
-            {
-                break;
-            }
+		for (;;)
+		{
+			if (pXmlEntity == nullptr)
+			{
+				break;
+			}
 
-            std::string Name = pXmlEntity->FindAttribute("name")->Value();
+			std::string Name = pXmlEntity->FindAttribute("name")->Value();
 
-            std::string MetaEntityName = pXmlEntity->FindAttribute("meta-entity")->Value();
-            auto ID = rMetaEntitySystem.GetMetaEntityID(MetaEntityName);
-            Data::CMetaEntity& rMetaEntity = rMetaEntitySystem.GetMetaEntity(ID);
+			std::string MetaEntityName = pXmlEntity->FindAttribute("meta-entity")->Value();
+			auto ID = rMetaEntitySystem.GetMetaEntityID(MetaEntityName);
+			Data::CMetaEntity& rMetaEntity = rMetaEntitySystem.GetMetaEntity(ID);
 
-            XMLElement* pDataElement = pXmlEntity->FirstChildElement("data");
+			XMLElement* pDataElement = pXmlEntity->FirstChildElement("data");
 
-            auto SizeStrings = Core::Explode(pDataElement->FirstChildElement("size")->FirstChild()->Value(), ';');
-            auto PositionStrings = Core::Explode(pDataElement->FirstChildElement("position")->FirstChild()->Value(), ';');
+			auto SizeStrings = Core::Explode(pDataElement->FirstChildElement("size")->FirstChild()->Value(), ';');
+			auto PositionStrings = Core::Explode(pDataElement->FirstChildElement("position")->FirstChild()->Value(), ';');
+			
 
-            auto type = atoi(pDataElement->FirstChildElement("type")->FirstChild()->Value());
-           
+			auto type = atoi(pDataElement->FirstChildElement("type")->FirstChild()->Value());
 
-            
+			CEntity& rEntity = CreateEntity(Name);
+			rEntity.size = Core::Float3(
+				std::stof(SizeStrings[0]),
+				std::stof(SizeStrings[1]),
+				std::stof(SizeStrings[2])
+			);
+			rEntity.position = Core::Float3(
+				std::stof(PositionStrings[0]),
+				std::stof(PositionStrings[1]),
+				std::stof(PositionStrings[2])
+			);
+			rEntity.aabb = Core::CAABB3<float>(
+				Core::Float3(rEntity.position[0],
+					rEntity.position[1],
+					rEntity.position[2]),
+				Core::Float3(rEntity.position[0] + rEntity.size[0],
+					rEntity.position[1] + rEntity.size[1],
+					rEntity.position[2] + rEntity.size[2]
+				));
 
-            CEntity& rEntity = CreateEntity(Name);
-            rEntity.size = Core::Float3(
-                std::stof(SizeStrings[0]),
-                std::stof(SizeStrings[1]),
-                std::stof(SizeStrings[2])
-            );
-            rEntity.position = Core::Float3(
-                std::stof(PositionStrings[0]),
-                std::stof(PositionStrings[1]),
-                std::stof(PositionStrings[2])
-            );
-            rEntity.metaEntity = &rMetaEntity;
-            if (type < SEntityCategory::NumberOfMembers)
-            {
-                rEntity.category = SEntityCategory::Enum(type);
-            }
 
-            EntityCount++;
 
-            if (rMetaEntity.name == "mario")
-            {
-                Data::CPlayerSystem& rPlayerSystem = Data::CPlayerSystem::GetInstance();
-                rPlayerSystem.SetPlayer(&rEntity);
+			rEntity.metaEntity = &rMetaEntity;
+			if (type < SEntityCategory::NumberOfMembers)
+			{
+				rEntity.category = SEntityCategory::Enum(type);
+			}
 
-                rEntity.aabb = Core::CAABB3<float>(
-                    Core::Float3(rEntity.position[0], rEntity.position[1], rEntity.position[2]),
-                    Core::Float3(rEntity.position[0] + 64, rEntity.position[1] + 64, rEntity.position[2])
-                );
-            }
+			EntityCount++;
 
-            pXmlEntity = pXmlEntity->NextSiblingElement();
-        }
+			if (rMetaEntity.name == "mario")
+			{
+				Data::CPlayerSystem& rPlayerSystem = Data::CPlayerSystem::GetInstance();
+				rPlayerSystem.SetPlayer(&rEntity);
+			}
 
-        return EntityCount;
-    }
+			pXmlEntity = pXmlEntity->NextSiblingElement();
+		}
 
-    std::vector<Data::CEntity*> CEntitySystem::GetAllEntities()
-    {
-        return m_ItemManager.GetAllItems();
-    }
+		return EntityCount;
+	}
 
-    CEntity& CEntitySystem::CreateEntity(std::string name)
-    {
-        Core::CIDManager::BID id = m_IdManager.Register(name);
+	std::vector<Data::CEntity*> CEntitySystem::GetAllEntities()
+	{
+		return m_ItemManager.GetAllItems();
+	}
 
-        return m_ItemManager.CreateItem(id);
-    }
+	CEntity& CEntitySystem::CreateEntity(std::string name)
+	{
+		Core::CIDManager::BID id = m_IdManager.Register(name);
 
-    void CEntitySystem::DestroyEntity()
-    {
-        throw std::logic_error("Not Implemented");
-    }
+		return m_ItemManager.CreateItem(id);
+	}
 
-    void CEntitySystem::DestoryAllEntities()
-    {
-        m_ItemManager.Clear();
-        m_IdManager.Clear();
-    }
+	void CEntitySystem::DestroyEntity()
+	{
+		throw std::logic_error("Not Implemented");
+	}
 
-    CEntity& CEntitySystem::SearchEntity(std::string name)
-    {
-        return m_ItemManager.GetItem(m_IdManager.GetIDByName(name));
-    }
+	void CEntitySystem::DestoryAllEntities()
+	{
+		m_ItemManager.Clear();
+		m_IdManager.Clear();
+	}
 
-    CEntity& CEntitySystem::GetEntity(Core::CIDManager::BID id)
-    {
-        return m_ItemManager.GetItem(id);
-    }
+	CEntity& CEntitySystem::SearchEntity(std::string name)
+	{
+		return m_ItemManager.GetItem(m_IdManager.GetIDByName(name));
+	}
 
-    bool CEntitySystem::ContainsEntity(std::string name)
-    {
-        return m_IdManager.ContainsName(name);
-    }
+	CEntity& CEntitySystem::GetEntity(Core::CIDManager::BID id)
+	{
+		return m_ItemManager.GetItem(id);
+	}
 
-    Core::CIDManager::BID CEntitySystem::GetEntityID(std::string name)
-    {
-        return m_IdManager.GetIDByName(name);
-    }
+	bool CEntitySystem::ContainsEntity(std::string name)
+	{
+		return m_IdManager.ContainsName(name);
+	}
+
+	Core::CIDManager::BID CEntitySystem::GetEntityID(std::string name)
+	{
+		return m_IdManager.GetIDByName(name);
+	}
 }

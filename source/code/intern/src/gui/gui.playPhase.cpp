@@ -14,10 +14,6 @@ namespace Gui
 
 	}
 
-	static void EventCallBack(Data::CEvent& data) {
-		// std::cout << "ABC" << std::endl;
-
-	}
 
 	void CPlayPhase::OnRun()
 	{

@@ -23,9 +23,12 @@ namespace Logic
 
     public:
         void OnEnter();
-        void OnRun(Core::Float3 orientation);
+        void OnRun();
         void OnLeave();
+        void MovePlayer(Core::Float2 _Step);
 
 
+    private:
+        float m_Step = 4.0f;
     };
 }

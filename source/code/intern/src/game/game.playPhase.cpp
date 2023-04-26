@@ -27,12 +27,9 @@ namespace Game
 	{
 		Core::Time::OnFrame();
 
-		//std::cout << "PlayPhase::InternOnRun " << std::endl;
-		//std::cout << "------------------------" << std::endl;
-
 		Gfx::CPlayPhase::GetInstance().OnRun();
 		Gui::CPlayPhase::GetInstance().OnRun();
-		//Logic::CPlayPhase::GetInstance().OnRun();
+		Logic::CPlayPhase::GetInstance().OnRun();
 
 		if (m_EndGame)
 		{

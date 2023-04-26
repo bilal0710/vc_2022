@@ -19,6 +19,12 @@
 #include <logic/logic.playPhase.h>
 #include <logic/logic.inputType.h>
 #include <logic/logic.inputSystem.h>
+#include <gui/gui.choiceSystem.h>
+#include <gui/gui.choiceType.h>
+
+
+using namespace sf;
+using namespace std;
 
 namespace Game
 {
@@ -51,10 +57,12 @@ namespace Game
 		std::cout << "------------------------" << std::endl;
 
 		Game::CApplicationWindow& rAppWindow = Game::CApplicationWindow::GetInstance();
+		Logic::CInputSystem& rLogicInputSystem = Logic::CInputSystem::GetInstance();
+		Gui::CChoiceSystem& rGuiChoiceSystem = Gui::CChoiceSystem::GetInstance();
 
-		//Gfx::CPlayPhase& rGfxPlayPhase = Gfx::CPlayPhase::GetInstance();
-		//Logic::CPlayPhase& rLogicPlayPhase = Logic::CPlayPhase::GetInstance();
-		//Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
+		CPhase* pCurrentPhase = m_pPhases[m_IndexOfCurrentPhase];
+		assert(pCurrentPhase != nullptr);
+
 
 		for (;;)
 		{
@@ -66,17 +74,10 @@ namespace Game
 
 			// check all the window's events that were triggered since the last iteration of the loop
 			sf::Event Event;
-			/*	Data::CPlayerSystem& rPlayerSystem = Data::CPlayerSystem::GetInstance();
-			Data::CEntity* pPlayer = rPlayerSystem.GetPlayer();*/
-
+	
 
 			while (rAppWindow.m_AppWindow.pollEvent(Event))
 			{
-
-				//if (Event.type == sf::Event::KeyPressed) {
-				//	rEventSystem.Register(Data::CEvent::BTypeID(0), &EventCallBack);
-				//	rEventSystem.FireEvent(0);
-				//}
 
 				// "close requested" event: we close the window
 				if (Event.type == sf::Event::Closed)
@@ -90,59 +91,36 @@ namespace Game
 					rAppWindow.m_AppWindow.setView(sf::View(VisibleArea));
 				}
 
-				Logic::CInputSystem& rInputSystem = Logic::CInputSystem::GetInstance();
+				
 
 				//if (Event.type == sf::Event::KeyPressed && pPlayer != nullptr)
 				if (Event.type == sf::Event::KeyPressed)
 				{
 
-					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+					if (sf::Keyboard::isKeyPressed(Keyboard::Left))
 					{
-
-						rInputSystem.AddInput(Logic::SInputType::MoveLeft);
-
-						std::cout << "left" << std::endl;
-						std::cout << "------------------------" << std::endl;
-
-						/*		if (pPlayer->position[0] > m_XLimitLeft)
-								{
-									pPlayer->position = Core::Float3(pPlayer->position[0] - m_Step, pPlayer->position[1], pPlayer->position[2]);
-									pPlayer->aabb = Core::CAABB3<float>(
-										Core::Float3(pPlayer->position[0], pPlayer->position[1], pPlayer->position[2]),
-										Core::Float3(pPlayer->position[0] + 64, pPlayer->position[1] + 64, pPlayer->position[2])
-									);
-								}*/
-								//std::cout << "position X=" << pPlayer->position[0] << std::endl;
-								//rLogicPlayPhase.OnRun(pPlayer->position);
-								//rGfxPlayPhase.OnRun();
-
+						rLogicInputSystem.AddInput(Logic::SInputType::MoveLeft);
 					}
-					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+					if (sf::Keyboard::isKeyPressed(Keyboard::Right))
 					{
-						//std::cout << "Gfx::PlayPhase::KeyPressed right" << std::endl;
-
-						rInputSystem.AddInput(Logic::SInputType::MoveRight);
-
-
-						std::cout << "right" << std::endl;
-						std::cout << "------------------------" << std::endl;
-
-						//if (pPlayer->position[0] < m_XLimitRight)
-						//{
-						//	pPlayer->position = Core::Float3(pPlayer->position[0] + m_Step, pPlayer->position[1], pPlayer->position[2]);
-						//	pPlayer->aabb = Core::CAABB3<float>(
-						//		Core::Float3(pPlayer->position[0], pPlayer->position[1], pPlayer->position[2]),
-						//		Core::Float3(pPlayer->position[0] + 64, pPlayer->position[1] + 64, pPlayer->position[2])
-						//	);
-						//}
-						//rGfxPlayPhase.OnRun();
-						//rLogicPlayPhase.OnRun(pPlayer->position);
+						rLogicInputSystem.AddInput(Logic::SInputType::MoveRight);
 					}
-
+					if (sf::Keyboard::isKeyPressed(Keyboard::Enter))
+					{
+						if (pCurrentPhase->MAIN_MENU) {
+							std::cout << "Enter" << std::endl;
+							rGuiChoiceSystem.AddInput(Gui::SChoiceType::Enter);
+						}
+					}
+					if (sf::Keyboard::isKeyPressed(Keyboard::Up) || sf::Keyboard::isKeyPressed(Keyboard::Down)) {
+						
+						if (pCurrentPhase->MAIN_MENU) {
+							std::cout << "MAIN_MENU" << std::endl;
+							rGuiChoiceSystem.AddInput(Gui::SChoiceType::Move);
+						}
+					}
 				}
-
 			}
-
 
 			if (RunPhase() == false)
 			{

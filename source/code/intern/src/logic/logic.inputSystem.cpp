@@ -5,11 +5,7 @@
 
 namespace Logic
 {
-    //Command& Logic::CInputSystem::CreateCommand()
-    //{
-    //    return *(new Command());
-    //}
-
+  
     void CInputSystem::AddInput(SInputType::Enum _Input)
     {
         m_InputQueue.push(_Input);
@@ -25,9 +21,6 @@ namespace Logic
     void CInputSystem::RemoveNextInput()
     {
         assert(!m_InputQueue.empty());
-
-        //Command* command = commandQueue.front();
-        //delete command;
         m_InputQueue.pop();
     }
 

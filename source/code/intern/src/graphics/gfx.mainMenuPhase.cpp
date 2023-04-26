@@ -1,5 +1,5 @@
 #include "gfx.mainMenuPhase.h"
-
+#include <data/data.eventSystem.h>
 #include"game/game.appWindow.h"
 #include <iostream>
 
@@ -12,6 +12,12 @@ namespace Gfx
 	void CMainMenuPhase::OnEnter()
 	{
 		std::cout << "Gfx::MainMenuPhase::OnEnter" << std::endl;
+		
+		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
+
+		CMainMenuPhase MainMenuClass;
+		
+		rEventSystem.Register(Data::CEvent::BTypeID(1), &MainMenuClass.EventListener);
 
 		if (!m_Font.loadFromFile("3Dumb.ttf")) {
 			cout << "No font is loaded!" << endl;
@@ -41,27 +47,19 @@ namespace Gfx
 
 	}
 
+	int CMainMenuPhase::GetMainMenuSelected() {
+		return m_MainMenuSelected;
+	}
 
 	void CMainMenuPhase::EventListener(Data::CEvent& data) 
 	{
 		std::cout << "GFX::MainMenuPhase -> listen to event" << std::endl;
-		Game::CApplicationWindow& rAppWindow = Game::CApplicationWindow::GetInstance();
-
 		CMainMenuPhase MainMenuClass;
-		int MainMenuSelected = MainMenuClass.GetInstance().m_MainMenuSelected;
-
-		if (MainMenuSelected == 0) {
-			std::cout << "return" << std::endl;
-			return;
-		}
-		if (MainMenuSelected == 1) {
-			rAppWindow.m_AppWindow.close();
-		}
+		MainMenuClass.GetInstance().Move();
 	}
 
 	void CMainMenuPhase::OnRun()
 	{
-		cout << "Gfx::MainMenuPhase::OnRun" << endl;
 		Game::CApplicationWindow& rAppWindow = Game::CApplicationWindow::GetInstance();
 		DrawMainMenu(rAppWindow.m_AppWindow);
 		rAppWindow.m_AppWindow.display();
@@ -95,5 +93,11 @@ namespace Gfx
 	}
 
 	void CMainMenuPhase::OnLeave()
-	{}
+	{
+		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
+
+		CMainMenuPhase MainMenuClass;
+
+		rEventSystem.Unregister(Data::CEvent::BTypeID(1), &MainMenuClass.EventListener);
+	}
 }

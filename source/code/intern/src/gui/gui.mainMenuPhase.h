@@ -24,6 +24,6 @@ namespace Gui
         {};
 
     private: 
-        int m_MainMenuSelected;
+        //int m_MainMenuSelected;
     };
 }

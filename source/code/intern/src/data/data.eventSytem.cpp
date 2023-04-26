@@ -39,6 +39,20 @@ namespace Data
         }
     }
 
+    void CEventSystem::FireEvent(CEvent& event, int _Data)
+    {
+        for (std::pair<CEvent::BTypeID, CEventListener> listener : eventListeners)
+        {
+            // only invoke when type id matches
+            if (listener.first == event.GetType())
+            {
+                event.SetData(_Data);
+                // dereference and invoke function pointer
+                (*(listener.second))(event);
+            }
+        }
+    }
+
     void CEventSystem::FireEvent(CEvent::BTypeID _Type)
     {
         CEvent* event = nullptr;
@@ -54,19 +68,20 @@ namespace Data
         }
     }
 
-    //void CEventSystem::FireEvent(CEvent::BTypeID _Type, int _Data)
-    //{
-    //    CEvent* event = nullptr;
-    //    try
-    //    {
-    //        event = new CEvent(_Type, _Data);
-    //        FireEvent(*event);
-    //    }
-    //    catch (...)
-    //    {
-    //        delete event;
-    //    }
-    //}
+    void CEventSystem::FireEvent(CEvent::BTypeID _Type, int _Data)
+    {
+        CEvent* event = nullptr;
+        try
+        {
+            event = new CEvent();
+            event->SetType(_Type);
+            FireEvent(*event, _Data);
+        }
+        catch (...)
+        {
+            delete event;
+        }
+    }
 
     CEventSystem::~CEventSystem()
     {

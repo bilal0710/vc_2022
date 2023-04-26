@@ -27,6 +27,7 @@ namespace Gfx
         void DrawMainMenu(RenderWindow& r_AppWindow);
         static void EventListener(Data::CEvent& data);
         void Move();
+        int GetMainMenuSelected();
      
       
 

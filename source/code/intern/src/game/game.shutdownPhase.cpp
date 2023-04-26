@@ -5,6 +5,7 @@
 #include "../graphics/gfx.shutdownPhase.h"
 #include "../gui/gui.shutdownPhase.h"
 #include "../logic/logic.shutdownPhase.h"
+#include "game/game.appWindow.h"
 
 namespace Game
 {
@@ -44,12 +45,14 @@ namespace Game
 
 	int CShutdownPhase::InternOnLeave()
 	{
+		Game::CApplicationWindow& rAppWindow = Game::CApplicationWindow::GetInstance();
 		std::cout << "ShutdownPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;
 		Data:: CShutdownPhase::GetInstance().OnLeave();
 		Gfx::  CShutdownPhase::GetInstance().OnLeave();
 		Gui::  ShutdownPhase::GetInstance().OnLeave();
 		Logic::CShutdownPhase::GetInstance().OnLeave();
+		rAppWindow.m_AppWindow.close();
 		return 0;
 	}
 }

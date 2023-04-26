@@ -43,12 +43,7 @@ namespace Gfx
 			Sprite.setTexture(*pTexture);
 			Sprite.setPosition(Entity->position[0], Entity->position[1]);
 
-			/*     if (Entity->metaEntity->name == "dirt") {
-					 std::cout << "dirt " << std::endl;
-					 std::cout << "X= " << Entity->position[0] << std::endl;
-					 std::cout << "y= " << Entity->position[1] << std::endl;
-					 std::cout << std::endl;
-				 }*/
+
 			assert(pTexture != nullptr);
 
 			// factor in the texture size
@@ -72,10 +67,6 @@ namespace Gfx
 					AppWindowSize.x,
 					AppWindowSize.y
 				));
-
-				//std::cout << "mario y= " << Entity->position[1] << std::endl;
-				/*std::cout << "X= " << view.getCenter().x << std::endl;
-				std::cout << "y= " << view.getCenter().y << std::endl;*/
 
 				if (view.getCenter().x > 950 && view.getCenter().x < 2800) {
 					rAppWindow.m_AppWindow.setView(view);

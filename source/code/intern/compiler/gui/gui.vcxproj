@@ -150,6 +150,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\gui\gui.choiceSystem.cpp" />
     <ClCompile Include="..\..\src\gui\gui.loadPhase.cpp" />
     <ClCompile Include="..\..\src\gui\gui.mainMenuPhase.cpp" />
     <ClCompile Include="..\..\src\gui\gui.playPhase.cpp" />
@@ -158,6 +159,8 @@
     <ClCompile Include="..\..\src\gui\gui.unloadPhase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\gui\gui.choiceSystem.h" />
+    <ClInclude Include="..\..\src\gui\gui.choiceType.h" />
     <ClInclude Include="..\..\src\gui\gui.loadPhase.h" />
     <ClInclude Include="..\..\src\gui\gui.mainMenuPhase.h" />
     <ClInclude Include="..\..\src\gui\gui.playPhase.h" />

@@ -21,12 +21,14 @@ namespace Data
         void Register(CEvent::BTypeID _Type, CEventListener _rListener);
         void Unregister(CEvent::BTypeID _Type, CEventListener _rListener);
         void FireEvent(CEvent::BTypeID _Type);
+        void FireEvent(CEvent::BTypeID _Type, int _Data);
         //void FireEvent(CEvent::BTypeID _Type, int _Data);
 
     private:
         CEventSystem();
         ~CEventSystem();
         void FireEvent(CEvent& _rEvent);
+        void FireEvent(CEvent& _rEvent, int _Data);
 
     private:
         CEventSystem(const CEventSystem&) = delete;

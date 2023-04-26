@@ -24,7 +24,7 @@ namespace Logic
         {};
 
     public:
-        //Command& CreateCommand();
+  
         void AddInput(SInputType::Enum _Input);
         SInputType::Enum GetNextInput();
         void RemoveNextInput();

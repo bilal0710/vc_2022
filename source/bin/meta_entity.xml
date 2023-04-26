@@ -2,7 +2,7 @@
 <meta-entities>
   <meta-entity name="ground">
     <data>
-      <size value="16.4"/>
+      <size value="32.8"/>
       <aabb minCorner="0.0;0.0;0.0" maxCorner="128.0;128.0;0.0"></aabb>
     </data>
 

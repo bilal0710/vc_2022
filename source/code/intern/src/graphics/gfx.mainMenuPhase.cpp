@@ -12,11 +12,11 @@ namespace Gfx
 	void CMainMenuPhase::OnEnter()
 	{
 		std::cout << "Gfx::MainMenuPhase::OnEnter" << std::endl;
-		
+
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
 
 		CMainMenuPhase MainMenuClass;
-		
+
 		rEventSystem.Register(Data::CEvent::BTypeID(1), &MainMenuClass.EventListener);
 
 		if (!m_Font.loadFromFile("3Dumb.ttf")) {
@@ -39,11 +39,12 @@ namespace Gfx
 			m_Menu[i].setFillColor(Color::White);
 		}
 		m_MainMenuSelected = 0;
-		
+
 		m_Background.setSize(Vector2f(700, 396));
 		m_Background.setPosition(650, 75);
 		m_BackgroundTexture.loadFromFile("Mario_BG.png");
 		m_Background.setTexture(&m_BackgroundTexture);
+		std::cout << "Gfx::MainMenuPhase::OnEnter Finish" << std::endl;
 
 	}
 
@@ -51,7 +52,7 @@ namespace Gfx
 		return m_MainMenuSelected;
 	}
 
-	void CMainMenuPhase::EventListener(Data::CEvent& data) 
+	void CMainMenuPhase::EventListener(Data::CEvent& data)
 	{
 		std::cout << "GFX::MainMenuPhase -> listen to event" << std::endl;
 		CMainMenuPhase MainMenuClass;
@@ -61,6 +62,7 @@ namespace Gfx
 	void CMainMenuPhase::OnRun()
 	{
 		Game::CApplicationWindow& rAppWindow = Game::CApplicationWindow::GetInstance();
+
 		DrawMainMenu(rAppWindow.m_AppWindow);
 		rAppWindow.m_AppWindow.display();
 
@@ -69,7 +71,11 @@ namespace Gfx
 
 	void CMainMenuPhase::DrawMainMenu(RenderWindow& _rAppWindow)
 	{
+		auto& AppWindowSize = _rAppWindow.getView().getSize();
 
+		sf::View view(sf::FloatRect(0.0f, 0.0f, AppWindowSize.x, AppWindowSize.y));
+		_rAppWindow.setView(view);
+		_rAppWindow.clear(sf::Color::Black);
 		_rAppWindow.draw(m_Background);
 
 		for (int i = 0; i < Max_Main_Menu; i++) {

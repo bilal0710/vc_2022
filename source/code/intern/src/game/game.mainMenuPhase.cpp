@@ -28,8 +28,11 @@ namespace Game
 
 	int CMainMenuPhase::InternOnRun()
 	{
+
 		Gfx::CMainMenuPhase::GetInstance().OnRun();
 		Gui::CMainMenuPhase::GetInstance().OnRun();
+
+		std::cout << "Game::MainMenuPhase::InternOnEnter" << std::endl;
 
 		if (m_Choice == 1)
 		{

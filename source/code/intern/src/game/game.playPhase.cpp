@@ -38,7 +38,7 @@ namespace Game
 
 		if (m_EndGame)
 		{
-			return Type::UNLOAD_MAP;
+			return Type::MAIN_MENU;
 		}
 
 		return Type::PLAY;
@@ -60,6 +60,7 @@ namespace Game
 		std::cout << "------------------------" << std::endl;
 		Gfx::CPlayPhase::GetInstance().OnLeave();
 		Gui::CPlayPhase::GetInstance().OnLeave();
+		Logic::CPlayPhase::GetInstance().OnLeave();
 		return 0;
 	}
 }

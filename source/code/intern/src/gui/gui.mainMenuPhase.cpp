@@ -16,7 +16,9 @@ using namespace sf;
 namespace Gui
 {
 	void CMainMenuPhase::OnEnter()
-	{}
+	{
+		std::cout << "Gui::MainMenuPhase::OnEnter" << std::endl;
+	}
 
 
 	void CMainMenuPhase::OnRun()

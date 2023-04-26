@@ -27,7 +27,6 @@ namespace Game
 		int InternOnLeave() override;
 
 	public:
-		//static void EventListener(Data::CEvent& data);
 		static void EnterGame(Data::CEvent& data);
 		void SetChoice(int _Choice);
 

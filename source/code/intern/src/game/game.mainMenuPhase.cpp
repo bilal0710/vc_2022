@@ -52,8 +52,8 @@ namespace Game
 		MainMenuClass.GetInstance().SetChoice(_Event.GetData());
 	}
 
-	void CMainMenuPhase::SetChoice(int _Exit) {
-		m_Choice = _Exit;
+	void CMainMenuPhase::SetChoice(int _Choice) {
+		m_Choice = _Choice;
 	}
 
 	int CMainMenuPhase::InternOnLeave()

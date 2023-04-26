@@ -5,7 +5,7 @@
 #include "../logic/logic.playPhase.h"
 #include "core/core_time.h"
 #include "data/data.entitySystem.h"
-
+#include <data/data.eventSystem.h>
 namespace Game
 {
 	int CPlayPhase::InternOnEnter()
@@ -13,12 +13,17 @@ namespace Game
 		std::cout << "PlayPhase::InternOnEnter" << std::endl;
 		std::cout << "------------------------" << std::endl;
 
-		Core::Time::Reset();
+		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
+
 		m_EndGame = false;
+
+		CPlayPhase PlayPhaseClass;
+		rEventSystem.Register(Data::CEvent::BTypeID(2), &PlayPhaseClass.FinishGame);
 
 		Gfx::CPlayPhase::GetInstance().OnEnter();
 		Gui::CPlayPhase::GetInstance().OnEnter();
 		Logic::CPlayPhase::GetInstance().OnEnter();
+		Core::Time::Reset();
 
 		return 0;
 	}
@@ -37,6 +42,16 @@ namespace Game
 		}
 
 		return Type::PLAY;
+	}
+
+	void CPlayPhase::FinishGame(Data::CEvent& _Event)
+	{
+		CPlayPhase PlayPhaseClass;
+		PlayPhaseClass.GetInstance().SetEndGame(true);
+	}
+
+	void CPlayPhase::SetEndGame(bool _Exit) {
+		m_EndGame = _Exit;
 	}
 
 	int CPlayPhase::InternOnLeave()

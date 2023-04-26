@@ -1,6 +1,7 @@
 #pragma once
 
 #include "game.phase.h"
+#include <data/data.eventSystem.h>
 
 namespace Game
 {
@@ -17,7 +18,7 @@ namespace Game
 		CPlayPhase& operator = (const CPlayPhase&) = delete;
 
 	private:
-		CPlayPhase()
+		CPlayPhase():m_EndGame(false)
 		{};
 
 	
@@ -26,6 +27,10 @@ namespace Game
 		int InternOnEnter() override;
 		int InternOnRun() override;
 		int InternOnLeave() override;
+
+	public:
+		static void FinishGame(Data::CEvent& data);
+		void SetEndGame(bool _Exit);
 
 	public:
 		bool m_EndGame;

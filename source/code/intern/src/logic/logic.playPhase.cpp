@@ -78,25 +78,17 @@ namespace Logic
 
 			for (auto& Entity : Entities)
 			{
-				if (Entity->category == Data::SEntityCategory::Finish) {
-
-					if (Core::CAABB3<float>(
-						Core::Float3(pPlayer->position[0], pPlayer->position[1], pPlayer->position[2]),
-						Core::Float3(pPlayer->position[0] + 64, pPlayer->position[1] + 64, pPlayer->position[2])
-					).Intersects(Entity->aabb))
+				if (Core::CAABB3<float>(
+					Core::Float3(pPlayer->position[0], pPlayer->position[1], pPlayer->position[2]),
+					Core::Float3(pPlayer->position[0] + 64, pPlayer->position[1] + 64, pPlayer->position[2])
+				).Intersects(Entity->aabb))
+				{
+					if (Entity->category == Data::SEntityCategory::Finish)
 					{
+						rEventSystem.FireEvent(2);
 
-						cout << "Logic:: Data::SEntityCategory::Finish" << endl;
-
-						if (Entity->category == Data::SEntityCategory::Finish)
-						{
-							rEventSystem.Register(Data::CEvent::BTypeID(0), &EventCallBack);
-							rEventSystem.FireEvent(1);
-							std::cout << "FINISH HIT" << std::endl;
-						}
 					}
 				}
-
 			}
 
 			if (collisionEntities.empty())

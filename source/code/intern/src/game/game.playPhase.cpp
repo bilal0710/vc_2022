@@ -6,6 +6,8 @@
 #include "core/core_time.h"
 #include "data/data.entitySystem.h"
 #include <data/data.eventSystem.h>
+#include "game.unloadPhase.h"
+
 namespace Game
 {
 	int CPlayPhase::InternOnEnter()
@@ -18,7 +20,10 @@ namespace Game
 		m_EndGame = false;
 
 		CPlayPhase PlayPhaseClass;
+
+
 		rEventSystem.Register(Data::CEvent::BTypeID(2), &PlayPhaseClass.FinishGame);
+		rEventSystem.Register(Data::CEvent::BTypeID(3), &CUnloadPhase::GetInstance().ReloadGame);
 
 		Gfx::CPlayPhase::GetInstance().OnEnter();
 		Gui::CPlayPhase::GetInstance().OnEnter();
@@ -38,7 +43,7 @@ namespace Game
 
 		if (m_EndGame)
 		{
-			return Type::MAIN_MENU;
+			return Type::UNLOAD_MAP;
 		}
 
 		return Type::PLAY;

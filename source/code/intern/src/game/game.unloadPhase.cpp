@@ -4,13 +4,16 @@
 #include "../graphics/gfx.unloadPhase.h"
 #include "../gui/gui.unloadPhase.h"
 #include "../logic/logic.unloadPhase.h"
+//#include <data/data.eventSystem.h>
+
 
 namespace Game
 {
 	int CUnloadPhase::InternOnEnter()
 	{
 		std::cout << "UnloadPhase::InternOnEnter" << std::endl;
-		std::cout << "------------------------" << std::endl;
+		std::cout << "------------------------" << std::endl;	
+
 		Gfx::CUnloadPhase::GetInstance().OnEnter();
 		Gui::CUnloadPhase::GetInstance().OnEnter();
 		Logic::CUnloadPhase::GetInstance().OnEnter();
@@ -19,23 +22,31 @@ namespace Game
 
 	int CUnloadPhase::InternOnRun()
 	{
-		std::cout << "UnloadPhase::InternOnRun counter= " << counter << std::endl;
+		std::cout << "UnloadPhase::InternOnRun " << std::endl;
 		std::cout << "------------------------" << std::endl;
 
-		counter++;
+		Gfx::CUnloadPhase::GetInstance().OnRun();
+		Gui::CUnloadPhase::GetInstance().OnRun();
+		Logic::CUnloadPhase::GetInstance().OnRun();
 
 
-		if (counter > 4)
-		{
-			counter = 0;
-			Gfx::CUnloadPhase::GetInstance().OnRun();
-			Gui::CUnloadPhase::GetInstance().OnRun();
-			Logic::CUnloadPhase::GetInstance().OnRun();
-
-			return Type::SHUTDOWN;
+		if (m_ReloadGame) {
+			return Type::MAIN_MENU;
 		}
 
-		return Type::UNLOAD_MAP;
+		return Type::SHUTDOWN;
+
+
+	}
+
+	void CUnloadPhase::ReloadGame(Data::CEvent& _Event)
+	{
+		CUnloadPhase UnloadPhaseClass;
+		UnloadPhaseClass.GetInstance().SetReloadGame(true);
+	}
+
+	void CUnloadPhase::SetReloadGame(bool _Reload) {
+		m_ReloadGame = _Reload;
 	}
 
 	int CUnloadPhase::InternOnLeave()

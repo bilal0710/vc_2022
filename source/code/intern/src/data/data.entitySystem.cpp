@@ -31,6 +31,7 @@ namespace Data
 				break;
 			}
 
+
 			std::string Name = pXmlEntity->FindAttribute("name")->Value();
 
 			std::string MetaEntityName = pXmlEntity->FindAttribute("meta-entity")->Value();

@@ -60,8 +60,8 @@ namespace Game
 		Logic::CInputSystem& rLogicInputSystem = Logic::CInputSystem::GetInstance();
 		Gui::CChoiceSystem& rGuiChoiceSystem = Gui::CChoiceSystem::GetInstance();
 
-		CPhase* pCurrentPhase = m_pPhases[m_IndexOfCurrentPhase];
-		assert(pCurrentPhase != nullptr);
+		//CPhase* pCurrentPhase = m_pPhases[m_IndexOfCurrentPhase];
+		//assert(pCurrentPhase != nullptr);
 
 
 		for (;;)
@@ -74,7 +74,7 @@ namespace Game
 
 			// check all the window's events that were triggered since the last iteration of the loop
 			sf::Event Event;
-	
+
 
 			while (rAppWindow.m_AppWindow.pollEvent(Event))
 			{
@@ -91,7 +91,7 @@ namespace Game
 					rAppWindow.m_AppWindow.setView(sf::View(VisibleArea));
 				}
 
-				
+
 
 				//if (Event.type == sf::Event::KeyPressed && pPlayer != nullptr)
 				if (Event.type == sf::Event::KeyPressed)
@@ -107,17 +107,31 @@ namespace Game
 					}
 					if (sf::Keyboard::isKeyPressed(Keyboard::Enter))
 					{
-						if (pCurrentPhase->MAIN_MENU) {
+						if (m_IndexOfCurrentPhase == CPhase::MAIN_MENU) {
 							std::cout << "Enter" << std::endl;
 							rGuiChoiceSystem.AddInput(Gui::SChoiceType::Enter);
 						}
-					}
-					if (sf::Keyboard::isKeyPressed(Keyboard::Up) || sf::Keyboard::isKeyPressed(Keyboard::Down)) {
 						
-						if (pCurrentPhase->MAIN_MENU) {
+					}
+					if (sf::Keyboard::isKeyPressed(Keyboard::Up)) {
+
+						if (m_IndexOfCurrentPhase == CPhase::MAIN_MENU) {
 							std::cout << "MAIN_MENU" << std::endl;
 							rGuiChoiceSystem.AddInput(Gui::SChoiceType::Move);
+							continue;
 						}
+						std::cout << "up" << std::endl;
+
+						rLogicInputSystem.AddInput(Logic::SInputType::MoveUp);
+					}
+					if ( sf::Keyboard::isKeyPressed(Keyboard::Down)) {
+
+						if (m_IndexOfCurrentPhase == CPhase::MAIN_MENU) {
+							std::cout << "MAIN_MENU" << std::endl;
+							rGuiChoiceSystem.AddInput(Gui::SChoiceType::Move);
+							continue;
+						}
+						rLogicInputSystem.AddInput(Logic::SInputType::MoveDown);
 					}
 				}
 			}

@@ -18,7 +18,7 @@ namespace Logic
         CPlayPhase& operator = (const CPlayPhase&) = delete;
 
     private:
-        CPlayPhase():m_PlayerCollidedWithGround(true)
+        CPlayPhase() :m_PlayerCollided(true), m_Climbing(false), m_Down(false), m_Up(false)
         {};
 
     public:
@@ -30,6 +30,9 @@ namespace Logic
 
     private:
         float m_Step = 4.0f;
-        bool m_PlayerCollidedWithGround;
+        bool m_PlayerCollided;
+        bool m_Climbing;
+        bool m_Up;
+        bool m_Down;
     };
 }

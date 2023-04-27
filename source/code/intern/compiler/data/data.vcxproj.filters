@@ -38,5 +38,6 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\..\..\..\bin\meta_entity.xml" />
+    <Xml Include="..\..\..\..\bin\map.xml" />
   </ItemGroup>
 </Project>

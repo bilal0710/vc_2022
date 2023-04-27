@@ -1,6 +1,8 @@
 #pragma once
 
 #include "game.phase.h"
+#include <data/data.eventSystem.h>
+
 
 namespace Game
 {
@@ -17,14 +19,20 @@ namespace Game
 		CUnloadPhase& operator = (const CUnloadPhase&) = delete;
 
 	private:
-		CUnloadPhase()
+		CUnloadPhase() :m_ReloadGame(false)
 		{};
-
-		int counter = 0;
 
 	private:
 		int InternOnEnter() override;
 		int InternOnRun() override;
 		int InternOnLeave() override;
+
+
+	public:
+		static void ReloadGame(Data::CEvent& data);
+		void SetReloadGame(bool _Exit);
+
+	public:
+		bool m_ReloadGame;
 	};
 }

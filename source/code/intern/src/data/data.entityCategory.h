@@ -12,6 +12,7 @@ namespace Data
             Obstacle,
             Finish,
             Cloud,
+            Ladder,
             NumberOfMembers,
             Undefined = -1,
         };

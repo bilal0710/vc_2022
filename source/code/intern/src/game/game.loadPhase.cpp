@@ -35,7 +35,7 @@ namespace Game
 		Data::CLoadPhase::GetInstance().OnRun(*pMapEntity);
 		Gfx::CLoadPhase::GetInstance().OnRun();
 		Gui::CLoadPhase::GetInstance().OnRun();
-		Logic::CLoadPhase::GetInstance().OnRun();
+		Logic::CLoadPhase::GetInstance().OnRun(*pMapEntity);
 
 		return Type::PLAY;
 

@@ -2,6 +2,11 @@
 
 #include "../core/core_vector.h"
 
+#include "../data/data.playerSystem.h"
+#include "../data/data.entitySystem.h"
+#include "../data/data.entityCategory.h"
+#include "../data/data.eventSystem.h"
+#include "logic/logic.inputSystem.h"
 
 namespace Logic
 {
@@ -18,21 +23,21 @@ namespace Logic
         CPlayPhase& operator = (const CPlayPhase&) = delete;
 
     private:
-        CPlayPhase() :m_PlayerCollided(true), m_Climbing(false), m_Down(false), m_Up(false)
+        CPlayPhase() :m_PlayerCollidedWithObject(true), m_CanMoveDown(false), m_CanMoveUp(false)
         {};
 
     public:
         void OnEnter();
         void OnRun();
         void OnLeave();
+       // void forLoop(std::vector<Data::CEntity*> Entities, std::vector<Data::CEntity*>* collisionEntities, Core::Float2 _Step);
         void MovePlayer(Core::Float2 _Step);
 
 
     private:
         float m_Step = 4.0f;
-        bool m_PlayerCollided;
-        bool m_Climbing;
-        bool m_Up;
-        bool m_Down;
+        bool m_PlayerCollidedWithObject;
+        bool m_CanMoveUp;
+        bool m_CanMoveDown;
     };
 }

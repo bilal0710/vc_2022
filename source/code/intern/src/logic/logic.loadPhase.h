@@ -1,4 +1,7 @@
 #pragma once
+
+#include <tinyxml2.h>
+
 namespace Logic
 {
     class CLoadPhase
@@ -19,7 +22,7 @@ namespace Logic
 
     public:
         void OnEnter();
-        void OnRun();
+        void OnRun(tinyxml2::XMLDocument& _rMapEntity);
         void OnLeave();
 
  

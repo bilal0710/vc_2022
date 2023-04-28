@@ -1,8 +1,8 @@
+#include "data.loadPhase.h"
 #include <iostream>
 
 #include <fstream>
 
-#include "data.loadPhase.h"
 //#include "data.metaEntitySystem.h"
 #include "data.entitySystem.h"
 
@@ -15,9 +15,9 @@ namespace Data
     {
         std::cout << "DATA::LOAD::Run" << std::endl;
 
-        int entityCount = CEntitySystem::GetInstance().Initialize(_rMapEntity);
+        int EntityCount = CEntitySystem::GetInstance().Initialize(_rMapEntity);
 
-        std::cout << "DATA::LOAD::Run " << entityCount << " Entities initialized" << std::endl;
+        std::cout << "DATA::LOAD::Run " << EntityCount << " Entities initialized" << std::endl;
     }
 
     void CLoadPhase::OnLeave()

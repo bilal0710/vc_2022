@@ -11,6 +11,9 @@
 #include "data.playerSystem.h"
 #include "data.entityCategory.h"
 
+#include <iostream>
+#include <sstream>
+
 using namespace tinyxml2;
 
 namespace Data
@@ -39,12 +42,16 @@ namespace Data
 			Data::CMetaEntity& rMetaEntity = rMetaEntitySystem.GetMetaEntity(ID);
 
 			XMLElement* pDataElement = pXmlEntity->FirstChildElement("data");
+			XMLElement* pLogicElement = pXmlEntity->FirstChildElement("logic");
 
 			auto SizeStrings = Core::Explode(pDataElement->FirstChildElement("size")->FirstChild()->Value(), ';');
 			auto PositionStrings = Core::Explode(pDataElement->FirstChildElement("position")->FirstChild()->Value(), ';');
-			
-
 			auto type = atoi(pDataElement->FirstChildElement("type")->FirstChild()->Value());
+			
+			bool canCollide;
+			istringstream(pLogicElement->FirstChildElement("canCollide")->FirstChild()->Value()) >> std::boolalpha >> canCollide;
+
+
 
 			CEntity& rEntity = CreateEntity(Name);
 			rEntity.size = Core::Float3(
@@ -67,7 +74,7 @@ namespace Data
 				));
 
 
-
+			rEntity.canCollide = canCollide;
 			rEntity.metaEntity = &rMetaEntity;
 			if (type < SEntityCategory::NumberOfMembers)
 			{

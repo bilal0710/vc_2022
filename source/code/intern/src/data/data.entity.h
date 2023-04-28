@@ -35,6 +35,7 @@ namespace Data
         Core::CVector3<float> size;
         Core::CAABB3<float> aabb;
         CMetaEntity* metaEntity;
+        bool canCollide;
 
     private:
 

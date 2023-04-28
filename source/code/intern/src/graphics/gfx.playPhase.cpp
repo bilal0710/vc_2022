@@ -68,7 +68,7 @@ namespace Gfx
 					AppWindowSize.y
 				));
 
-				if (view.getCenter().x > 950 && view.getCenter().x < 2800) {
+				if (view.getCenter().x > 950 && view.getCenter().x < 3800) {
 					rAppWindow.m_AppWindow.setView(view);
 				}
 			}

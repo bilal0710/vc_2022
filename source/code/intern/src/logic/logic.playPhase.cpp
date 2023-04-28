@@ -130,7 +130,7 @@ namespace Logic
 				m_PlayerTouchedGround = true;
 				if (Core::CAABB3<float>(
 					Core::Float3(pPlayer->position[0], pPlayer->position[1], pPlayer->position[2]),
-					Core::Float3(pPlayer->position[0] + 128, pPlayer->position[1] + 128, pPlayer->position[2])
+					Core::Float3(pPlayer->position[0] + 100, pPlayer->position[1] + 128, pPlayer->position[2])
 				).Intersects(Entity->aabb))
 				{
 

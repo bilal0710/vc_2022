@@ -20,7 +20,7 @@ namespace Logic
         Data::CEntitySystem& rEntitySystem = Data::CEntitySystem::GetInstance();
         XMLElement* pEntities = _rMapEntity.FirstChildElement("entities");
         XMLElement* pXmlEntity = pEntities->FirstChildElement("entity");
-
+        
         for (;;)
         {
             if (pXmlEntity == nullptr)
@@ -35,6 +35,7 @@ namespace Logic
             Data::CEntity& rEntity = rEntitySystem.GetEntity(Id);
 
             rEntity.canCollide = canCollide;
+            rEntity.facets[0] = canCollide;
 
             if (rEntity.metaEntity->name == "ladder") {
                 std::cout << rEntity.metaEntity->name << std::endl;
@@ -42,6 +43,8 @@ namespace Logic
 
             pXmlEntity = pXmlEntity->NextSiblingElement();
         }
+
+        
 
     }
 

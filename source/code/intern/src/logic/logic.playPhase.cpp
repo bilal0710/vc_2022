@@ -114,8 +114,11 @@ namespace Logic
 						//std::cout << "canCollide= " << Entity->canCollide << std::endl;
 						collisionEntities.push_back(Entity);
 
-						if (Entity->canCollide && _Step[1] < 0.0f)
+						if (Entity->facets[0] && _Step[1] < 0.0f)
 						{
+							std::cout << "facets= " << Entity->facets[0] << std::endl;
+							//std::cout << "canCollide= " << Entity->canCollide << std::endl;
+
 							m_PlayerCanMoveUp = true;
 						}
 						if (_Step[1] > 0)

@@ -39,7 +39,7 @@ namespace Data
 
     private:
 
-        using FacetArray = std::array<void*, NumberOfFacets>;
+        using FacetArray = std::array<bool, NumberOfFacets>;
 
     public:
 

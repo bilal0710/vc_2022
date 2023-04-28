@@ -24,18 +24,18 @@ namespace Logic
 		//cout << "Logic::PlayPhase::InternOnRun" << std::endl;
 		//cout << "------------------------" << std::endl;
 
-		if (m_CanMoveUp) {
+		if (m_PlayerCanMoveUp) {
 			std::cout << "if Up" << std::endl;
 			MovePlayer(Core::Float2(0.0f, -m_Step));
 			return;
 		}
-		if (m_CanMoveDown) {
+		if (m_PlayerCanMoveDown) {
 			std::cout << "if Down" << std::endl;
 			MovePlayer(Core::Float2(0.0f, m_Step));
 			return;
 		}
-		if (!m_PlayerCollidedWithObject) {
-			std::cout << "No Colide" << std::endl;
+		if (!m_PlayerTouchedGround) {
+			std::cout << "No Ground" << std::endl;
 			MovePlayer(Core::Float2(0.0f, m_Step));
 			return;
 		}
@@ -46,6 +46,7 @@ namespace Logic
 		while (rInputSystem.HasInputs())
 		{
 			currentInput = (rInputSystem.GetNextInput());
+			m_Command = (rInputSystem.GetNextInput());
 
 			switch (currentInput)
 			{
@@ -78,8 +79,10 @@ namespace Logic
 		Data::CEntity* pPlayer = rPlayerSystem.GetPlayer();
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
 		bool PlayerCollidedWithGround = true;
-		m_CanMoveDown = false;
-		m_CanMoveUp = false;
+		bool PlayerCollidedWithObstacle = false;
+		m_PlayerCanMoveDown = false;
+		m_PlayerCanMoveUp = false;
+
 		if (pPlayer != nullptr)
 		{
 			if (pPlayer->position[1] > 1200)
@@ -104,7 +107,7 @@ namespace Logic
 					Core::Float3(pPlayer->position[0] + 74, pPlayer->position[1] + 128, pPlayer->position[2])
 				).Intersects(Entity->aabb))
 				{
-					m_PlayerCollidedWithObject = true;
+					m_PlayerTouchedGround = true;
 					if (Entity->category == Data::SEntityCategory::Ladder)
 					{
 						//std::cout << "canCollide= " << Entity->canCollide << std::endl;
@@ -112,11 +115,11 @@ namespace Logic
 
 						if (Entity->canCollide && _Step[1] < 0.0f)
 						{
-							m_CanMoveUp = true;
+							m_PlayerCanMoveUp = true;
 						}
 						if (_Step[1] > 0)
 						{
-							m_CanMoveDown = true;
+							m_PlayerCanMoveDown = true;
 						}
 						break;
 					}
@@ -124,10 +127,10 @@ namespace Logic
 			}
 			for (auto& Entity : Entities)
 			{
-				m_PlayerCollidedWithObject = true;
+				m_PlayerTouchedGround = true;
 				if (Core::CAABB3<float>(
 					Core::Float3(pPlayer->position[0], pPlayer->position[1], pPlayer->position[2]),
-					Core::Float3(pPlayer->position[0] + 74, pPlayer->position[1] + 128, pPlayer->position[2])
+					Core::Float3(pPlayer->position[0] + 128, pPlayer->position[1] + 128, pPlayer->position[2])
 				).Intersects(Entity->aabb))
 				{
 
@@ -139,11 +142,25 @@ namespace Logic
 					if (Entity->category == Data::SEntityCategory::Obstacle)
 					{
 						collisionEntities.push_back(Entity);
+						m_PlayerCanMoveDown = false;
+
+						if (Entity->position[0] >= pPlayer->position[0] 
+							&& Entity->position[1] == pPlayer->position[1]
+							&& m_Command == SInputType::Enum::MoveRight) {
+							std::cout << "mario colid with object right" << std::endl;
+							PlayerCollidedWithObstacle = true;
+						}
+						if (Entity->position[0] <= pPlayer->position[0]
+							&& Entity->position[1] == pPlayer->position[1]
+							&& m_Command == SInputType::Enum::MoveLeft) {
+							std::cout << "mario colid with object left" <<  std::endl;
+							PlayerCollidedWithObstacle = true;
+						}
 					}
 
 					if (Entity->category == Data::SEntityCategory::Ground)
 					{
-						m_CanMoveDown = false;
+						m_PlayerCanMoveDown = false;
 						PlayerCollidedWithGround = false;
 						collisionEntities.push_back(Entity);
 					}
@@ -152,7 +169,7 @@ namespace Logic
 
 			if (collisionEntities.empty())
 			{
-				m_PlayerCollidedWithObject = false;
+				m_PlayerTouchedGround = false;
 				rEventSystem.FireEvent(3);
 				pPlayer->position = Core::Float3(pPlayer->position[0] + _Step[0], pPlayer->position[1] + m_Step, pPlayer->position[2]);
 				pPlayer->aabb = Core::CAABB3<float>(
@@ -161,7 +178,7 @@ namespace Logic
 				);
 				return;
 			}
-			if (m_CanMoveUp)
+			if (m_PlayerCanMoveUp)
 			{
 				std::cout << "move up" << std::endl;
 				pPlayer->position = Core::Float3(pPlayer->position[0], pPlayer->position[1] + _Step[1], pPlayer->position[2]);
@@ -171,7 +188,7 @@ namespace Logic
 				);
 				return;
 			}
-			if (m_CanMoveDown && PlayerCollidedWithGround)
+			if (m_PlayerCanMoveDown && PlayerCollidedWithGround)
 			{
 				std::cout << "move down" << std::endl;
 				pPlayer->position = Core::Float3(pPlayer->position[0], pPlayer->position[1] + _Step[1], pPlayer->position[2]);
@@ -181,7 +198,7 @@ namespace Logic
 				);
 				return;
 			}
-			else {
+			else if(!PlayerCollidedWithObstacle){
 				pPlayer->position = Core::Float3(pPlayer->position[0] + _Step[0], pPlayer->position[1], pPlayer->position[2]);
 				pPlayer->aabb = Core::CAABB3<float>(
 					Core::Float3(pPlayer->position[0], pPlayer->position[1], pPlayer->position[2]),
@@ -250,7 +267,7 @@ namespace Logic
 
 	void CPlayPhase::OnLeave()
 	{
-		m_PlayerCollidedWithObject = true;
+		m_PlayerTouchedGround = true;
 		//m_Climbing = false;
 		std::cout << "OnLeave" << std::endl;
 	}

@@ -51,8 +51,6 @@ namespace Data
 			bool canCollide;
 			istringstream(pLogicElement->FirstChildElement("canCollide")->FirstChild()->Value()) >> std::boolalpha >> canCollide;
 
-
-
 			CEntity& rEntity = CreateEntity(Name);
 			rEntity.size = Core::Float3(
 				std::stof(SizeStrings[0]),

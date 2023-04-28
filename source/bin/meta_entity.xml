@@ -19,7 +19,7 @@
   <meta-entity name="obstacle">
     <data>
       <size value="16.4"/>
-      <aabb minCorner="0.0;0.0;0.0" maxCorner="128.0;80.0;0.0"></aabb>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="128.0;128.0;0.0"></aabb>
     </data>
 
     <logic>

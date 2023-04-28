@@ -23,7 +23,7 @@ namespace Logic
         CPlayPhase& operator = (const CPlayPhase&) = delete;
 
     private:
-        CPlayPhase() :m_PlayerCollidedWithObject(true), m_CanMoveDown(false), m_CanMoveUp(false)
+        CPlayPhase() :m_PlayerTouchedGround(true), m_PlayerCanMoveDown(false), m_PlayerCanMoveUp(false)
         {};
 
     public:
@@ -35,9 +35,10 @@ namespace Logic
 
 
     private:
-        float m_Step = 4.0f;
-        bool m_PlayerCollidedWithObject;
-        bool m_CanMoveUp;
-        bool m_CanMoveDown;
+        float m_Step = 8.0f;
+        bool m_PlayerTouchedGround;
+        bool m_PlayerCanMoveUp;
+        bool m_PlayerCanMoveDown;
+        SInputType::Enum m_Command;
     };
 }

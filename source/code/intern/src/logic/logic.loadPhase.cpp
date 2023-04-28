@@ -1,7 +1,13 @@
 #include "logic.loadPhase.h"
-#include <iostream>
 #include "data/data.entitySystem.h"
+#include "data/data.entity.h"
 
+
+#include <tinyxml2.h>
+#include <sstream>
+#include <iostream>
+
+using namespace tinyxml2;
 namespace Logic
 {
     void CLoadPhase::OnEnter()
@@ -11,14 +17,31 @@ namespace Logic
     {
         std::cout << "DATA::LOAD::Run" << std::endl;
 
-       // int EntityCount = Data::CEntitySystem::GetInstance().Initialize(_rMapEntity);
+        Data::CEntitySystem& rEntitySystem = Data::CEntitySystem::GetInstance();
+        XMLElement* pEntities = _rMapEntity.FirstChildElement("entities");
+        XMLElement* pXmlEntity = pEntities->FirstChildElement("entity");
 
+        for (;;)
+        {
+            if (pXmlEntity == nullptr)
+            {
+                break;
+            }
+            XMLElement* pLogicElement = pXmlEntity->FirstChildElement("logic");
+            bool canCollide;
+            istringstream(pLogicElement->FirstChildElement("canCollide")->FirstChild()->Value()) >> std::boolalpha >> canCollide;
 
-        //Data::CMetaEntitySystem& rMetaEntitySystem = Data::CMetaEntitySystem::GetInstance();
-        //
-        //XMLElement* pEntities = _rMapEntity.FirstChildElement("entities");
-        //XMLElement* pXmlEntity = pEntities->FirstChildElement("entity");
+            auto Id= rEntitySystem.GetEntityID(pXmlEntity->FindAttribute("name")->Value());
+            Data::CEntity& rEntity = rEntitySystem.GetEntity(Id);
 
+            rEntity.canCollide = canCollide;
+
+            if (rEntity.metaEntity->name == "ladder") {
+                std::cout << rEntity.metaEntity->name << std::endl;
+            }
+
+            pXmlEntity = pXmlEntity->NextSiblingElement();
+        }
 
     }
 

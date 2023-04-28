@@ -78,6 +78,7 @@ namespace Logic
 		Data::CPlayerSystem& rPlayerSystem = Data::CPlayerSystem::GetInstance();
 		Data::CEntity* pPlayer = rPlayerSystem.GetPlayer();
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
+
 		bool PlayerCollidedWithGround = true;
 		bool PlayerCollidedWithObstacle = false;
 		m_PlayerCanMoveDown = false;

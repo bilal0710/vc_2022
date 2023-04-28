@@ -34,7 +34,7 @@ namespace Logic
             auto Id= rEntitySystem.GetEntityID(pXmlEntity->FindAttribute("name")->Value());
             Data::CEntity& rEntity = rEntitySystem.GetEntity(Id);
 
-            rEntity.canCollide = canCollide;
+            //rEntity.canCollide = canCollide;
             rEntity.facets[0] = canCollide;
 
             if (rEntity.metaEntity->name == "ladder") {

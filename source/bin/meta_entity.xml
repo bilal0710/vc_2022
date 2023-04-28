@@ -84,7 +84,7 @@
     </logic>
 
     <graphics>
-      <texture value="finish.png"/>
+      <texture value="flag.png"/>
     </graphics>
   </meta-entity>
   

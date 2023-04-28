@@ -569,16 +569,6 @@
       <canCollide>false</canCollide>
     </logic>
   </entity>
-  <entity name="mario" meta-entity="mario">
-    <data>
-      <type>0</type>
-      <position>768.0;1024.0;0.0</position>
-      <size>128.0;128.0;128.0</size>
-    </data>
-    <logic>
-      <canCollide>true</canCollide>
-    </logic>
-  </entity>
   <entity name="ladder_7_8" meta-entity="ladder">
     <data>
       <type>5</type>
@@ -629,14 +619,14 @@
       <canCollide>false</canCollide>
     </logic>
   </entity>
-  <entity name="obstacle_21_8" meta-entity="obstacle">
+  <entity name="mario" meta-entity="mario">
     <data>
-      <type>2</type>
-      <position>2688.0;1024.0;0.0</position>
+      <type>0</type>
+      <position>2816.0;1024.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
     <logic>
-      <canCollide>false</canCollide>
+      <canCollide>true</canCollide>
     </logic>
   </entity>
   <entity name="ladder_23_8" meta-entity="ladder">

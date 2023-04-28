@@ -44,6 +44,20 @@
       <texture value="ladder_2.png"/>
     </graphics>
   </meta-entity>
+  <meta-entity name="block">
+    <data>
+      <size value="16.4"/>
+      <aabb minCorner="0.0;0.0;0.0" maxCorner="128.0;128.0;0.0"></aabb>
+    </data>
+
+    <logic>
+      <can-move value="false"/>
+    </logic>
+
+    <graphics>
+      <texture value="block.png"/>
+    </graphics>
+  </meta-entity>
   <meta-entity name="mario">
     <data>
       <size value="0.0"/>

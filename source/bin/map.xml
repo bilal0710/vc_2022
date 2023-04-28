@@ -39,7 +39,7 @@
       <canCollide>false</canCollide>
     </logic>
   </entity>
-  <entity name="ladder_7_1" meta-entity="ladder">
+  <entity name="block_7_1" meta-entity="block">
     <data>
       <type>5</type>
       <position>896.0;128.0;0.0</position>
@@ -59,7 +59,7 @@
       <canCollide>false</canCollide>
     </logic>
   </entity>
-  <entity name="ladder_11_1" meta-entity="ladder">
+  <entity name="block_11_1" meta-entity="block">
     <data>
       <type>5</type>
       <position>1408.0;128.0;0.0</position>

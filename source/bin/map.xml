@@ -2189,6 +2189,16 @@
       <canCollide>true</canCollide>
     </logic>
   </entity>
+  <entity name="needle_14_10" meta-entity="needle">
+    <data>
+      <type>6</type>
+      <position>1792.0;1280.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
   <entity name="obstacle_18_10" meta-entity="obstacle">
     <data>
       <type>2</type>
@@ -2227,6 +2237,36 @@
     </data>
     <logic>
       <canCollide>true</canCollide>
+    </logic>
+  </entity>
+  <entity name="needle_30_10" meta-entity="needle">
+    <data>
+      <type>6</type>
+      <position>3840.0;1280.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
+  <entity name="needle_31_10" meta-entity="needle">
+    <data>
+      <type>6</type>
+      <position>3968.0;1280.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
+  <entity name="needle_35_10" meta-entity="needle">
+    <data>
+      <type>6</type>
+      <position>4480.0;1280.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
     </logic>
   </entity>
   <entity name="ladder_39_10" meta-entity="ladder">

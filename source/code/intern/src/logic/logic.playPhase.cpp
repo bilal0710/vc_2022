@@ -142,6 +142,10 @@ namespace Logic
 					{
 						rEventSystem.FireEvent(2);
 					}
+					if (Entity->category == Data::SEntityCategory::Needle)
+					{
+						rEventSystem.FireEvent(2);
+					}
 
 					if (Entity->category == Data::SEntityCategory::Obstacle)
 					{

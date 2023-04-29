@@ -13,6 +13,7 @@ namespace Data
             Finish,
             Cloud,
             Ladder,
+            Needle,
             NumberOfMembers,
             Undefined = -1,
         };

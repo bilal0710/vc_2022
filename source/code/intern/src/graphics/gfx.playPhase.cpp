@@ -68,7 +68,9 @@ namespace Gfx
 					AppWindowSize.y
 				));
 
-				if (view.getCenter().x > 950 && view.getCenter().x < 6400) {
+				//std::cout << view.getCenter().x << std::endl;
+
+				if (view.getCenter().x > 950 && view.getCenter().x < 7400) {
 					rAppWindow.m_AppWindow.setView(view);
 				}
 			}

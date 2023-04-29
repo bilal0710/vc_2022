@@ -86,7 +86,7 @@ namespace Logic
 
 		if (pPlayer != nullptr)
 		{
-			if (pPlayer->position[1] > 1200)
+			if (pPlayer->position[1] > 1600)
 			{
 				rEventSystem.FireEvent(2);
 			}

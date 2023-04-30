@@ -61,8 +61,15 @@ namespace Game
 
 	int CPlayPhase::InternOnLeave()
 	{
+
 		std::cout << "PlayPhase::InternOnLeave" << std::endl;
 		std::cout << "------------------------" << std::endl;
+
+		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
+		CPlayPhase PlayPhaseClass;
+		rEventSystem.Unregister(Data::CEvent::BTypeID(2), &PlayPhaseClass.FinishGame);
+		rEventSystem.Unregister(Data::CEvent::BTypeID(3), &CUnloadPhase::GetInstance().ReloadGame);
+
 		Gfx::CPlayPhase::GetInstance().OnLeave();
 		Gui::CPlayPhase::GetInstance().OnLeave();
 		Logic::CPlayPhase::GetInstance().OnLeave();

@@ -7,7 +7,7 @@
     <ClCompile Include="..\..\src\gui\gui.mainMenuPhase.cpp" />
     <ClCompile Include="..\..\src\gui\gui.playPhase.cpp" />
     <ClCompile Include="..\..\src\gui\gui.unloadPhase.cpp" />
-    <ClCompile Include="..\..\src\gui\gui.choiceSystem.cpp" />
+    <ClCompile Include="..\..\src\gui\gui.commandSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\gui\gui.startupPhase.h" />
@@ -16,7 +16,7 @@
     <ClInclude Include="..\..\src\gui\gui.mainMenuPhase.h" />
     <ClInclude Include="..\..\src\gui\gui.playPhase.h" />
     <ClInclude Include="..\..\src\gui\gui.unloadPhase.h" />
-    <ClInclude Include="..\..\src\gui\gui.choiceType.h" />
-    <ClInclude Include="..\..\src\gui\gui.choiceSystem.h" />
+    <ClInclude Include="..\..\src\gui\gui.commandType.h" />
+    <ClInclude Include="..\..\src\gui\gui.commandSystem.h" />
   </ItemGroup>
 </Project>

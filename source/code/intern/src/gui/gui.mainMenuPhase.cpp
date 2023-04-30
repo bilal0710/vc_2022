@@ -3,9 +3,8 @@
 #include "graphics/gfx.mainMenuPhase.h"
 #include <data/data.eventSystem.h>
 
-#include <gui/gui.choiceSystem.h>
-#include <gui/gui.choiceType.h>
-
+#include "gui/gui.commandSystem.h"
+#include "gui.commandType.h"
 #include <iostream>
 
 
@@ -17,7 +16,10 @@ namespace Gui
 {
 	void CMainMenuPhase::OnEnter()
 	{
-		std::cout << "Gui::MainMenuPhase::OnEnter" << std::endl;
+		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
+
+		CMainMenuPhase MainMenuPhaseClass;
+		rEventSystem.Register(Data::CEvent::BTypeID(4), MainMenuPhaseClass.RegisterEvent);
 	}
 
 
@@ -26,32 +28,62 @@ namespace Gui
 
 		Gfx::CMainMenuPhase& rGfxMainMenuPhase = Gfx::CMainMenuPhase::GetInstance();
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
-		Gui::CChoiceSystem& rGuiChoiceSystem = Gui::CChoiceSystem::GetInstance();
-		Gui::SChoiceType::Enum currentChoice;
 
-		while (rGuiChoiceSystem.HasInputs())
+		CCommandSystem& rCommandSystem = CCommandSystem::GetInstance();
+		SCommendType::Enum currentInput;
+
+		while (rCommandSystem.HasCommands())
 		{
-			currentChoice = (rGuiChoiceSystem.GetNextInput());
+			currentInput = (rCommandSystem.GetNextCommand());
 
-			switch (currentChoice)
+			switch (currentInput)
 			{
-			case SChoiceType::Enum::Move:
-
+				break;
+			case SCommendType::Enum::MoveUp:
 				rEventSystem.FireEvent(1);
 				break;
-
-			case SChoiceType::Enum::Enter:
+			case SCommendType::Enum::MoveDown:
+				rEventSystem.FireEvent(1);
+				break;
+			case SCommendType::Enum::Enter:
 				rEventSystem.FireEvent(0, rGfxMainMenuPhase.GetMainMenuSelected());
 				break;
-
+			
 			default:
 				break;
 			}
 
-			rGuiChoiceSystem.RemoveNextInput();
+			rCommandSystem.RemoveNextCommand();
 		}
 	}
 
+	void CMainMenuPhase::RegisterEvent(Data::CEvent& _Event)
+	{
+
+		CCommandSystem& rCommandSystem = CCommandSystem::GetInstance();
+
+		switch (_Event.GetData())
+		{
+		case 58:
+			rCommandSystem.AddCommand(SCommendType::Enum::Enter);
+			break;
+		case 73:
+			rCommandSystem.AddCommand(SCommendType::Enum::MoveUp);
+			break;
+		case 74:
+			rCommandSystem.AddCommand(SCommendType::Enum::MoveDown);
+			break;
+		default:
+			break;
+
+		}
+
+	}
+
 	void CMainMenuPhase::OnLeave()
-	{}
+	{
+		CMainMenuPhase MainMenuPhaseClass;
+		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
+		rEventSystem.Unregister(Data::CEvent::BTypeID(4), MainMenuPhaseClass.RegisterEvent);
+	}
 }

@@ -37,10 +37,6 @@ namespace Logic
             //rEntity.canCollide = canCollide;
             rEntity.facets[0] = canCollide;
 
-            if (rEntity.metaEntity->name == "ladder") {
-                std::cout << rEntity.metaEntity->name << std::endl;
-            }
-
             pXmlEntity = pXmlEntity->NextSiblingElement();
         }
 

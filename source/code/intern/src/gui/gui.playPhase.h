@@ -24,6 +24,9 @@ namespace Gui
         CPlayPhase()
         {};
 
+    public:
+        static void RegisterEvent(Data::CEvent& data);
+
     private: 
         float m_Step = 4.0f;
         float m_Jump = 16.0f;

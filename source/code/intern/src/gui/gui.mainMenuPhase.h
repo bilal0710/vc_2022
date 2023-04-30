@@ -1,4 +1,5 @@
 #pragma once
+#include <data/data.event.h>
 
 namespace Gui
 {
@@ -23,7 +24,8 @@ namespace Gui
         CMainMenuPhase()
         {};
 
-    private: 
-        //int m_MainMenuSelected;
+    public: 
+        static void RegisterEvent(Data::CEvent& data);
+
     };
 }

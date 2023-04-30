@@ -1,13 +1,15 @@
 #pragma once
 
-
 namespace Gui
 {
-    struct SChoiceType
+    struct SCommendType
     {
         enum Enum
         {
-            Move,
+            MoveUp,
+            MoveDown,
+            MoveLeft,
+            MoveRight,
             Enter,
             NumberOfTypes,
             Undefined = -1,

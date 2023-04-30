@@ -111,12 +111,10 @@ namespace Logic
 					m_PlayerTouchedGround = true;
 					if (Entity->category == Data::SEntityCategory::Ladder)
 					{
-						//std::cout << "canCollide= " << Entity->canCollide << std::endl;
 						collisionEntities.push_back(Entity);
 
 						if (Entity->facets[0] && _Step[1] < 0.0f)
 						{
-							std::cout << "facets= " << Entity->facets[0] << std::endl;
 							//std::cout << "canCollide= " << Entity->canCollide << std::endl;
 
 							m_PlayerCanMoveUp = true;
@@ -155,13 +153,11 @@ namespace Logic
 						if (Entity->position[0] >= pPlayer->position[0] 
 							&& Entity->position[1] == pPlayer->position[1]
 							&& m_Command == SInputType::Enum::MoveRight) {
-							std::cout << "mario colid with object right" << std::endl;
 							PlayerCollidedWithObstacle = true;
 						}
 						if (Entity->position[0] <= pPlayer->position[0]
 							&& Entity->position[1] == pPlayer->position[1]
 							&& m_Command == SInputType::Enum::MoveLeft) {
-							std::cout << "mario colid with object left" <<  std::endl;
 							PlayerCollidedWithObstacle = true;
 						}
 					}

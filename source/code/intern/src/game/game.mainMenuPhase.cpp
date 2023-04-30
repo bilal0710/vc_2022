@@ -47,8 +47,7 @@ namespace Game
 
 	void CMainMenuPhase::EnterGame(Data::CEvent& _Event)
 	{
-		std::cout << "GFX::MainMenuPhase -> listen to event" << std::endl;
-		
+
 		CMainMenuPhase MainMenuClass;
 		MainMenuClass.GetInstance().SetChoice(_Event.GetData());
 	}

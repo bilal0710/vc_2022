@@ -80,6 +80,7 @@ namespace Game
 				// "close requested" event: we close the window
 				if (Event.type == sf::Event::Closed)
 				{
+					std::cout << "close" << std::endl;
 					rAppWindow.m_AppWindow.close();
 				}
 				if (Event.type == sf::Event::Resized)

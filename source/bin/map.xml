@@ -1,24 +1,4 @@
 <entities>
-  <entity name="cloud_8_0" meta-entity="cloud">
-    <data>
-      <type>4</type>
-      <position>1024.0;0.0;0.0</position>
-      <size>128.0;128.0;128.0</size>
-    </data>
-    <logic>
-      <canCollide>false</canCollide>
-    </logic>
-  </entity>
-  <entity name="cloud_22_0" meta-entity="cloud">
-    <data>
-      <type>4</type>
-      <position>2816.0;0.0;0.0</position>
-      <size>128.0;128.0;128.0</size>
-    </data>
-    <logic>
-      <canCollide>false</canCollide>
-    </logic>
-  </entity>
   <entity name="cloud_28_0" meta-entity="cloud">
     <data>
       <type>4</type>
@@ -153,6 +133,16 @@
     <data>
       <type>4</type>
       <position>2816.0;128.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
+  <entity name="cloud_26_1" meta-entity="cloud">
+    <data>
+      <type>4</type>
+      <position>3328.0;128.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
     <logic>
@@ -319,16 +309,6 @@
       <canCollide>false</canCollide>
     </logic>
   </entity>
-  <entity name="cloud_26_2" meta-entity="cloud">
-    <data>
-      <type>4</type>
-      <position>3328.0;256.0;0.0</position>
-      <size>128.0;128.0;128.0</size>
-    </data>
-    <logic>
-      <canCollide>false</canCollide>
-    </logic>
-  </entity>
   <entity name="cloud_30_2" meta-entity="cloud">
     <data>
       <type>4</type>
@@ -479,16 +459,6 @@
       <canCollide>false</canCollide>
     </logic>
   </entity>
-  <entity name="cloud_12_3" meta-entity="cloud">
-    <data>
-      <type>4</type>
-      <position>1536.0;384.0;0.0</position>
-      <size>128.0;128.0;128.0</size>
-    </data>
-    <logic>
-      <canCollide>false</canCollide>
-    </logic>
-  </entity>
   <entity name="cloud_15_3" meta-entity="cloud">
     <data>
       <type>4</type>
@@ -499,19 +469,9 @@
       <canCollide>false</canCollide>
     </logic>
   </entity>
-  <entity name="cloud_17_3" meta-entity="cloud">
+  <entity name="block_26_3" meta-entity="block">
     <data>
-      <type>4</type>
-      <position>2176.0;384.0;0.0</position>
-      <size>128.0;128.0;128.0</size>
-    </data>
-    <logic>
-      <canCollide>false</canCollide>
-    </logic>
-  </entity>
-  <entity name="cloud_26_3" meta-entity="cloud">
-    <data>
-      <type>4</type>
+      <type>5</type>
       <position>3328.0;384.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
@@ -519,20 +479,10 @@
       <canCollide>false</canCollide>
     </logic>
   </entity>
-  <entity name="cloud_30_3" meta-entity="cloud">
+  <entity name="cloud_31_3" meta-entity="cloud">
     <data>
       <type>4</type>
-      <position>3840.0;384.0;0.0</position>
-      <size>128.0;128.0;128.0</size>
-    </data>
-    <logic>
-      <canCollide>false</canCollide>
-    </logic>
-  </entity>
-  <entity name="cloud_33_3" meta-entity="cloud">
-    <data>
-      <type>4</type>
-      <position>4224.0;384.0;0.0</position>
+      <position>3968.0;384.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
     <logic>
@@ -689,14 +639,14 @@
       <canCollide>false</canCollide>
     </logic>
   </entity>
-  <entity name="block_26_4" meta-entity="block">
+  <entity name="ladder_26_4" meta-entity="ladder">
     <data>
       <type>5</type>
       <position>3328.0;512.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
     <logic>
-      <canCollide>false</canCollide>
+      <canCollide>true</canCollide>
     </logic>
   </entity>
   <entity name="block_31_4" meta-entity="block">
@@ -887,6 +837,26 @@
     </data>
     <logic>
       <canCollide>true</canCollide>
+    </logic>
+  </entity>
+  <entity name="obstacle_27_5" meta-entity="obstacle">
+    <data>
+      <type>2</type>
+      <position>3456.0;640.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
+  <entity name="obstacle_28_5" meta-entity="obstacle">
+    <data>
+      <type>2</type>
+      <position>3584.0;640.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
     </logic>
   </entity>
   <entity name="ladder_31_5" meta-entity="ladder">
@@ -1109,6 +1079,16 @@
       <canCollide>true</canCollide>
     </logic>
   </entity>
+  <entity name="block_23_6" meta-entity="block">
+    <data>
+      <type>5</type>
+      <position>2944.0;768.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
   <entity name="ladder_26_6" meta-entity="ladder">
     <data>
       <type>5</type>
@@ -1117,26 +1097,6 @@
     </data>
     <logic>
       <canCollide>true</canCollide>
-    </logic>
-  </entity>
-  <entity name="obstacle_27_6" meta-entity="obstacle">
-    <data>
-      <type>2</type>
-      <position>3456.0;768.0;0.0</position>
-      <size>128.0;128.0;128.0</size>
-    </data>
-    <logic>
-      <canCollide>false</canCollide>
-    </logic>
-  </entity>
-  <entity name="obstacle_28_6" meta-entity="obstacle">
-    <data>
-      <type>2</type>
-      <position>3584.0;768.0;0.0</position>
-      <size>128.0;128.0;128.0</size>
-    </data>
-    <logic>
-      <canCollide>false</canCollide>
     </logic>
   </entity>
   <entity name="ladder_31_6" meta-entity="ladder">
@@ -1439,14 +1399,14 @@
       <canCollide>true</canCollide>
     </logic>
   </entity>
-  <entity name="block_23_7" meta-entity="block">
+  <entity name="ladder_23_7" meta-entity="ladder">
     <data>
       <type>5</type>
       <position>2944.0;896.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
     <logic>
-      <canCollide>false</canCollide>
+      <canCollide>true</canCollide>
     </logic>
   </entity>
   <entity name="ladder_26_7" meta-entity="ladder">
@@ -1719,14 +1679,34 @@
       <canCollide>true</canCollide>
     </logic>
   </entity>
-  <entity name="ladder_26_8" meta-entity="ladder">
+  <entity name="obstacle_24_8" meta-entity="obstacle">
     <data>
-      <type>5</type>
+      <type>2</type>
+      <position>3072.0;1024.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
+  <entity name="obstacle_25_8" meta-entity="obstacle">
+    <data>
+      <type>2</type>
+      <position>3200.0;1024.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
+  <entity name="obstacle_26_8" meta-entity="obstacle">
+    <data>
+      <type>2</type>
       <position>3328.0;1024.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
     <logic>
-      <canCollide>true</canCollide>
+      <canCollide>false</canCollide>
     </logic>
   </entity>
   <entity name="ladder_28_8" meta-entity="ladder">
@@ -1917,36 +1897,6 @@
     </data>
     <logic>
       <canCollide>true</canCollide>
-    </logic>
-  </entity>
-  <entity name="obstacle_24_9" meta-entity="obstacle">
-    <data>
-      <type>2</type>
-      <position>3072.0;1152.0;0.0</position>
-      <size>128.0;128.0;128.0</size>
-    </data>
-    <logic>
-      <canCollide>false</canCollide>
-    </logic>
-  </entity>
-  <entity name="obstacle_25_9" meta-entity="obstacle">
-    <data>
-      <type>2</type>
-      <position>3200.0;1152.0;0.0</position>
-      <size>128.0;128.0;128.0</size>
-    </data>
-    <logic>
-      <canCollide>false</canCollide>
-    </logic>
-  </entity>
-  <entity name="obstacle_26_9" meta-entity="obstacle">
-    <data>
-      <type>2</type>
-      <position>3328.0;1152.0;0.0</position>
-      <size>128.0;128.0;128.0</size>
-    </data>
-    <logic>
-      <canCollide>false</canCollide>
     </logic>
   </entity>
   <entity name="ladder_28_9" meta-entity="ladder">
@@ -3149,6 +3099,26 @@
       <canCollide>false</canCollide>
     </logic>
   </entity>
+  <entity name="ground_13_12" meta-entity="ground">
+    <data>
+      <type>1</type>
+      <position>1664.0;1536.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
+  <entity name="ground_14_12" meta-entity="ground">
+    <data>
+      <type>1</type>
+      <position>1792.0;1536.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
   <entity name="ground_15_12" meta-entity="ground">
     <data>
       <type>1</type>
@@ -3733,6 +3703,26 @@
     <data>
       <type>1</type>
       <position>1536.0;1664.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
+  <entity name="ground_13_13" meta-entity="ground">
+    <data>
+      <type>1</type>
+      <position>1664.0;1664.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
+  <entity name="ground_14_13" meta-entity="ground">
+    <data>
+      <type>1</type>
+      <position>1792.0;1664.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
     <logic>
@@ -4329,6 +4319,26 @@
       <canCollide>false</canCollide>
     </logic>
   </entity>
+  <entity name="ground_13_14" meta-entity="ground">
+    <data>
+      <type>1</type>
+      <position>1664.0;1792.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
+  <entity name="ground_14_14" meta-entity="ground">
+    <data>
+      <type>1</type>
+      <position>1792.0;1792.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
   <entity name="ground_15_14" meta-entity="ground">
     <data>
       <type>1</type>
@@ -4919,6 +4929,26 @@
       <canCollide>false</canCollide>
     </logic>
   </entity>
+  <entity name="ground_13_15" meta-entity="ground">
+    <data>
+      <type>1</type>
+      <position>1664.0;1920.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
+  <entity name="ground_14_15" meta-entity="ground">
+    <data>
+      <type>1</type>
+      <position>1792.0;1920.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
   <entity name="ground_15_15" meta-entity="ground">
     <data>
       <type>1</type>
@@ -5503,6 +5533,26 @@
     <data>
       <type>1</type>
       <position>1536.0;2048.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
+  <entity name="ground_13_16" meta-entity="ground">
+    <data>
+      <type>1</type>
+      <position>1664.0;2048.0;0.0</position>
+      <size>128.0;128.0;128.0</size>
+    </data>
+    <logic>
+      <canCollide>false</canCollide>
+    </logic>
+  </entity>
+  <entity name="ground_14_16" meta-entity="ground">
+    <data>
+      <type>1</type>
+      <position>1792.0;2048.0;0.0</position>
       <size>128.0;128.0;128.0</size>
     </data>
     <logic>

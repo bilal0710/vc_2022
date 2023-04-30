@@ -54,7 +54,6 @@ namespace Gfx
 
 	void CMainMenuPhase::EventListener(Data::CEvent& data)
 	{
-		std::cout << "GFX::MainMenuPhase -> listen to event" << std::endl;
 		CMainMenuPhase MainMenuClass;
 		MainMenuClass.GetInstance().Move();
 	}

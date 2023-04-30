@@ -25,17 +25,14 @@ namespace Logic
 		//cout << "------------------------" << std::endl;
 
 		if (m_PlayerCanMoveUp) {
-			std::cout << "if Up" << std::endl;
 			MovePlayer(Core::Float2(0.0f, -m_Step));
 			return;
 		}
 		if (m_PlayerCanMoveDown) {
-			std::cout << "if Down" << std::endl;
 			MovePlayer(Core::Float2(0.0f, m_Step));
 			return;
 		}
 		if (!m_PlayerTouchedGround) {
-			std::cout << "No Ground" << std::endl;
 			MovePlayer(Core::Float2(0.0f, m_Step));
 			return;
 		}

@@ -21,7 +21,7 @@ namespace Data
         CEntitySystem& operator = (const CEntitySystem&) = delete;
 
     public:
-        int Initialize(tinyxml2::XMLDocument& _rMapEntity);
+        void Initialize(tinyxml2::XMLDocument& _rMapEntity);
         std::vector<Data::CEntity*> GetAllEntities();
         CEntity& CreateEntity(std::string _Name);
         void DestroyEntity();

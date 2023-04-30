@@ -18,8 +18,7 @@ namespace Gui
 	{
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
 		
-		CPlayPhase PlayPhaseClass;
-		rEventSystem.Register(Data::CEvent::BTypeID(4), PlayPhaseClass.RegisterEvent);
+		rEventSystem.Register(Data::CEvent::BTypeID(4), CPlayPhase::RegisterEvent);
 
 	}
 
@@ -88,9 +87,8 @@ namespace Gui
 
 	void CPlayPhase::OnLeave()
 	{
-		CPlayPhase PlayPhaseClass;
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
-		rEventSystem.Unregister(Data::CEvent::BTypeID(4), PlayPhaseClass.RegisterEvent);
+		rEventSystem.Unregister(Data::CEvent::BTypeID(4), CPlayPhase::GetInstance().RegisterEvent);
 
 	}
 }

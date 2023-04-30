@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../core/core_vector.h"
-
 #include "../data/data.playerSystem.h"
 #include "../data/data.entitySystem.h"
 #include "../data/data.entityCategory.h"
@@ -30,7 +29,6 @@ namespace Logic
         void OnEnter();
         void OnRun();
         void OnLeave();
-       // void forLoop(std::vector<Data::CEntity*> Entities, std::vector<Data::CEntity*>* collisionEntities, Core::Float2 _Step);
         void MovePlayer(Core::Float2 _Step);
 
 

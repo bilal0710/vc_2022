@@ -15,7 +15,6 @@ using namespace tinyxml2;
 
 void Gfx::CStartupPhase::OnEnter()
 {
-	std::cout << "Gfx::StartupPhase::OnEnter" << std::endl;
 	// create the window
 
 	Game::CApplicationWindow& rAppWindow = Game::CApplicationWindow::GetInstance();
@@ -25,7 +24,6 @@ void Gfx::CStartupPhase::OnEnter()
 
 void Gfx::CStartupPhase::OnRun(XMLDocument& _rMetaEntityDoc)
 {
-	std::cout << "Gfx::StartupPhase::OnRun" << std::endl;
 
 	Data::CMetaEntitySystem& rMetaEntitySystem = Data::CMetaEntitySystem::GetInstance();
 
@@ -64,5 +62,4 @@ void Gfx::CStartupPhase::OnRun(XMLDocument& _rMetaEntityDoc)
 
 void Gfx::CStartupPhase::OnLeave()
 {
-	std::cout << "Gfx::StartupPhase::OnLeave" << std::endl;
 }

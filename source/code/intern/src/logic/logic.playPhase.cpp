@@ -15,14 +15,11 @@ namespace Logic
 {
 	void CPlayPhase::OnEnter()
 	{
-		cout << "Logic::PlayPhase::InternOnEnter" << std::endl;
-		cout << "------------------------" << std::endl;
 	}
 
 	void CPlayPhase::OnRun()
 	{
-		//cout << "Logic::PlayPhase::InternOnRun" << std::endl;
-		//cout << "------------------------" << std::endl;
+
 
 		if (m_PlayerCanMoveUp) {
 			MovePlayer(Core::Float2(0.0f, -m_Step));
@@ -95,9 +92,6 @@ namespace Logic
 
 			std::vector<Data::CEntity*> collisionEntities;
 
-			//forLoop(Entities, &collisionEntities, _Step);
-
-
 			for (auto& Entity : Entities)
 			{
 				if (Core::CAABB3<float>(
@@ -112,8 +106,6 @@ namespace Logic
 
 						if (Entity->facets[0] && _Step[1] < 0.0f)
 						{
-							//std::cout << "canCollide= " << Entity->canCollide << std::endl;
-
 							m_PlayerCanMoveUp = true;
 						}
 						if (_Step[1] > 0)
@@ -181,7 +173,6 @@ namespace Logic
 			}
 			if (m_PlayerCanMoveUp)
 			{
-				std::cout << "move up" << std::endl;
 				pPlayer->position = Core::Float3(pPlayer->position[0], pPlayer->position[1] + _Step[1], pPlayer->position[2]);
 				pPlayer->aabb = Core::CAABB3<float>(
 					Core::Float3(pPlayer->position[0], pPlayer->position[1], pPlayer->position[2]),
@@ -191,7 +182,6 @@ namespace Logic
 			}
 			if (m_PlayerCanMoveDown && PlayerCollidedWithGround)
 			{
-				std::cout << "move down" << std::endl;
 				pPlayer->position = Core::Float3(pPlayer->position[0], pPlayer->position[1] + _Step[1], pPlayer->position[2]);
 				pPlayer->aabb = Core::CAABB3<float>(
 					Core::Float3(pPlayer->position[0], pPlayer->position[1], pPlayer->position[2]),
@@ -210,67 +200,9 @@ namespace Logic
 		}
 	}
 
-	//void CPlayPhase::forLoop(std::vector<Data::CEntity*> Entities,
-	//	std::vector<Data::CEntity*>* collisionEntities,
-	//	Core::Float2 _Step)
-	//{
-	//	Data::CPlayerSystem& rPlayerSystem = Data::CPlayerSystem::GetInstance();
-	//	Data::CEntity* pPlayer = rPlayerSystem.GetPlayer();
-	//	for (auto& Entity : Entities)
-	//	{
-	//		if (Core::CAABB3<float>(
-	//			Core::Float3(pPlayer->position[0], pPlayer->position[1], pPlayer->position[2]),
-	//			Core::Float3(pPlayer->position[0] + 74, pPlayer->position[1] + 128, pPlayer->position[2])
-	//		).Intersects(Entity->aabb))
-	//		{
-	//			m_PlayerCollided = true;
-	//			if (Entity->category == Data::SEntityCategory::Ladder)
-	//			{
-	//				std::cout << "canCollide= " << Entity->canCollide << std::endl;
-	//				collisionEntities->push_back(Entity);
-
-	//				if (Entity->canCollide && _Step[1] != 0.0f)
-	//				{
-	//					//	m_Climbing = true;
-	//					if (_Step[1] > 0)
-	//					{
-	//						m_Down = true;
-	//					}
-	//					else {
-	//						m_Up = true;
-	//					}
-	//				}
-	//				break;
-	//			}
-	//			if (Entity->category == Data::SEntityCategory::Finish)
-	//			{
-	//				//rEventSystem.FireEvent(2);
-	//			}
-
-	//			if (Entity->category == Data::SEntityCategory::Obstacle)
-	//			{
-	//				cout << "Obstacle" << std::endl;
-	//				m_Down = false;
-	//				m_Up = false;
-	//				std::cout << "Obstacle" << std::endl;
-	//				collisionEntities->push_back(Entity);
-	//			}
-
-	//			if (Entity->category == Data::SEntityCategory::Ground)
-	//			{
-	//				m_Down = false;
-	//				m_Climbing = false;
-	//				collisionEntities->push_back(Entity);
-	//			}
-	//		}
-	//	}
-	//}
-
 	void CPlayPhase::OnLeave()
 	{
 		m_PlayerTouchedGround = true;
-		//m_Climbing = false;
-		std::cout << "OnLeave" << std::endl;
 	}
 
 }

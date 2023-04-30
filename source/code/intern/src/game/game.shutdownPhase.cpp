@@ -6,6 +6,9 @@
 #include "../gui/gui.shutdownPhase.h"
 #include "../logic/logic.shutdownPhase.h"
 #include "game/game.appWindow.h"
+#include <data/data.entitySystem.h>
+#include <data/data.metaEntitySystem.h>
+
 
 namespace Game
 {
@@ -42,6 +45,10 @@ namespace Game
 		Gfx::CShutdownPhase::GetInstance().OnLeave();
 		Gui::ShutdownPhase::GetInstance().OnLeave();
 		Logic::CShutdownPhase::GetInstance().OnLeave();
+
+		Data::CEntitySystem::GetInstance().DestoryAllEntities();
+		Data::CMetaEntitySystem::GetInstance().DestroyAllMetaEntities();
+
 		rAppWindow.m_AppWindow.close();
 		return 0;
 	}

@@ -49,11 +49,6 @@ namespace Data
 			NewMetaEntity.size = Size;
 			NewMetaEntity.aabb = aabb;
 
-
-			std::cout << "Data::MetaEntitySystem::name -> " << NewMetaEntity.name << std::endl;
-			std::cout << "Data::MetaEntitySystem::size -> " << NewMetaEntity.size << std::endl;
-			std::cout << "\n" << std::endl;
-
 			pMetaEntity = pMetaEntity->NextSiblingElement();
 		}
 

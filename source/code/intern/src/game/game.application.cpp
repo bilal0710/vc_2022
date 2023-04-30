@@ -12,13 +12,9 @@
 #include"game/game.appWindow.h"
 
 #include"game/game.appWindow.h"
-#include <graphics/gfx.playPhase.h>
-#include <data/data.playerSystem.h>
 #include <data/data.eventSystem.h>
 #include <data/data.event.h>
-#include <logic/logic.playPhase.h>
-#include <logic/logic.inputType.h>
-#include <logic/logic.inputSystem.h>
+
 
 #include <iostream>
 
@@ -42,10 +38,8 @@ namespace Game
 
 	}
 
-	void CApplication::Initialize() {
-		std::cout << "Application -> Initialize" << std::endl;
-		std::cout << "------------------------" << std::endl;
-
+	void CApplication::Initialize() 
+	{
 		m_IndexOfCurrentPhase = CPhase::STARTUP;
 		m_pPhases[m_IndexOfCurrentPhase]->OnEnter();
 
@@ -53,11 +47,19 @@ namespace Game
 
 	void CApplication::Run()
 	{
-		std::cout << "Application -> Run" << std::endl;
+		std::cout << "Bilal Alnaani" << std::endl;
+		std::cout << "------------------------" << std::endl;
+
+		std::cout << "Select:   Enter" << std::endl;
+		std::cout << "------------------------" << std::endl;
+
+		std::cout << "walking:  arrow right & left" << std::endl;
+		std::cout << "------------------------" << std::endl;
+
+		std::cout << "climbing: arrow up & down" << std::endl;
 		std::cout << "------------------------" << std::endl;
 
 		Game::CApplicationWindow& rAppWindow = Game::CApplicationWindow::GetInstance();
-		//Logic::CInputSystem& rLogicInputSystem = Logic::CInputSystem::GetInstance();
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
 
 
@@ -98,7 +100,6 @@ namespace Game
 
 			if (RunPhase() == false)
 			{
-				std::cout << "Application -> Run -> if" << std::endl;
 				return;
 			}
 		}
@@ -106,7 +107,7 @@ namespace Game
 
 	void CApplication::Finalize()
 	{
-		std::cout << "Application -> Finalize" << std::endl;
+
 	}
 
 	bool CApplication::RunPhase()

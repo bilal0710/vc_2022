@@ -14,8 +14,6 @@ namespace Game
 {
 	int CStartupPhase::InternOnEnter()
 	{
-		std::cout << "Game::StartupPhase::InternOnEnter" << std::endl;
-		std::cout << "------------------------" << std::endl;
 		Data::CStartupPhase::GetInstance().OnEnter();
 		Gfx::CStartupPhase::GetInstance().OnEnter();
 		Gui::CStartupPhase::GetInstance().OnEnter();
@@ -25,8 +23,6 @@ namespace Game
 
 	int CStartupPhase::InternOnRun()
 	{
-		std::cout << "Game::StartupPhase::InternOnRun " <<  std::endl;
-		std::cout << "------------------------" << std::endl;
 		
 			tinyxml2::XMLDocument* pMetaEntityDoc =  new tinyxml2::XMLDocument;
 			pMetaEntityDoc->LoadFile("../bin/meta_entity.xml");
@@ -45,8 +41,6 @@ namespace Game
 		Gui::CStartupPhase::  GetInstance().OnLeave();
 		Logic::CStartupPhase::GetInstance().OnLeave();
 
-		std::cout << "StartupPhase::InternOnLeave" << std::endl;
-		std::cout << "------------------------" << std::endl;
 		return 0;
 	}
 

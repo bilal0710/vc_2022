@@ -7,8 +7,6 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics.hpp>
-
-#include <data/data.metaEntitySystem.h>
 #include <data/data.entitySystem.h>
 #include <data/data.playerSystem.h>
 
@@ -16,15 +14,10 @@ namespace Gfx
 {
 	void CPlayPhase::OnEnter()
 	{
-		std::cout << "Gfx::PlayPhase::OnEnter" << std::endl;
-		std::cout << "------------------------" << std::endl;
-
 	}
 
 	void CPlayPhase::OnRun()
 	{
-		//std::cout << "Gfx::PlayPhase::OnRun" << std::endl;
-		//std::cout << "------------------------" << std::endl;
 
 		Game::CApplicationWindow& rAppWindow = Game::CApplicationWindow::GetInstance();
 
@@ -55,7 +48,7 @@ namespace Gfx
 
 			Sprite.setScale(xSpriteScale, ySpriteScale);
 
-			// We move the camera/view with the player entity
+			// We move the camera/view with the mario entity
 			if (Entity->metaEntity->name == "mario")
 			{
 

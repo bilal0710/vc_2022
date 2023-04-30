@@ -17,7 +17,7 @@ using namespace tinyxml2;
 
 namespace Data
 {
-	int CEntitySystem::Initialize(tinyxml2::XMLDocument& _rMapEntity)
+	void CEntitySystem::Initialize(tinyxml2::XMLDocument& _rMapEntity)
 	{
 		int EntityCount = 0;
 
@@ -84,8 +84,6 @@ namespace Data
 
 			pXmlEntity = pXmlEntity->NextSiblingElement();
 		}
-
-		return EntityCount;
 	}
 
 	std::vector<Data::CEntity*> CEntitySystem::GetAllEntities()

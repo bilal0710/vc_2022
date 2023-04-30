@@ -1,4 +1,8 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+
+using namespace sf;
+
 
 namespace Gfx
 {
@@ -22,5 +26,12 @@ namespace Gfx
     private:
         CLoadPhase()
         {};
+
+    private:
+        int  m_Timer = 0;
+        Font m_Font;
+        Text m_Menu;
+        RectangleShape m_Background;
+        Texture m_BackgroundTexture;
     };
 }

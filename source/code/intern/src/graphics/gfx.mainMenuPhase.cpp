@@ -11,13 +11,9 @@ namespace Gfx
 {
 	void CMainMenuPhase::OnEnter()
 	{
-		std::cout << "Gfx::MainMenuPhase::OnEnter" << std::endl;
-
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
 
-		CMainMenuPhase MainMenuClass;
-
-		rEventSystem.Register(Data::CEvent::BTypeID(1), &MainMenuClass.EventListener);
+		rEventSystem.Register(Data::CEvent::BTypeID(1), &CMainMenuPhase::EventListener);
 
 		if (!m_Font.loadFromFile("3Dumb.ttf")) {
 			cout << "No font is loaded!" << endl;
@@ -44,7 +40,6 @@ namespace Gfx
 		m_Background.setPosition(650, 75);
 		m_BackgroundTexture.loadFromFile("Mario_BG.png");
 		m_Background.setTexture(&m_BackgroundTexture);
-		std::cout << "Gfx::MainMenuPhase::OnEnter Finish" << std::endl;
 
 	}
 
@@ -54,8 +49,7 @@ namespace Gfx
 
 	void CMainMenuPhase::EventListener(Data::CEvent& data)
 	{
-		CMainMenuPhase MainMenuClass;
-		MainMenuClass.GetInstance().Move();
+		 CMainMenuPhase::GetInstance().Move();
 	}
 
 	void CMainMenuPhase::OnRun()
@@ -101,8 +95,6 @@ namespace Gfx
 	{
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
 
-		CMainMenuPhase MainMenuClass;
-
-		rEventSystem.Unregister(Data::CEvent::BTypeID(1), &MainMenuClass.EventListener);
+		rEventSystem.Unregister(Data::CEvent::BTypeID(1), &CMainMenuPhase::EventListener);
 	}
 }

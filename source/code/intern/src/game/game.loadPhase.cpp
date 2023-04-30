@@ -14,8 +14,6 @@ namespace Game
 {
 	int CLoadPhase::InternOnEnter()
 	{
-		std::cout << "LoadPhase::InternOnEnter" << std::endl;
-		std::cout << "------------------------" << std::endl;
 
 		Data::CLoadPhase::GetInstance().OnEnter();
 		Gfx::CLoadPhase::GetInstance().OnEnter();
@@ -26,8 +24,6 @@ namespace Game
 
 	int CLoadPhase::InternOnRun()
 	{
-		std::cout << "LoadPhase::InternOnRun" << std::endl;
-		std::cout << "------------------------" << std::endl;
 
 		XMLDocument* pMapEntity = new XMLDocument;;
 		pMapEntity->LoadFile("../bin/map.xml");
@@ -43,8 +39,7 @@ namespace Game
 
 	int CLoadPhase::InternOnLeave()
 	{
-		std::cout << "LoadPhase::InternOnLeave" << std::endl;
-		std::cout << "------------------------" << std::endl;
+	
 		Data::CLoadPhase::GetInstance().OnLeave();
 		Gfx::CLoadPhase::GetInstance().OnLeave();
 		Gui::CLoadPhase::GetInstance().OnLeave();

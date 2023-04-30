@@ -18,8 +18,7 @@ namespace Gui
 	{
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
 
-		CMainMenuPhase MainMenuPhaseClass;
-		rEventSystem.Register(Data::CEvent::BTypeID(4), MainMenuPhaseClass.RegisterEvent);
+		rEventSystem.Register(Data::CEvent::BTypeID(4), CMainMenuPhase::RegisterEvent);
 	}
 
 
@@ -82,8 +81,7 @@ namespace Gui
 
 	void CMainMenuPhase::OnLeave()
 	{
-		CMainMenuPhase MainMenuPhaseClass;
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
-		rEventSystem.Unregister(Data::CEvent::BTypeID(4), MainMenuPhaseClass.RegisterEvent);
+		rEventSystem.Unregister(Data::CEvent::BTypeID(4), CMainMenuPhase::GetInstance().RegisterEvent);
 	}
 }

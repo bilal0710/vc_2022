@@ -8,21 +8,16 @@
 #include <data/data.eventSystem.h>
 #include "game.unloadPhase.h"
 
+
 namespace Game
 {
 	int CPlayPhase::InternOnEnter()
 	{
-		std::cout << "PlayPhase::InternOnEnter" << std::endl;
-		std::cout << "------------------------" << std::endl;
 
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
 
 		m_EndGame = false;
-
-		CPlayPhase PlayPhaseClass;
-
-
-		rEventSystem.Register(Data::CEvent::BTypeID(2), &PlayPhaseClass.FinishGame);
+		rEventSystem.Register(Data::CEvent::BTypeID(2), &CPlayPhase::FinishGame);
 		rEventSystem.Register(Data::CEvent::BTypeID(3), &CUnloadPhase::GetInstance().ReloadGame);
 
 		Gfx::CPlayPhase::GetInstance().OnEnter();
@@ -35,8 +30,8 @@ namespace Game
 
 	int CPlayPhase::InternOnRun()
 	{
-		Core::Time::OnFrame();
 
+		Core::Time::OnFrame();
 		Gfx::CPlayPhase::GetInstance().OnRun();
 		Gui::CPlayPhase::GetInstance().OnRun();
 		Logic::CPlayPhase::GetInstance().OnRun();
@@ -51,8 +46,7 @@ namespace Game
 
 	void CPlayPhase::FinishGame(Data::CEvent& _Event)
 	{
-		CPlayPhase PlayPhaseClass;
-		PlayPhaseClass.GetInstance().SetEndGame(true);
+		CPlayPhase::GetInstance().SetEndGame(true);
 	}
 
 	void CPlayPhase::SetEndGame(bool _Exit) {
@@ -62,12 +56,8 @@ namespace Game
 	int CPlayPhase::InternOnLeave()
 	{
 
-		std::cout << "PlayPhase::InternOnLeave" << std::endl;
-		std::cout << "------------------------" << std::endl;
-
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
-		CPlayPhase PlayPhaseClass;
-		rEventSystem.Unregister(Data::CEvent::BTypeID(2), &PlayPhaseClass.FinishGame);
+		rEventSystem.Unregister(Data::CEvent::BTypeID(2), &CPlayPhase::FinishGame);
 		rEventSystem.Unregister(Data::CEvent::BTypeID(3), &CUnloadPhase::GetInstance().ReloadGame);
 
 		Gfx::CPlayPhase::GetInstance().OnLeave();

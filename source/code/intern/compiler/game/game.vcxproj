@@ -170,6 +170,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\game\game.application.h" />
     <ClInclude Include="..\..\src\game\game.appWindow.h" />
+    <ClInclude Include="..\..\src\game\game.counter.h" />
     <ClInclude Include="..\..\src\game\game.loadPhase.h" />
     <ClInclude Include="..\..\src\game\game.phase.h" />
     <ClInclude Include="..\..\src\game\game.playPhase.h" />

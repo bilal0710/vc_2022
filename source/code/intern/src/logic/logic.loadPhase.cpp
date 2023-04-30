@@ -15,8 +15,6 @@ namespace Logic
 
     void CLoadPhase::OnRun(tinyxml2::XMLDocument& _rMapEntity)
     {
-        std::cout << "DATA::LOAD::Run" << std::endl;
-
         Data::CEntitySystem& rEntitySystem = Data::CEntitySystem::GetInstance();
         XMLElement* pEntities = _rMapEntity.FirstChildElement("entities");
         XMLElement* pXmlEntity = pEntities->FirstChildElement("entity");

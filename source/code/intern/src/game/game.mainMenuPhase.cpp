@@ -5,19 +5,17 @@
 #include "../gui/gui.mainMenuPhase.h"
 #include"game/game.appWindow.h"
 #include <data/data.eventSystem.h>
+#include"game/game.counter.h"
 
 
 namespace Game
 {
 	int CMainMenuPhase::InternOnEnter()
 	{
-		std::cout << "Game::MainMenuPhase::InternOnEnter" << std::endl;
-		std::cout << "------------------------" << std::endl;
 
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
 
-		CMainMenuPhase MainMenuClass;
-		rEventSystem.Register(Data::CEvent::BTypeID(0), &MainMenuClass.EnterGame);
+		rEventSystem.Register(Data::CEvent::BTypeID(0), &CMainMenuPhase::EnterGame);
 		m_Choice = -1;
 
 		Gfx::CMainMenuPhase::GetInstance().OnEnter();
@@ -28,6 +26,11 @@ namespace Game
 
 	int CMainMenuPhase::InternOnRun()
 	{
+		Game::CCounter& CGameCounter = Game::CCounter::GetInstance();
+
+		if (CGameCounter.GetGameCounter() == 0) {
+			CGameCounter.SetGameCounter(3);
+		}
 
 		Gfx::CMainMenuPhase::GetInstance().OnRun();
 		Gui::CMainMenuPhase::GetInstance().OnRun();
@@ -48,8 +51,7 @@ namespace Game
 	void CMainMenuPhase::EnterGame(Data::CEvent& _Event)
 	{
 
-		CMainMenuPhase MainMenuClass;
-		MainMenuClass.GetInstance().SetChoice(_Event.GetData());
+		CMainMenuPhase::GetInstance().SetChoice(_Event.GetData());
 	}
 
 	void CMainMenuPhase::SetChoice(int _Choice) {
@@ -58,14 +60,9 @@ namespace Game
 
 	int CMainMenuPhase::InternOnLeave()
 	{
-		std::cout << "Game::MainMenuPhase::InternOnLeave" << std::endl;
-		std::cout << "------------------------" << std::endl;
-
 
 		Data::CEventSystem& rEventSystem = Data::CEventSystem::GetInstance();
-
-		CMainMenuPhase MainMenuClass;
-		rEventSystem.Unregister(Data::CEvent::BTypeID(0), &MainMenuClass.EnterGame);
+		rEventSystem.Unregister(Data::CEvent::BTypeID(0), &CMainMenuPhase::EnterGame);
 
 		Gfx::CMainMenuPhase::GetInstance().OnLeave();
 		Gui::CMainMenuPhase::GetInstance().OnLeave();
